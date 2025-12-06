@@ -1,0 +1,319 @@
+/* =========================================================
+   TAILWIND BASE IMPORT
+   ========================================================= */
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT & GLOBAL PRESETS
+   ========================================================= */
+:root {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background: #000000;
+  --foreground: #ffffff;
+
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* =========================================================
+   THEME TOKENS (Tailwind v4 @theme)
+   ========================================================= */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #005be3;
+
+  /* COLORS */
+  --color-accent-pink: #ff1f8f;
+  --color-accent-purple: #7d4ae2;
+  --color-accent-red: #701d38;
+  --color-accent-gold: #f2d25e;
+
+  /* SPACING SCALE ROOT */
+  --spacing: 0.25rem;
+
+  /* RADIAL GRADIENT TOKEN */
+  --gradient-hero-radial: radial-gradient(
+    82.81% 126.85% at 49.95% 120.62%,
+    #f2d25e 0%,
+    rgba(242, 210, 94, 0) 100%
+  );
+
+  --gradient-radial: radial-gradient(
+    82.81% 126.85% at 49.95% 120.62%,
+    #f2d25e 0%,
+    rgba(242, 210, 94, 0) 100%
+  );
+
+  /* LINEAR NEON GRADIENT TOKEN */
+  --gradient-neon: linear-gradient(84deg, #7d4ae2 0.23%, #701d38 93.42%);
+
+  --gradient-linear: linear-gradient(84deg, #7d4ae2 0.23%, #701d38 93.42%);
+}
+
+/* =========================================================
+   FONTS — CLEAN, ORGANIZED, DE-DUPED
+   ========================================================= */
+@font-face {
+  font-family: "Inter";
+  font-weight: 100;
+  src: url("/font/Inter18pt-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 200;
+  src: url("/font/Inter18pt-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 300;
+  src: url("/font/Inter18pt-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url("/font/Inter18pt-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src: url("/font/Inter18pt-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  src: url("/font/Inter18pt-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  src: url("/font/Inter18pt-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 800;
+  src: url("/font/Inter18pt-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 900;
+  src: url("/font/Inter18pt-Black.woff2") format("woff2");
+}
+
+/* =========================================================
+   BASE ELEMENTS
+   ========================================================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   CUSTOM UTILITIES (Tailwind v4 @layer utilities)
+   ========================================================= */
+@layer utilities {
+  .div-bottom-gradient {
+    position: relative; /* required for positioning pseudo-element */
+     /* optional spacing */
+  }
+
+  .div-bottom-gradient::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid; 
+    border-image-source: linear-gradient(90deg, black 3%, #616161 50%, black 97%);
+    border-image-slice: 1;
+    /* border-radius: 2px; optional rounding */
+  }
+
+  /* global.css */
+  .button-glass {
+    border-radius: 22.923px;
+    background: linear-gradient(
+      135deg,
+      /* angle similar to radial's origin */ rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    display: flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #fff; /* button text color */
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px); /* glass effect */
+  }
+
+  .button-glass:hover {
+    background: radial-gradient(
+      146.61% 98.67% at 89.05% 79.61%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    /* transform: translateY(-2px); */
+  }
+
+  /* global.css */
+  .button-gradient {
+    border-radius: 16px;
+    background: var(
+      --button,
+      radial-gradient(
+        82.81% 126.85% at 49.95% 120.62%,
+        #f2d25e 0%,
+        rgba(242, 210, 94, 0) 100%
+      ),
+      linear-gradient(84deg, #7d4ae2 0.23%, #701d38 93.42%)
+    );
+    background-blend-mode: overlay, normal;
+    box-shadow: -10px 0 10px 0 rgba(200, 13, 140, 0.25);
+    padding: 0.75rem 1.5rem; /* button size */
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .button-gradient:hover {
+    box-shadow: -10px 0 10px 0 rgba(200, 13, 140, 0.5);
+    /* transform: translateY(-2px); */
+  }
+
+  .animate-slide {
+    animation: slideDown 0.4s ease forwards;
+  }
+
+  /* ---------------------------
+     Hero Combo Gradient (Your Design)
+     --------------------------- */
+  .bg-hero-combo {
+    /* background-image: 
+      var(--gradient-hero-radial),
+      var(--gradient-neon);
+    background-size: cover;
+    background-repeat: no-repeat; */
+
+    background: var(--gradient-radial), var(--gradient-linear);
+    background-blend-mode: overlay, normal;
+  }
+
+  /* ---------------------------
+     Glow Utilities (Neon Style)
+     --------------------------- */
+  .glow-sm {
+    filter: drop-shadow(
+      0 0 8px color-mix(in oklch, var(--color-accent-purple) 70%, transparent)
+    );
+  }
+  .glow-md {
+    filter: drop-shadow(
+      0 0 14px color-mix(in oklch, var(--color-accent-purple) 80%, transparent)
+    );
+  }
+  .glow-lg {
+    filter: drop-shadow(
+      0 0 22px color-mix(in oklch, var(--color-accent-purple) 90%, transparent)
+    );
+  }
+
+  /* ---------------------------
+     Glassmorphism Utilities
+     --------------------------- */
+  .glass {
+    backdrop-filter: blur(18px);
+    background: color-mix(in oklch, var(--color-background) 40%, transparent);
+    border: 1px solid color-mix(in oklch, white 10%, transparent);
+  }
+
+  /* ---------------------------
+     Soft Border Glow (Buttons)
+     --------------------------- */
+  .btn-glow {
+    box-shadow: 0 0 12px rgba(125, 74, 226, 0.4),
+      0 0 30px rgba(112, 29, 56, 0.3);
+  }
+
+  /* ---------------------------
+     Section Container (Better Control)
+     --------------------------- */
+  .container-section {
+    max-width: 1450px;
+    margin-inline: auto;
+    padding-inline: calc(var(--spacing) * 10);
+  }
+
+  /* ---------------------------
+     Mask Utilities (For logos fading)
+     --------------------------- */
+  .mask-bottom-fade {
+    mask-image: linear-gradient(to top, black, transparent);
+  }
+
+  /* ---------------------------
+     Animated Gradient Border
+     --------------------------- */
+  .border-neon {
+    border: 2px solid transparent;
+    border-image-slice: 1;
+    border-image-source: var(--gradient-neon);
+  }
+
+  /* ---------------------------
+     Smooth Fade-in
+     --------------------------- */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+  }
+}
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
