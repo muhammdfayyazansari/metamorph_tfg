@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Menu() {
     const [open, setOpen] = useState(false)
@@ -25,7 +26,7 @@ export default function Menu() {
                 <div className="fade-in bg-hero-combo fixed inset-0 z-40">
                     <img
                         src="/images/logo.svg"
-                        className="absolute left-6 lg:left-16 top-6 lg:top-8 w-28 object-contain md:w-40 lg:w-48 xl:w-52 2xl:w-66"
+                        className="absolute top-6 left-6 w-28 object-contain md:w-40 lg:top-8 lg:left-16 lg:w-48 xl:w-52 2xl:w-66"
                     />
 
                     {/* Close button */}
@@ -34,7 +35,7 @@ export default function Menu() {
                             console.log('closing nav ==> ')
                             setOpen(false)
                         }}
-                        className="w-6 object-contain md:w-8 lg:w-12 absolute right-6 lg:right-16 top-10 lg:top-12 z-50 cursor-pointer text-white"
+                        className="absolute top-10 right-6 z-50 w-6 cursor-pointer object-contain text-white md:w-8 lg:top-12 lg:right-16 lg:w-12"
                     >
                         {/* ✕ */}
                         <img
@@ -44,7 +45,7 @@ export default function Menu() {
                     </button>
 
                     {/* Menu Content */}
-                    <nav className="animate-slide flex h-full w-full flex-col justify-center space-y-8 p-6 lg:px-16 text-white pt-16">
+                    <nav className="animate-slide flex h-full w-full flex-col justify-center space-y-8 p-6 pt-16 text-white lg:px-16">
                         <a
                             href="#"
                             className="text-4xl font-light decoration-2 underline-offset-4 hover:underline hover:opacity-80"
@@ -52,12 +53,13 @@ export default function Menu() {
                             Home
                         </a>
 
-                        <a
-                            href="#"
+                        <Link
+                        onClick={()=>{setOpen(false)}}
+                            to="/services"
                             className="text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
                         >
                             Services
-                        </a>
+                        </Link>
 
                         <a
                             href="#"
