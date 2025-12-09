@@ -8,7 +8,7 @@ const Hero = () => {
       </div>
 
       {/* overlay content with headings */}
-      {/* <div className="absolute text-end">
+      <div className="absolute text-end">
         <h1 className="font-medium leading-none tracking-[-0.07em] text-[60px] sm:text-[120px] md:text-[180px] lg:text-[228px]">
           MetaMorph
         </h1>
@@ -16,7 +16,7 @@ const Hero = () => {
         <h1 className="font-medium leading-none tracking-[-0.07em] text-[30px] sm:text-[55px] md:text-[75px] lg:text-[100px]">
           Solutions
         </h1>
-      </div> */}
+      </div>
 
       {/* robot image div */}
       <div className="absolute flex items-center justify-center h-full w-full">

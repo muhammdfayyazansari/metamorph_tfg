@@ -7,7 +7,7 @@ const Layout = () => {
     <div className="h-full">
       <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

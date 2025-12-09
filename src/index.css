@@ -129,7 +129,7 @@ body {
 @layer utilities {
   .div-bottom-gradient {
     position: relative; /* required for positioning pseudo-element */
-     /* optional spacing */
+    /* optional spacing */
   }
 
   .div-bottom-gradient::after {
@@ -139,8 +139,13 @@ body {
     bottom: 0;
     width: 100%;
     background-repeat: no-repeat;
-    border-bottom: 1px solid; 
-    border-image-source: linear-gradient(90deg, black 3%, #616161 50%, black 97%);
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(
+      90deg,
+      black 3%,
+      #616161 50%,
+      black 97%
+    );
     border-image-slice: 1;
     /* border-radius: 2px; optional rounding */
   }
@@ -149,7 +154,7 @@ body {
   .button-glass {
     border-radius: 22.923px;
     background: linear-gradient(
-      135deg,
+      -135deg,
       /* angle similar to radial's origin */ rgba(255, 255, 255, 0.2) 0%,
       rgba(0, 0, 0, 0) 100%
     );
@@ -166,14 +171,14 @@ body {
     backdrop-filter: blur(10px); /* glass effect */
   }
 
-  .button-glass:hover {
+  /* .button-glass:hover {
     background: radial-gradient(
       146.61% 98.67% at 89.05% 79.61%,
       rgba(255, 255, 255, 0.3) 0%,
       rgba(0, 0, 0, 0) 100%
-    );
-    /* transform: translateY(-2px); */
-  }
+    ); */
+  /* transform: translateY(-2px); */
+  /* } */
 
   /* global.css */
   .button-gradient {
@@ -220,6 +225,22 @@ body {
     background-blend-mode: overlay, normal;
   }
 
+  .combo-gradient-opacity {
+    background:
+      radial-gradient(
+        82.81% 126.85% at 49.95% 120.62%,
+        rgba(242, 210, 94, 0.8) 0%,
+        /* <-- opacity added here */ rgba(242, 210, 94, 0) 100%
+      ),
+      linear-gradient(
+        84deg,
+        rgba(125, 74, 226, 0.8) 0.23%,
+        rgba(112, 29, 56, 0.8) 93.42%
+      );
+    background-blend-mode: overlay, normal;
+    /* opacity: 0.8; */
+  }
+
   /* ---------------------------
      Glow Utilities (Neon Style)
      --------------------------- */
@@ -239,6 +260,10 @@ body {
     );
   }
 
+  .glass-card {
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.05);
+  }
   /* ---------------------------
      Glassmorphism Utilities
      --------------------------- */
@@ -248,11 +273,26 @@ body {
     border: 1px solid color-mix(in oklch, white 10%, transparent);
   }
 
+  .card-gradient {
+    /* background: radial-gradient(
+      146.61% 98.67% at 89.05% 79.61%,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ); */
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    backdrop-filter: blur(25.521692276000977px);
+  }
+
   /* ---------------------------
      Soft Border Glow (Buttons)
      --------------------------- */
   .btn-glow {
-    box-shadow: 0 0 12px rgba(125, 74, 226, 0.4),
+    box-shadow:
+      0 0 12px rgba(125, 74, 226, 0.4),
       0 0 30px rgba(112, 29, 56, 0.3);
   }
 
@@ -287,6 +327,20 @@ body {
   .fade-in {
     opacity: 0;
     animation: fadeIn 0.6s ease forwards;
+  }
+
+  /* globals.css or index.css */
+
+  .hide-scrollbar {
+    /* For IE and Edge */
+    -ms-overflow-style: none;
+    /* For Firefox */
+    scrollbar-width: none;
+  }
+
+  /* For Chrome, Safari, and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
