@@ -25,7 +25,7 @@ const Services = () => {
     },
   ];
   return (
-    <div className="relative flex flex-col w-full py-10">
+    <div className="relative flex flex-col w-full py-10 lg:pt-20">
       <div className="absolute top-0 right-0 pt-48">
         <div className="relative h-[900px] w-[900px] overflow-x-hidden overflow-y-auto">
           <img
@@ -34,13 +34,13 @@ const Services = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col items-center w-full py-10 gap-32">
+      <div className="flex flex-col items-center w-full pt-10 gap-10 lg:gap-28">
         <div className="capitalize">
-          <h2 className="text-4xl pl-[84px] -mb-10">we provide</h2>
-          <h1 className="text-9xl font-semibold">services</h1>
+          <h2 className="text-[20px] pl-10 -mb-5 leading-none tracking-[-0.04em] sm:text-[30px] sm:pl-20 sm:-mb-8 md:text-[40px] md:pl-[90px] md:-mb-10 lg:text-[55px] lg:pl-[100px] lg:-mb-13  ">we provide</h2>
+          <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">services</h1>
         </div>
 
-        <div className="flex py-10">
+        <div className="flex flex-col lg:flex-row lg:py-10 space-y-3">
           {servicesWithImgSrc.map((s_card, index) => {
             return (
               <ServiceCard
@@ -57,13 +57,16 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="w-full text-center">
-        <div className="relative flex justify-center items-center w-full h-[800px]  overflow-hidden">
+      <div className="h-full w-full text-center">
+        <div className="relative flex justify-center items-center w-full h-96 md:h-[800px] lg:h-[800px] overflow-hidden">
           <img
-            className="absolute top-0 left-0 h-[750px] object-contain "
+            className="absolute top-0 left-0 h-full lg:h-[750] lg:w-auto lg:object-cover "
             src="/images/gradient_bg.webp"
           />
-          <h1 className="text-9xl text-center">video</h1>
+          {/* <h1 className="text-9xl text-center">video</h1> */}
+          <div className="glass card-gradient p-8 rounded-4xl m-6 lg:mx-16">
+            <img src="/images/metaphor.gif" alt=""  />
+          </div>
         </div>
       </div>
     </div>

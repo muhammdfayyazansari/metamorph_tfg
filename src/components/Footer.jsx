@@ -140,9 +140,9 @@ const Footer = () => {
     //   </div>
     // </footer>
 
-    <footer className="relative bg-black text-white pt-20  overflow-hidden">
+    <footer className="relative text-white pt-20  overflow-hidden">
       {/* Decorative Gradient Graphic (Positioned Absolute) */}
-      <div className="absolute right-0 bottom-0 top-0 w-1/2 h-full z-0 pointer-events-none">
+      <div className="absolute right-0 bottom-0 w-1/2 h-full z-0 pointer-events-none">
         {/*
           NOTE: To include the complex background graphic, you must use a
           placeholder or apply it via a CSS class that loads the image/complex gradient.
@@ -157,7 +157,7 @@ const Footer = () => {
           // }}
         > */}
         <img
-          className="absolute inset-0 bg-contain bg-right"
+          className="absolute bottom-0 right-0 w-full object-contain"
           src="/images/bg_images/footer_bg.webp"
         />
         {/* </div> */}
@@ -176,7 +176,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-between items-start border-b border-gray-800 pb-12">
           {/* Navigation and Links Grid */}
-          <div className="flex grow justify-start gap-24">
+          <div className="flex flex-col lg:flex-row grow justify-start gap-10 lg:gap-24">
             {/* Pages Column */}
             <div>
               <h4 className="text-lg font-semibold mb-4 text-gray-200">

@@ -1,44 +1,57 @@
 const Hero = () => {
-  return (
-    <div className="relative flex items-center justify-center w-full h-screen div-bottom-gradient px-16">
+    return (
+        <div className="div-bottom-gradient relative flex h-screen w-full items-center justify-center p-6 lg:py-8 lg:px-16">
+            {/* background image */}
+            <div className="absolute top-10 flex h-full w-full items-start justify-center lg:-top-10 lg:items-center">
+                <img
+                    src="/images/hero-mountain.webp"
+                    className="w-[90vw] object-contain sm:w-[80vw] md:w-[60vw] lg:h-[900px] 2xl:h-[1044px]"
+                    alt="hero-mountain"
+                />
+            </div>
 
-      {/* background image */}
-      <div className="absolute flex items-center justify-center h-full w-full">
-       <img src="/images/hero-mountain.webp" className="w-full h-full object-contain" alt="hero-mountain" />
-      </div>
+            {/* overlay content with headings */}
+            <div className="absolute top-20 flex h-full w-full flex-col items-center text-end md:top-30">
+                <div>
+                    <h1 className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
+                        MetaMorph
+                    </h1>
 
-      {/* overlay content with headings */}
-      <div className="absolute text-end">
-        <h1 className="font-medium leading-none tracking-[-0.07em] text-[60px] sm:text-[120px] md:text-[180px] lg:text-[228px]">
-          MetaMorph
-        </h1>
+                    <h1 className="text-[30px] leading-none font-medium tracking-[-0.04em] sm:text-[45px] md:text-[65px] lg:text-[90px]">
+                        Solutions
+                    </h1>
+                </div>
+            </div>
 
-        <h1 className="font-medium leading-none tracking-[-0.07em] text-[30px] sm:text-[55px] md:text-[75px] lg:text-[100px]">
-          Solutions
-        </h1>
-      </div>
+            {/* robot image div */}
+            <div className="absolute flex h-full w-full items-center justify-center">
+                <img
+                    src="/images/robot.webp"
+                    className="h-full w-full object-contain"
+                    alt="robot-image"
+                />
+            </div>
 
-      {/* robot image div */}
-      <div className="absolute flex items-center justify-center h-full w-full">
-       <img src="/images/robot.webp" className="w-full h-full object-contain" alt="robot-image" />
-      </div>
-
-
-      {/* bottom div */}
-      <div className="absolute bottom-5 flex flex-row justify-between w-full px-16">
-        <div className="max-w-2/6"> 
-          <p>We're passionate about turning your vision into stunning designs. Whether you're an individual, startup, or corporation, we bring creativity and precision to elevate your brand.</p>
+            {/* bottom div */}
+            <div className="absolute bottom-5 hidden md:flex w-full flex-row justify-between p-6 lg:py-8 lg:px-16">
+                <div className="max-w-2/6">
+                    <p>
+                        We're passionate about turning your vision into stunning
+                        designs. Whether you're an individual, startup, or
+                        corporation, we bring creativity and precision to
+                        elevate your brand.
+                    </p>
+                </div>
+                <div className="right-0 bottom-5 flex max-w-2/6 flex-col items-end justify-center gap-3">
+                    <button className="button-glass">Contact</button>
+                    <button className="button-gradient">Have a Project</button>
+                </div>
+            </div>
         </div>
-        <div className="flex flex-col justify-center items-end gap-3  bottom-5 max-w-2/6 right-0"> 
-          <button className="button-glass">Contact</button>
-          <button className="button-gradient">Have a Project</button>
-        </div>
-      </div>
-    </div>
-  );
-};
+    )
+}
 
-export default Hero;
+export default Hero
 
 //  <section className="text-gray-600 body-font">
 //     <div className="container mx-auto flex flex-col px-5 py-24 justify-center items-center">

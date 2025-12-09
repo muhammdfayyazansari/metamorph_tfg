@@ -7,10 +7,10 @@ const Brands = () => {
   ];
 
   return (
-    <div className="flex justify-around w-full py-10">
+    <div className="flex items-baseline flex-nowrap overflow-x-scroll hide-scrollbar space-x-5 w-full justify-around p-6 lg:py-8 lg:px-16">
       {logos.map((path, index) => {
         return (
-          <div>
+          <div className="flex-none w-40">
             <img src={path} alt={path + index} />
           </div>
         );
