@@ -1,37 +1,14 @@
-// import ServiceCard from "../ui/ServiceCard";
-
 import Gallery from './Gallery'
 
+
 const Services = () => {
-  // const servicesWithImgSrc = [
-  //   {
-  //     img_src: "branding_and_logos",
-  //     title: "Branding and Logos",
-  //     // icon: "/images/icons/branding_and_logos.svg", // Example placeholder
-  //   },
-  //   {
-  //     img_src: "motion_design",
-  //     title: "Motion Design",
-  //   },
-  //   {
-  //     img_src: "ui_ux_design",
-  //     title: "UI/UX Design",
-  //   },
-  //   {
-  //     img_src: "digital_marketing",
-  //     title: "Digital Marketing",
-  //   },
-  //   {
-  //     img_src: "2d_3d_animations",
-  //     title: "2D/3D Animations",
-  //   },
-  // ];
   return (
     <div className="relative flex w-full flex-col py-10 lg:pt-20">
-      <div className="absolute top-0 -left-80 md:h-190 md:w-190">
+      <div className="absolute -top-20 -left-80 md:h-200 md:w-200 z-0">
         <img className="object-contain" src="/images/service_bg.webp" />
       </div>
-      <div className="flex w-full flex-col items-center gap-10 pt-10">
+
+      <div className="flex w-full flex-col items-center gap-10 pt-10 z-10">
         <div className="capitalize">
           <h2 className="-mb-5 pl-11 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-20 sm:text-[30px] md:-mb-10 md:pl-25 md:text-[40px] lg:-mb-13 lg:pl-30 lg:text-[55px]">
             Logos &
@@ -52,3 +29,5 @@ const Services = () => {
 }
 
 export default Services
+
+

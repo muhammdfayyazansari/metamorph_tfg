@@ -21,6 +21,7 @@ const ServicesPage = () => {
             <Services />
             <UiUx />
             <MotionGraphics />
+            
             <Animation />
 
             {/* <FeaturedProjects />

@@ -27,7 +27,7 @@ const Services = () => {
   return (
     <div className="relative flex flex-col w-full py-10 lg:pt-20">
       <div className="absolute top-0 right-0 pt-48">
-        <div className="relative h-[900px] w-[900px] overflow-x-hidden overflow-y-auto">
+        <div className="relative  overflow-x-hidden overflow-y-auto">
           <img
             className="absolute bottom-0 -right-78 object-contain "
             src="/images/service_bg.webp"

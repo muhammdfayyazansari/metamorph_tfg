@@ -3,7 +3,7 @@ import Menu from "./ui/Menu";
 export default function Navbar() {
   return (
     // <header className="fixed top-0 z-40 flex justify-between items-center py-8 lg:px-16 w-full backdrop-blur-md">
-    <header className="fixed top-0 z-40 flex justify-between items-center p-6 lg:py-8 lg:px-16 w-full">
+    <header className="fixed top-0 z-40 flex justify-between items-center p-6 lg:py-8 lg:px-16 w-screen">
         <img src="/images/logo.svg" className="object-contain w-28 md:w-40 lg:w-48 xl:w-52 2xl:w-66" />
         <Menu />
     </header>

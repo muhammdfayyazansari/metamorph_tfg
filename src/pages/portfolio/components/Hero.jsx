@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="absolute flex h-full w-full flex-col items-center justify-center pb-20 text-end">
         <div>
           <h1 className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
-            services
+            Portfolio
           </h1>
         </div>
       </div>

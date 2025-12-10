@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
 
             {/* bottom div */}
-            <div className="absolute bottom-5 hidden md:flex w-full flex-row justify-between p-6 lg:py-8 lg:px-16">
+            <div className="absolute bottom-0 hidden md:flex w-full flex-row items-end justify-between p-6 lg:px-16">
                 <div className="max-w-2/6">
                     <p>
                         We're passionate about turning your vision into stunning
@@ -42,7 +42,7 @@ const Hero = () => {
                         elevate your brand.
                     </p>
                 </div>
-                <div className="right-0 bottom-5 flex max-w-2/6 flex-col items-end justify-center gap-3">
+                <div className="right-0 bottom-0 flex max-w-2/6 flex-col items-end justify-center gap-3">
                     <button className="button-glass">Contact</button>
                     <button className="button-gradient">Have a Project</button>
                 </div>
