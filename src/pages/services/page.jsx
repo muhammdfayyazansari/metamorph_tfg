@@ -45,7 +45,7 @@ const ServicesPage = () => {
         <div className="glass card-gradient flex flex-col items-center justify-around gap-6 rounded-tl-2xl rounded-bl-2xl px-3 py-5">
           {servicesWithImgSrc.map((item, index) => {
             return (
-              <div className="rounded-2xl bg-white p-2">
+              <div className="rounded-md bg-white p-2">
                 <img
                   className="h-5 w-5 object-contain"
                   src={'/images/icons/' + item['img_src'] + '.svg'}
