@@ -7,6 +7,9 @@ import Services from './components/Services'
 import Technology from '../../components/HomePageComponents/Technology'
 import Hero from './components/Hero'
 import HeroBottomText from './components/HeroBottomText'
+import UiUx from './components/UiUx'
+import MotionGraphics from './components/MotionGraphics'
+import Animation from './components/Animation'
 
 const ServicesPage = () => {
     return (
@@ -16,8 +19,11 @@ const ServicesPage = () => {
 
             {/* <Brands /> */}
             <Services />
+            <UiUx />
+            <MotionGraphics />
+            <Animation />
+
             {/* <FeaturedProjects />
-            <Process />
             <Technology />
             <People /> */}
 
@@ -26,4 +32,4 @@ const ServicesPage = () => {
     )
 }
 
-export default ServicesPage;
+export default ServicesPage
