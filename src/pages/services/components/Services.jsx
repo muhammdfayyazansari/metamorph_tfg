@@ -3,31 +3,9 @@
 import Gallery from './Gallery'
 
 const Services = () => {
-  // const servicesWithImgSrc = [
-  //   {
-  //     img_src: "branding_and_logos",
-  //     title: "Branding and Logos",
-  //     // icon: "/images/icons/branding_and_logos.svg", // Example placeholder
-  //   },
-  //   {
-  //     img_src: "motion_design",
-  //     title: "Motion Design",
-  //   },
-  //   {
-  //     img_src: "ui_ux_design",
-  //     title: "UI/UX Design",
-  //   },
-  //   {
-  //     img_src: "digital_marketing",
-  //     title: "Digital Marketing",
-  //   },
-  //   {
-  //     img_src: "2d_3d_animations",
-  //     title: "2D/3D Animations",
-  //   },
-  // ];
+
   return (
-    <div className="relative flex w-full flex-col py-10 lg:pt-20">
+    <div className="relative flex w-full flex-col py-10 lg:pt-20 mt-[calc(-100vh)]">
       <div className="absolute top-0 -left-80 md:h-190 md:w-190">
         <img className="object-contain" src="/images/service_bg.webp" />
       </div>
@@ -46,7 +24,7 @@ const Services = () => {
         <div className="flex w-full items-center justify-center">
           <button className="button-gradient">View more</button>
         </div>
-      </div>
+      </div>  
     </div>
   )
 }
