@@ -1,11 +1,11 @@
 // import ServiceCard from "../ui/ServiceCard";
 
+import { Link } from 'react-router-dom'
 import Gallery from './Gallery'
 
 const Services = () => {
-
   return (
-    <div className="relative flex w-full flex-col py-10 lg:pt-20 mt-[calc(-100vh)]">
+    <div className="relative mt-[calc(-100vh)] flex w-full flex-col py-10 lg:pt-20">
       <div className="absolute top-0 -left-80 md:h-190 md:w-190">
         <img className="object-contain" src="/images/service_bg.webp" />
       </div>
@@ -22,9 +22,15 @@ const Services = () => {
         <Gallery />
 
         <div className="flex w-full items-center justify-center">
-          <button className="button-gradient">View more</button>
+          <Link
+            to="/logo-and-branding"
+            className="button-gradient cursor-pointer z-20"
+          >
+
+              View more 
+          </Link>
         </div>
-      </div>  
+      </div>
     </div>
   )
 }

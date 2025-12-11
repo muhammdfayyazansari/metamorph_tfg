@@ -1,13 +1,29 @@
-import Menu from "./ui/Menu";
+import { useEffect, useState } from 'react'
+import Menu from './ui/Menu'
 
 export default function Navbar() {
+  const [blur, setBlur] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setBlur(window.scrollY >= 200)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   return (
     // <header className="fixed top-0 z-40 flex justify-between items-center py-8 lg:px-16 w-full backdrop-blur-md">
-    <header className="fixed top-0 z-40 flex justify-between items-center p-6 lg:py-8 lg:px-16 w-screen">
-        <img src="/images/logo.svg" className="object-contain w-28 md:w-40 lg:w-48 xl:w-52 2xl:w-66" />
-        <Menu />
+    <header
+      // className="fixed top-0 z-40 backdrop-blur-2xl flex justify-between items-center p-6 lg:py-4 lg:px-16 w-full"
+      className={`fixed top-0 z-40 flex w-full items-center justify-between p-6 transition-all duration-300 lg:px-16 lg:py-4 ${
+        blur ? 'backdrop-blur-2xl' : 'backdrop-blur-0'
+      }`}
+    >
+      <img src="/images/logo.svg" className="w-25 object-contain md:w-40" />
+      <Menu />
     </header>
-  );
+  )
 }
 
 // // import React, { useEffect, useState, useRef } from "react";

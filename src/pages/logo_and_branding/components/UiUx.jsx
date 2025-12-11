@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom"
-
 const items = [
   {
     id: 1,
@@ -15,7 +13,7 @@ const UiUx = () => {
   return (
     <div className="relative flex w-full flex-col py-10">
       <div className="absolute top-0 left-0 md:h-190 md:w-190">
-        <img className="h-full object-contain" src="/images/ellipse.webp" />
+        <img className="object-contain h-full" src="/images/ellipse.webp" />
       </div>
       <div className="flex w-full flex-col items-center gap-10 pt-10">
         <div className="capitalize">
@@ -38,12 +36,7 @@ const UiUx = () => {
         </div>
 
         <div className="flex w-full items-center justify-center">
-          <Link
-            to="/ui-ux-design"
-            className="button-gradient z-20 cursor-pointer"
-          >
-            View more
-          </Link>
+          <button className="button-gradient">View more</button>
         </div>
       </div>
     </div>

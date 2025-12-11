@@ -1,12 +1,22 @@
-import { Link } from "react-router-dom"
-
 const items = [
   {
     id: 1,
     bg_scr: 'ui_ux_',
   },
   {
-    id: 2,
+    id: 3,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 4,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 5,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 6,
     bg_scr: 'ui_ux_',
   },
 ]
@@ -29,21 +39,29 @@ const UiUx = () => {
         <div className="z-10 flex w-full items-center justify-center overflow-hidden p-6 lg:px-30 lg:py-8">
           <div className="flex max-w-5xl flex-wrap items-center justify-between gap-4">
             {/* ---------- FIRST ROW (2 ITEMS) ---------- */}
-            {items.slice(0, 2).map((item) => (
-              <div key={item.bg_scr + '1' + item.id} className="w-full">
+            {items.map((item, index) => (
+              <div key={item.bg_scr + '1' + item.id} className={`w-full`}>
                 <Card id={item.id} bg={item.bg_scr} />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="flex w-full items-center justify-center">
-          <Link
-            to="/ui-ux-design"
-            className="button-gradient z-20 cursor-pointer"
-          >
-            View more
-          </Link>
+        <div className="flex w-full justify-center gap-3">
+          <button className="bg-hero-combo rotate-180 rounded-xl p-3">
+            <img
+              className="h-4 w-5"
+              src="/images/icons/chevron.svg"
+              alt="chevron"
+            />
+          </button>
+          <button className="bg-hero-combo rounded-xl p-3">
+            <img
+              className="h-4 w-5"
+              src="/images/icons/chevron.svg"
+              alt="chevron"
+            />
+          </button>
         </div>
       </div>
     </div>
@@ -55,12 +73,17 @@ export default UiUx
 function Card({ bg, id }) {
   return (
     <div
-      className={`glass card-gradient flex items-center justify-center rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
+      className={`glass card-gradient relative flex items-center justify-center overflow-hidden rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
     >
+      {id === 1 && (
+        <button className="button-gradient absolute z-10 mx-auto">
+          Case Study
+        </button>
+      )}
       <img
-        className="h-full w-full object-contain"
+        className={`h-full w-full object-contain ${id === 1 ? 'overflow-hidden bg-white/30 blur-md' : ''}`}
         src={`/images/gallery/${bg}${id}.webp`}
-        alt=""
+        alt="ui_ux_images"
       />
     </div>
   )

@@ -35,7 +35,7 @@ const Hero = () => {
             {/* bottom div */}
             <div className="absolute bottom-0 hidden md:flex w-full flex-row items-end justify-between p-6 lg:px-16">
                 <div className="max-w-2/6">
-                    <p>
+                    <p className="text-pretty">
                         We're passionate about turning your vision into stunning
                         designs. Whether you're an individual, startup, or
                         corporation, we bring creativity and precision to

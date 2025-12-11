@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const PageTitle = ({ baseTitle = "Paylinkly" }) => {
+// const PageTitle = ({ baseTitle = "Paylinkly" }) => {
+const PageTitle = ({ baseTitle = "Metomorph" }) => {
   const location = useLocation();
 
   useEffect(() => {
