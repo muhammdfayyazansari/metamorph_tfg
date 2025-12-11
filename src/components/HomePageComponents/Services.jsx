@@ -32,6 +32,13 @@ const Services = () => {
           src="/images/service_bg.webp"
         />
       </div>
+      {/* <div className="absolute top-0 -right-100 md:h-200 md:w-200">
+        <img
+          className="object-contain  object-bottom-right h-full"
+          src="/images/bg_images/bg_service_1.webp"
+          alt='service_bg_1'
+        />
+      </div> */}
 
       {/* <div className="absolute top-0 right-0 pt-48">
         <div className="relative h-[900px] w-[900px] overflow-x-hidden overflow-y-auto">
