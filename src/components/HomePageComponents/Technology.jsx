@@ -63,10 +63,12 @@ const Technology = () => {
         // </div>
 
         <div className="relative flex w-full flex-col items-center justify-center gap-20">
-            <div className="absolute top-20 md:top-10 lg:top-0 -left-35  z-10">
+            <div className="absolute top-0 md:top-20 lg:top-0 -left-35 z-10">
                 <img
-                    className="object-contain h-85 w-85 md:h-[500px] md:w-[500px] lg:h-full lg:w-full"
-                    src="/images/bg_images/technology_bg.webp"
+                    // className="object-contain h-85 w-85 md:h-[500px] md:w-[500px] lg:h-full lg:w-full"
+                    className="object-contain h-200 w-150 md:h-200 md:w-150 lg:h-full lg:w-full"
+                    // src="/images/bg_images/technology_bg.webp"
+                    src="/images/bg_images/technology_bg_3.webp"
                 />
             </div>
 
