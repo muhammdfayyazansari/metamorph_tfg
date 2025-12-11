@@ -163,15 +163,22 @@ body {
 
   /* global.css */
   .button-glass {
-    border-radius: 15px;
-    background: linear-gradient(
+    border-radius: 22px;
+    /* background: linear-gradient(
       to right,
       rgba(0, 0, 0, 0) 0%,
       rgba(255, 255, 255, 0.2) 100%
+    ); */
+    background: radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 80%
     );
 
     backdrop-filter: blur(18px);
-    border: 1px solid color-mix(in oklch, white 10%, transparent);
+    border-top: 1px solid color-mix(in oklch, white 10%, transparent);
+    border-left: 1px solid color-mix(in oklch, white 10%, transparent);
+    border-bottom: 1px solid color-mix(in oklch, white 10%, transparent);
     backdrop-filter: blur(25.521692276000977px);
     display: flex;
     padding: 12px 25px; /* button size */
@@ -216,9 +223,9 @@ body {
   }
 
   .button-gradient-sky {
-   box-shadow: -2px 0 10px 0 rgba(81, 209, 244, 0.35);
+    box-shadow: -2px 0 10px 0 rgba(81, 209, 244, 0.35);
   }
-  .button-gradient-sky:hover{
+  .button-gradient-sky:hover {
     box-shadow: -20px 0 32px 0 rgba(81, 209, 244, 0.35);
   }
 
