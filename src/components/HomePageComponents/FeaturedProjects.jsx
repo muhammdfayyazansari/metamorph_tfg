@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const FeaturedProjects = () => {
   const servicesWithImgSrc = [
     {
@@ -92,13 +94,13 @@ const FeaturedProjects = () => {
               Deep Seek <br />
               Landing page
             </h3>
-             <div className="rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
-              <div className="rounded-[calc(0.5rem-1px)]">
-                <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-3">
+             <Link to={"case-study"} className="rounded-lg button-gradient-sky cursor-pointer bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
+              <div className="rounded-[calc(0.5rem-1px)] cursor-pointer">
+                <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-3 cursor-pointer">
                   case study
                 </button>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="flex gap-3">
             <div className="rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
