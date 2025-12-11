@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Menu from './ui/Menu'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   const [blur, setBlur] = useState(false)
@@ -20,7 +21,12 @@ export default function Navbar() {
         blur ? 'backdrop-blur-2xl' : 'backdrop-blur-0'
       }`}
     >
-      <img src="/images/logo.svg" className="w-25 object-contain" />
+      <Link
+        to="/"
+        className="cursor-pointer"
+      >
+        <img src="/images/logo.svg" className="w-25 object-contain" />
+      </Link>
       <Menu />
     </header>
   )

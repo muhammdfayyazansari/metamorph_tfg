@@ -10,10 +10,7 @@ export default function Menu() {
       {/* Menu Toggle Button */}
       <button className="cursor-pointer" onClick={() => setOpen(true)}>
         {/* ☰ */}
-        <img
-          className="w-6 object-contain"
-          src="/images/navbar.svg"
-        />
+        <img className="w-6 object-contain" src="/images/navbar.svg" />
       </button>
 
       {/* Overlay */}
@@ -23,12 +20,17 @@ export default function Menu() {
         //   bg-linear-to-br from-[var(--color-accent-purple)] to-[var(--color-accent-red)]
         //   fade-in
         // ">
-        <div className="fade-in bg-hero-combo fixed inset-0 h-screen z-40">
-          <img
-            src="/images/logo.svg"
-            className="absolute top-6 left-6 w-28 object-contain md:w-40 lg:top-8 lg:left-16 lg:w-48 xl:w-52 2xl:w-66"
-          />
-
+        <div className="fade-in bg-hero-combo fixed inset-0 z-40 h-screen overflow-hidden">
+          <Link to="/" className="z-10 cursor-pointer">
+            <img
+              onClick={() => {
+                console.log('closing nav ==> ')
+                setOpen(false)
+              }}
+              src="/images/logo.svg"
+              className="w-28 object-contain mt-10 pl-8 md:w-40 lg:w-48 lg:mt-8 lg:pl-16 xl:w-52 2xl:w-66"
+            />
+          </Link>
           {/* Close button */}
           <button
             onClick={() => {
@@ -42,7 +44,7 @@ export default function Menu() {
           </button>
 
           {/* Menu Content */}
-          <nav className="animate-slide flex h-full w-full flex-col justify-center space-y-8 p-6 pt-16 text-white lg:px-16">
+          <nav className="animate-slide flex h-full w-full flex-col  space-y-10 pt-20 p-6 text-white lg:px-16 z-10">
             <Link
               onClick={() => {
                 setOpen(false)
