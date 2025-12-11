@@ -11,7 +11,7 @@ export default function Menu() {
       <button className="cursor-pointer" onClick={() => setOpen(true)}>
         {/* ☰ */}
         <img
-          className="w-6 object-contain md:w-8 lg:w-10"
+          className="w-6 object-contain"
           src="/images/navbar.svg"
         />
       </button>
@@ -80,12 +80,15 @@ export default function Menu() {
               About us
             </a>
 
-            <a
-              href="#"
-              className="text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
+            <Link
+              onClick={() => {
+                setOpen(false)
+              }}
+              to="/contact"
+              className="text-4xl font-light decoration-2 underline-offset-4 hover:underline hover:opacity-80"
             >
               Contact
-            </a>
+            </Link>
           </nav>
         </div>
       )}

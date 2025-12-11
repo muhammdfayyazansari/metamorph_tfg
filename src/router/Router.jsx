@@ -10,6 +10,8 @@ import UiUxDesignPage from "../pages/ui_ux_design/page";
 import MotionGraphicsPage from "../pages/motion_graphics/page";
 import AnimationsPage from "../pages/animations/page";
 import DigitalMarketingPage from "../pages/digital_marketing/page";
+import CaseStudyPage from "../pages/case_study/page";
+import Contact from "../pages/Contact";
 
 const Router = () => {
   return (
@@ -27,6 +29,8 @@ const Router = () => {
           <Route path="/motion-graphics" element={<MotionGraphicsPage />} />
           <Route path="/animations" element={<AnimationsPage />} />
           <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
+          <Route path="/case-study" element={<CaseStudyPage />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </>

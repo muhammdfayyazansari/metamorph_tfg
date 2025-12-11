@@ -16,11 +16,11 @@ export default function Navbar() {
     // <header className="fixed top-0 z-40 flex justify-between items-center py-8 lg:px-16 w-full backdrop-blur-md">
     <header
       // className="fixed top-0 z-40 backdrop-blur-2xl flex justify-between items-center p-6 lg:py-4 lg:px-16 w-full"
-      className={`fixed top-0 z-40 flex w-full items-center justify-between p-6 transition-all duration-300 lg:px-16 lg:py-4 ${
+      className={`fixed top-0 z-40 flex w-full items-center justify-between px-6 py-2 transition-all duration-300 lg:px-16 ${
         blur ? 'backdrop-blur-2xl' : 'backdrop-blur-0'
       }`}
     >
-      <img src="/images/logo.svg" className="w-25 object-contain md:w-40" />
+      <img src="/images/logo.svg" className="w-25 object-contain" />
       <Menu />
     </header>
   )

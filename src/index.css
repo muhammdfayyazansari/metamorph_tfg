@@ -292,11 +292,24 @@ body {
       rgba(255, 255, 255, 0.2) 0%,
       rgba(0, 0, 0, 0) 100%
     ); */
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0) 0%,
+    /* rgba(0, 0, 0, 0) 0%, */
+    /* background: linear-gradient(
+      to bottom right,
+      transparent 20%,
       rgba(255, 255, 255, 0.2) 100%
+    ); */
+    /* background:radial-gradient(146.61% 98.67% at 89.05% 79.61%, rgba(255, 255, 255, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%); */
+    /* background: radial-gradient(
+  146.61% 98.67% at 89.05% 79.61%,
+  rgba(255, 255, 255, 0.20) 0%,
+  transparent 100%
+);*/
+    background: radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 70%
     );
+
     backdrop-filter: blur(25.521692276000977px);
   }
 

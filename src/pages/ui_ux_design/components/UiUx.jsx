@@ -20,6 +20,28 @@ const items = [
     bg_scr: 'ui_ux_',
   },
 ]
+const ui_ux_items = [
+  {
+    id: 1,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 3,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 4,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 5,
+    bg_scr: 'ui_ux_',
+  },
+  {
+    id: 6,
+    bg_scr: 'ui_ux_',
+  },
+]
 
 const UiUx = () => {
   return (

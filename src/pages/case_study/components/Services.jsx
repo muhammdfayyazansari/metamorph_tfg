@@ -29,36 +29,36 @@ const items = [
 ]
 const Services = () => {
   return (
-    <div className="relative flex w-full flex-col py-10 lg:pt-20">
-      <div className="absolute top-0 right-0 z-0 flex justify-end md:h-200 md:w-200">
-        <img
-          className="h-full object-contain"
-          src="/images/bg_images/logos_branding_bg.webp"
-        />
-      </div>
-
-      <div className="absolute top-0 left-0 md:h-190 md:w-190">
-        <img className="h-full object-contain" src="/images/ellipse.webp" />
-      </div>
-
+    <div className="relative flex w-full flex-col py-10">
+       <div className="absolute -bottom-50 left-0 md:h-190 md:w-190">
+          <img className="h-full object-contain" src="/images/ellipse.webp" />
+        </div>
+     
       <div className="z-10 flex w-full flex-col items-center gap-10 pt-10">
         <div className="capitalize">
-          <h2 className="-mb-5 pl-16 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-30 sm:text-[30px] md:-mb-10 md:pl-36 md:text-[40px] lg:-mb-13 lg:pl-42 lg:text-[55px]">
-            Digital
+          <h2 className="-mb-5 pl-12 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-20 sm:text-[30px] md:-mb-10 md:pl-25 md:text-[40px] lg:-mb-13 lg:pl-30 lg:text-[55px]">
+            other
           </h2>
           <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
-            Marketing
+            Case
           </h1>
+          <h2 className="-mt-2 text-end text-[20px] leading-none tracking-[-0.04em] sm:-mt-3 sm:text-[30px] md:-mt-5 md:text-[40px] lg:-mt-6 lg:text-[55px]">
+            Studies
+          </h2>
         </div>
-        <div className="z-10 flex w-full items-center justify-center overflow-hidden p-6 lg:px-30 lg:py-8">
-          <div className="flex max-w-5xl flex-wrap items-center justify-between gap-5">
-            {/* ---------- FIRST ROW (2 ITEMS) ---------- */}
-            {items.map((item) => (
-              <div key={item.bg_scr + '1' + item.id} className="w-full">
-                <Card id={item.id} item={item} />
-              </div>
-            ))}
-          </div>
+      </div>
+
+      <div className="z-10 flex w-full items-center justify-center overflow-hidden p-6 lg:px-30 lg:py-8">
+        <div className="hide-scrollbar flex w-full flex-nowrap items-center gap-5 overflow-x-scroll">
+          {/* ---------- FIRST ROW (2 ITEMS) ---------- */}
+          {items.map((item) => (
+            <div
+              key={item.bg_scr + '1' + item.id}
+              className="flex-none lg:max-w-180"
+            >
+              <Card id={item.id} item={item} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
