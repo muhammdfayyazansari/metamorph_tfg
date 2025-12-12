@@ -1,54 +1,130 @@
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+// Registering the plugin is a good practice, though not strictly needed for this basic animation
+gsap.registerPlugin(useGSAP)
+
 const Hero = () => {
-    return (
-        <div className="div-bottom-gradient relative flex h-screen w-full items-center justify-center p-6 lg:py-8 lg:px-16">
-            {/* background image */}
-            <div className="absolute top-10 flex h-full w-full items-start justify-center lg:-top-10 lg:items-center">
-                <img
-                    src="/images/hero-mountain.webp"
-                    className="w-[90vw] object-contain sm:w-[80vw] md:w-[60vw] lg:h-[900px] 2xl:h-[1044px]"
-                    alt="hero-mountain"
-                />
-            </div>
+  const headingContainer = useRef(null)
+  const heading1Ref = useRef(null)
+  const heading2Ref = useRef(null)
+  const mountainRef = useRef(null)
+  const robotRef = useRef(null)
+  // 2. Use useGSAP to run the animation on mount
+  useGSAP(
+    () => {
+      const tl = gsap.timeline()
 
-            {/* overlay content with headings */}
-            <div className="absolute top-20 flex h-full w-full flex-col items-center text-end md:top-30">
-                <div>
-                    <h1 className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
-                        MetaMorph
-                    </h1>
+      // 2. Animate the Mountain Image (Starts immediately)
+      tl.from(
+        mountainRef.current,
+        {
+          y: -250, // Start 50 pixels below its final position
+          opacity: 0, // Start completely transparent
+          duration: 1.5, // Slightly longer duration for a subtle, smooth background movement
+          ease: 'power2.out',
+        },
+        'start'
+      ) // Use "start" label for sequencing
 
-                    <h1 className="text-[30px] leading-none font-medium tracking-[-0.04em] sm:text-[45px] md:text-[65px] lg:text-[90px]">
-                        Solutions
-                    </h1>
-                </div>
-            </div>
+      tl.from(
+        robotRef.current,
+        {
+          opacity: 0,
+          y: 150,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        'start+=0.1'
+      )
 
-            {/* robot image div */}
-            <div className="absolute flex h-full w-full items-center justify-center">
-                <img
-                    src="/images/robot.webp"
-                    className="h-full w-full object-contain"
-                    alt="robot-image"
-                />
-            </div>
+      // Animate the main heading 'MetaMorph'
+      tl.from(
+        heading1Ref.current,
+        {
+          y: -150,
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+        },
+        'start+=0.3'
+      ) // Start 0.3 seconds after the image starts to settle
 
-            {/* bottom div */}
-            <div className="absolute bottom-0 hidden md:flex w-full flex-row items-end justify-between p-6 lg:px-16">
-                <div className="max-w-2/6">
-                    <p className="text-pretty">
-                        We're passionate about turning your vision into stunning
-                        designs. Whether you're an individual, startup, or
-                        corporation, we bring creativity and precision to
-                        elevate your brand.
-                    </p>
-                </div>
-                <div className="right-0 bottom-0 flex max-w-2/6 flex-col items-end justify-center gap-3">
-                    <button className="button-glass">Contact</button>
-                    <button className="button-gradient">Have a Project</button>
-                </div>
-            </div>
+      // Animate the second heading 'Solutions'
+      tl.from(
+        heading2Ref.current,
+        {
+          y: -100,
+          opacity: 0,
+          duration: 1.0,
+          ease: 'power2.out',
+        },
+        'start+=0.4'
+      ) // Staggered entry
+    },
+    { scope: headingContainer }
+  )
+  return (
+    <div className="div-bottom-gradient relative flex h-screen w-full items-center justify-center p-6 lg:px-16 lg:py-8">
+      {/* background image */}
+      <div className="absolute top-10 flex h-full w-full items-start justify-center lg:-top-10 lg:items-center">
+        <img
+          ref={mountainRef}
+          src="/images/hero-mountain.webp"
+          className="w-[90vw] object-contain sm:w-[80vw] md:w-[60vw] lg:h-[900px] 2xl:h-[1044px]"
+          alt="hero-mountain"
+        />
+      </div>
+
+      {/* overlay content with headings */}
+      <div
+        ref={headingContainer}
+        className="absolute top-20 flex h-full w-full flex-col items-center text-end md:top-30"
+      >
+        <div>
+          <h1
+            ref={heading1Ref}
+            className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]"
+          >
+            MetaMorph
+          </h1>
+
+          <h1
+            ref={heading2Ref}
+            className="text-[30px] leading-none font-medium tracking-[-0.04em] sm:text-[45px] md:text-[65px] lg:text-[90px]"
+          >
+            Solutions
+          </h1>
         </div>
-    )
+      </div>
+
+      {/* robot image div */}
+      <div className="absolute flex h-full w-full items-center justify-center">
+        <img
+          ref={robotRef}
+          src="/images/robot.webp"
+          className="h-full w-full object-contain"
+          alt="robot-image"
+        />
+      </div>
+
+      {/* bottom div */}
+      <div className="absolute bottom-0 hidden w-full flex-row items-end justify-between p-6 md:flex lg:px-16">
+        <div className="max-w-2/6">
+          <p className="text-pretty">
+            We're passionate about turning your vision into stunning designs.
+            Whether you're an individual, startup, or corporation, we bring
+            creativity and precision to elevate your brand.
+          </p>
+        </div>
+        <div className="right-0 bottom-0 flex max-w-2/6 flex-col items-end justify-center gap-3">
+          <button className="button-glass">Contact</button>
+          <button className="button-gradient">Have a Project</button>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Hero

@@ -254,6 +254,8 @@ body {
 
   .button-gradient-sky {
     box-shadow: -2px 0 10px 0 rgba(81, 209, 244, 0.35);
+    transition: all 0.3s ease;
+
   }
   .button-gradient-sky:hover {
     box-shadow: -20px 0 32px 0 rgba(81, 209, 244, 0.35);

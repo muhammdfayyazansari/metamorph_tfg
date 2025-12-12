@@ -1,4 +1,9 @@
 import ServiceCard from '../ui/ServiceCard'
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(useGSAP)
 
 const Services = () => {
   const servicesWithImgSrc = [
@@ -24,11 +29,41 @@ const Services = () => {
       title: '2D/3D Animations',
     },
   ]
+
+  const { contextSafe } = useGSAP()
+
+  const handleHoverIn = contextSafe((e) => {
+    gsap.to(e.currentTarget, {
+      y: -40, // Moves up by 20 pixels
+      scale: 1.1,
+      duration: 0.3,
+      // ease: 'power2.out',
+      ease: 'back.out(1.7)',
+      // rotation: '-12deg',
+    })
+
+    e.currentTarget.classList.remove('glass', 'card-gradient')
+    e.currentTarget.classList.add('bg-hero-combo')
+    console.log(e.currentTarget.classList)
+  })
+
+  const handleHoverOut = contextSafe((e) => {
+    gsap.to(e.currentTarget, {
+      y: 0, // Returns to original position
+      scale: 1,
+      duration: 0.3,
+      // ease: 'power2.inOut',
+      ease: 'back.out(1.2)',
+      // rotation: '-12deg',
+    })
+    e.currentTarget.classList.add('glass', 'card-gradient')
+    e.currentTarget.classList.remove('bg-hero-combo')
+  })
   return (
-    <div className="relative flex w-full flex-col py-10 lg:pt-20 overflow-hidden">
-      <div className="absolute bottom-150 -right-70 md:h-200 md:w-200">
+    <div className="relative flex w-full flex-col overflow-hidden py-10 lg:pt-20">
+      <div className="absolute -right-70 bottom-150 md:h-200 md:w-200">
         <img
-          className="object-contain h-full w-full"
+          className="h-full w-full object-contain"
           src="/images/service_bg.webp"
         />
       </div>
@@ -65,6 +100,8 @@ const Services = () => {
                 icon={'/images/icons/' + s_card['img_src'] + '.svg'}
                 title={s_card['title']}
                 isActive={index === 2}
+                onMouseEnter={handleHoverIn}
+                onMouseLeave={handleHoverOut}
               />
             )
           })}
