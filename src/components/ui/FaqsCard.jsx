@@ -13,16 +13,14 @@ export default function FaqsCard({
           </h3>
         </div>
 
-        <div className="gradient-border rotate-180 rounded-lg p-px">
-          <div className="rounded-[calc(0.5rem-1px)]">
-            <button className="bg-hero-combo rotate-180 rounded-[calc(0.5rem-1px)] p-3">
-              <img
-                className="h-4 w-5 rotate-270"
-                src="/images/icons/chevron.svg"
-                alt="chevron"
-              />
-            </button>
-          </div>
+        <div className="gradient-border rotate-180 rounded-[13.8px] p-px">
+          <button className="bg-hero-combo rotate-180 rounded-[13.8px] p-3">
+            <img
+              className="h-4 w-5 rotate-270"
+              src="/images/icons/chevron.svg"
+              alt="chevron"
+            />
+          </button>
         </div>
       </div>
     )
@@ -39,16 +37,18 @@ export default function FaqsCard({
         </p>
       </div>
 
-      <div className="gradient-border rotate-180 rounded-lg p-px">
-        <div className="rounded-[calc(0.5rem-1px)]">
-          <button className="rounded-[calc(0.5rem-1px)] bg-white p-3">
+      <div className="gradient-border rotate-180 rounded-[13.8px] p-px">
+        {/* <div className="rounded-[calc(0.5rem-1px)]"> */}
+        {/* <button className="rounded-[calc(0.5rem-1px)] bg-white p-3"> */}
+        
+          <button className="rounded-[13.8px] bg-white p-3">
             <img
               className="h-4 w-7 object-contain"
               src="/images/icons/chev_up.svg"
               alt="chevron"
             />
           </button>
-        </div>
+        
       </div>
     </div>
   )

@@ -96,13 +96,11 @@ const FeaturedProjects = () => {
             </h3>
             <Link
               to={'case-study'}
-              className="button-gradient-sky gradient-border rotate-180 cursor-pointer rounded-lg p-px"
+              className="button-gradient-sky gradient-border cursor-pointer rounded-[13.8px] p-px"
             >
-              <div className="cursor-pointer rounded-[calc(0.5rem-1px)]">
-                <button className="bg-hero-combo cursor-pointer rounded-[calc(0.5rem-1px)] p-3">
-                  case study
-                </button>
-              </div>
+              <button className="bg-hero-combo cursor-pointer rounded-[13.8px] p-3">
+                case study
+              </button>
             </Link>
           </div>
           <div className="flex gap-3">
