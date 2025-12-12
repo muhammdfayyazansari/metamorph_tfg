@@ -160,6 +160,35 @@ body {
     border-image-slice: 1;
     /* border-radius: 2px; optional rounding */
   }
+ .combo-gradient {
+  background: 
+    linear-gradient(to left, #51d1f4 0%, #74288f 100%),
+    linear-gradient(to top, #7d4ae2 0%, #701d38 100%);
+  background-blend-mode: overlay, normal;
+}
+
+.gradient-border {
+  background: linear-gradient(
+    to right,
+    #51D1F4 0%,
+    transparent 25%,
+    transparent 75%,
+    #74288F 100%
+  )
+  ,
+  linear-gradient(
+    to bottom,
+    #934983 0%,
+    transparent 25%,
+    /* #934983 25%, */
+    /* rgba(255, 255, 255, 0.60) 75%, */
+    transparent 75%,
+    /* #d66283 75%, */
+    #d66283 100%
+  )
+  ;
+}
+
 
   /* global.css */
   .button-glass {

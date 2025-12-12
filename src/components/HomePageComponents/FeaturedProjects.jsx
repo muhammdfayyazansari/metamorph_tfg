@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const FeaturedProjects = () => {
   const servicesWithImgSrc = [
@@ -49,7 +49,7 @@ const FeaturedProjects = () => {
           {/* for small screen */}
 
           <div className="block pb-10 lg:hidden">
-            <div className="z-10 rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
+            <div className="gradient-border z-10 rotate-180 rounded-lg p-px">
               <div className="rounded-[calc(0.5rem-1px)]">
                 <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-2 lg:p-3">
                   <img
@@ -71,7 +71,7 @@ const FeaturedProjects = () => {
             />
           </div>
           <div className="block pb-10 lg:hidden">
-            <div className="rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px lg:hidden">
+            <div className="gradient-border rotate-180 rounded-lg p-px lg:hidden">
               <div className="rounded-[calc(0.5rem-1px)]">
                 <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-2 lg:p-3">
                   <img
@@ -94,27 +94,31 @@ const FeaturedProjects = () => {
               Deep Seek <br />
               Landing page
             </h3>
-             <Link to={"case-study"} className="rounded-lg button-gradient-sky cursor-pointer bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
-              <div className="rounded-[calc(0.5rem-1px)] cursor-pointer">
-                <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-3 cursor-pointer">
+            <Link
+              to={'case-study'}
+              className="button-gradient-sky gradient-border rotate-180 cursor-pointer rounded-lg p-px"
+            >
+              <div className="cursor-pointer rounded-[calc(0.5rem-1px)]">
+                <button className="bg-hero-combo cursor-pointer rounded-[calc(0.5rem-1px)] p-3">
                   case study
                 </button>
               </div>
             </Link>
           </div>
           <div className="flex gap-3">
-            <div className="rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
+            {/* <div className="rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px"> */}
+            <div className="gradient-border rotate-180 rounded-lg p-0.5">
               <div className="rounded-[calc(0.5rem-1px)]">
                 <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-3">
                   <img
-                    className="h-4 w-5 rotate-180"
+                    className="h-4 w-5"
                     src="/images/icons/chevron.svg"
                     alt="chevron"
                   />
                 </button>
               </div>
             </div>
-            <div className="rounded-lg bg-linear-to-t from-[#51D1F4] to-[#74288F] p-px">
+            <div className="gradient-border rounded-lg p-0.5">
               <div className="rounded-[calc(0.5rem-1px)]">
                 <button className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-3">
                   <img
