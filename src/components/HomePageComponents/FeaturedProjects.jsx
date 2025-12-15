@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { Draggable } from 'gsap/Draggable' // Keeping import just in case, but core logic removed
+// import { Draggable } from 'gsap/Draggable' // Keeping import just in case, but core logic removed
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(useGSAP, Draggable, ScrollTrigger)
+// gsap.registerPlugin(useGSAP, Draggable, ScrollTrigger)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 // Define the array of project images
 const images = [
   '/images/mobile.webp', // Image 1
@@ -122,22 +123,21 @@ const FeaturedProjects = () => {
           <h3 className="font-medium">Landing page</h3>
         </div>
 
-        <div className="-mb-10 flex h-full w-full items-center justify-center gap-2 px-5">
+        <div className="-mb-10 flex h-full w-full items-center justify-center gap-2 px-3">
           {/* Small Screen Previous Button */}
-          <div className="block pb-10 lg:hidden">
-            <div className="gradient-border z-10 rotate-180 rounded-lg p-px">
-              <div className="rounded-[calc(0.5rem-1px)]">
-                <button
-                  onClick={prevImage} // Hooked to state update
-                  className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-2 lg:p-3"
-                >
-                  <img
-                    className="h-3 w-4 rotate-180 object-contain lg:h-4 lg:w-5"
-                    src="/images/icons/chevron.svg"
-                    alt="Previous"
-                  />
-                </button>
-              </div>
+
+          <div className="gradient-border rotate-180 cursor-pointer rounded-lg p-px lg:hidden">
+            <div className="cursor-pointer rounded-lg">
+              <button
+                onClick={prevImage} // Hooked to state update
+                className="bg-hero-combo cursor-pointer rounded-lg p-2"
+              >
+                <img
+                  className="h-4 w-5"
+                  src="/images/icons/chevron.svg"
+                  alt="Next"
+                />
+              </button>
             </div>
           </div>
 
@@ -160,12 +160,26 @@ const FeaturedProjects = () => {
           {/* --- END MAIN IMAGE DISPLAY AREA --- */}
 
           {/* Small Screen Next Button */}
-          <div className="block pb-10 lg:hidden">
-            <div className="gradient-border rotate-180 rounded-lg p-px lg:hidden">
+          <div className="gradient-border mr-6 cursor-pointer rounded-lg p-px lg:hidden">
+            <div className="cursor-pointer rounded-lg">
+              <button
+                onClick={nextImage} // Hooked to state update
+                className="bg-hero-combo cursor-pointer rounded-lg p-2"
+              >
+                <img
+                  className="h-4 w-5"
+                  src="/images/icons/chevron.svg"
+                  alt="Next"
+                />
+              </button>
+            </div>
+          </div>
+          {/* <div className="block cursor-pointer pb-10 lg:hidden">
+            <div className="gradient-border rotate-180 cursor-pointer rounded-lg p-px lg:hidden">
               <div className="rounded-[calc(0.5rem-1px)]">
                 <button
                   onClick={nextImage} // Hooked to state update
-                  className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-2 lg:p-3"
+                  className="bg-hero-combo cursor-pointer rounded-[calc(0.5rem-1px)] p-2 lg:p-3"
                 >
                   <img
                     className="h-3 w-4 lg:h-4 lg:w-5"
@@ -175,7 +189,7 @@ const FeaturedProjects = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -199,27 +213,27 @@ const FeaturedProjects = () => {
 
           <div className="flex gap-3">
             {/* Previous Button (Left Chevron) - Hooked up */}
-            <div className="gradient-border rotate-180 rounded-lg p-0.5">
-              <div className="rounded-[calc(0.5rem-1px)]">
+            <div className="gradient-border rotate-180 cursor-pointer rounded-2xl p-0.5">
+              <div className="cursor-pointer rounded-2xl">
                 <button
                   onClick={prevImage} // Hooked to state update
-                  className="bg-hero-combo rounded-[calc(0.5rem-1px)] p-3"
+                  className="bg-hero-combo cursor-pointer rounded-2xl p-3"
                 >
                   <img
                     className="h-4 w-5"
                     src="/images/icons/chevron.svg"
-                    alt="Previous"
+                    alt="Next"
                   />
                 </button>
               </div>
             </div>
 
             {/* Next Button (Right Chevron) - Hooked up */}
-            <div className="gradient-border cursor-pointer rounded-lg p-0.5">
-              <div className="cursor-pointer rounded-[calc(0.5rem-1px)]">
+            <div className="gradient-border cursor-pointer rounded-2xl p-0.5">
+              <div className="cursor-pointer rounded-2xl">
                 <button
                   onClick={nextImage} // Hooked to state update
-                  className="bg-hero-combo cursor-pointer rounded-[calc(0.5rem-1px)] p-3"
+                  className="bg-hero-combo cursor-pointer rounded-2xl p-3"
                 >
                   <img
                     className="h-4 w-5"

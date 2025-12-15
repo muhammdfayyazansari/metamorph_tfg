@@ -1,38 +1,18 @@
+import { useState } from 'react'
 import FaqsCard from './ui/FaqsCard'
-import ServiceCard from './ui/ServiceCard'
 
 const Faqs = () => {
+  const [activeIndex, setActiveIndex] = useState(0)
   const questions = [
-    {
-      qustion: 'What services do you offer?',
-      isActive: true,
-      answer:
-        'We provide branding, web and UI/UX design, social media content, and custom creative solutions for digital and print.',
-    },
-    {
-      qustion: 'What services do you offer?',
-    },
-    {
-      qustion: 'What services do you offer?',
-    },
-    {
-      qustion: 'What services do you offer?',
-    },
-    {
-      qustion: 'What services do you offer?',
-    },
+    { question: 'What services do you offer?' },
+    { question: 'What services do you offer?' },
+    { question: 'What services do you offer?' },
+    { question: 'What services do you offer?' },
+    { question: 'What services do you offer?' },
   ]
   return (
     <div className="relative flex w-full flex-col overflow-hidden">
-      {/* <div className="absolute top-0 right-0 flex h-full w-full items-center justify-end self-end lg:pt-48">
-                <div className="relative h-[500px] w-[350px] lg:h-[1000px] lg:w-[700px]">
-                    <img
-                        className="absolute right-0 h-full object-contain lg:bottom-0"
-                        src="/images/bg_images/faqs_bg_1.webp"
-                    />
-                </div>
-            </div> */}
-      <div className="absolute top-50 -right-100 h-[1006px] w-[730px] lg:top-30 lg:h-[1207px] lg:w-[876px] xl:top-10 xl:h-[1358px] xl:w-[985px] 2xl:h-[1509px] 2xl:w-[1095px] 2xl:-top-20">
+      <div className="absolute top-50 -right-100 h-[1006px] w-[730px] lg:top-30 lg:h-[1207px] lg:w-[876px] xl:top-10 xl:h-[1358px] xl:w-[985px] 2xl:-top-20 2xl:h-[1509px] 2xl:w-[1095px]">
         <img
           className="h-full w-full object-contain"
           src="/images/bg_images/faqs_bg_1.webp"
@@ -49,13 +29,17 @@ const Faqs = () => {
           </h1>
         </div>
       </div>
+
       <div className="z-10 flex w-full flex-col gap-5 p-6 lg:px-16 lg:py-8">
-        {questions.map((ques) => {
+        {questions.map((item, index) => {
           return (
             <FaqsCard
-              question={ques['question']}
-              answer={ques['answer']}
-              isActive={ques['isActive']}
+              isActive={activeIndex === index}
+              key={index}
+              title={item.question}
+              onClick={() =>
+                setActiveIndex(activeIndex === index ? null : index)
+              }
             />
           )
         })}
