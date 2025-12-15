@@ -329,6 +329,46 @@ body {
     background: color-mix(in oklch, var(--color-background) 40%, transparent);
     border: 1px solid color-mix(in oklch, white 10%, transparent);
   }
+  .slider-container {
+    overflow: hidden;
+    width: 100%;
+    /* background: transparent;  */
+    /* padding: 2rem 0; */
+    position: relative;
+  }
+
+  /* Fade effect on the right side */
+  .slider-container::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background: linear-gradient(to left, #000000, transparent);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Fade effect on the left side */
+  .slider-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background: linear-gradient(to right, #000000, transparent);
+    /* background: linear-gradient(to right, #0f0f0f, transparent); */
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .slider-track {
+    display: flex;
+    gap: 1.25rem;
+    animation: slide 20s linear infinite;
+  }
 
   .card-gradient {
     /* background: radial-gradient(

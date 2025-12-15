@@ -46,36 +46,36 @@ const processWithImgSrc = [
   },
 ]
 
-const SCROLL_INTERVAL = 2000;
-const STEP_SIZE = 340;
+const SCROLL_INTERVAL = 2000
+const STEP_SIZE = 340
 
 const Process = () => {
   const scrollContainerRef = useRef(null)
-  const isScrolling = useRef(false);
-  const intervalRef = useRef(null); // Ref to hold the interval ID
+  const isScrolling = useRef(false)
+  const intervalRef = useRef(null) // Ref to hold the interval ID
 
   // State to track manual boundaries (for button disabling)
   const [canScrollNext, setCanScrollNext] = useState(true)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
-  
+
   // --- Timer Management Functions ---
 
   // Stops the current auto-scroll timer
   const stopAutoScroll = () => {
     if (intervalRef.current) {
-      clearInterval(intervalRef.current);
+      clearInterval(intervalRef.current)
     }
-  };
+  }
 
   // Starts/Restarts the auto-scroll timer
   const startAutoScroll = () => {
-    stopAutoScroll(); // Clear any existing timer first
+    stopAutoScroll() // Clear any existing timer first
     intervalRef.current = setInterval(() => {
       // Use the autoScrollNext wrapper function
-      autoScrollNext();
-    }, SCROLL_INTERVAL);
-  };
-  
+      autoScrollNext()
+    }, SCROLL_INTERVAL)
+  }
+
   // Wrapper for auto-scrolling (does not affect the timer itself)
   const autoScrollNext = () => {
     const container = scrollContainerRef.current
@@ -83,7 +83,7 @@ const Process = () => {
 
     const { scrollLeft, clientWidth, scrollWidth } = container
     const maxScrollLeft = scrollWidth - clientWidth
-    
+
     // Check for Loop condition
     if (Math.ceil(scrollLeft) >= Math.round(maxScrollLeft) - 1) {
       // Smooth Scroll back to Start (Looping)
@@ -91,15 +91,17 @@ const Process = () => {
         scrollTo: { x: 0 },
         duration: 1.2,
         ease: 'power2.inOut',
-        onStart: () => { isScrolling.current = true; },
+        onStart: () => {
+          isScrolling.current = true
+        },
         onComplete: () => {
-          isScrolling.current = false;
-          updateScrollState();
-        }
-      });
-      return;
+          isScrolling.current = false
+          updateScrollState()
+        },
+      })
+      return
     }
-    
+
     // Standard Auto Scroll Step
     let nextScrollPosition = scrollLeft + STEP_SIZE
     if (nextScrollPosition > maxScrollLeft) {
@@ -110,13 +112,15 @@ const Process = () => {
       scrollTo: { x: nextScrollPosition },
       duration: 0.8,
       ease: 'power1.inOut',
-      onStart: () => { isScrolling.current = true; },
+      onStart: () => {
+        isScrolling.current = true
+      },
       onComplete: () => {
-        isScrolling.current = false;
-        updateScrollState();
-      }
+        isScrolling.current = false
+        updateScrollState()
+      },
     })
-  };
+  }
 
   // --- Scroll Boundary Update Logic ---
   const updateScrollState = () => {
@@ -125,64 +129,70 @@ const Process = () => {
 
     const { scrollLeft, scrollWidth, clientWidth } = container
     const maxScroll = scrollWidth - clientWidth
-    
+
     const isEnd = Math.ceil(scrollLeft) >= Math.round(maxScroll) - 1
     const isStart = scrollLeft <= 1
-    
+
     setCanScrollNext(!isEnd)
     setCanScrollPrev(!isStart)
   }
 
   // --- Manual Scroll Functions (Stops/Restarts Timer) ---
   const scrollToNext = () => {
-    stopAutoScroll(); // Stop the timer on manual interaction
-    
+    stopAutoScroll() // Stop the timer on manual interaction
+
     const container = scrollContainerRef.current
     if (!container || isScrolling.current) return
 
     const { scrollLeft, clientWidth, scrollWidth } = container
     const maxScrollLeft = scrollWidth - clientWidth
-    
+
     // Check for Loop condition (as requested: smooth scroll back if disabled)
     if (!canScrollNext) {
-      console.log("scrollToNext: Manual click at end, initiating smooth scroll to start (0).")
-      
+      console.log(
+        'scrollToNext: Manual click at end, initiating smooth scroll to start (0).'
+      )
+
       gsap.to(container, {
         scrollTo: { x: 0 },
         duration: 1.2,
         ease: 'power2.inOut',
-        onStart: () => { isScrolling.current = true; },
+        onStart: () => {
+          isScrolling.current = true
+        },
         onComplete: () => {
-          isScrolling.current = false;
-          updateScrollState();
-          startAutoScroll(); // Restart timer after manual action completes
-        }
-      });
-      return;
+          isScrolling.current = false
+          updateScrollState()
+          startAutoScroll() // Restart timer after manual action completes
+        },
+      })
+      return
     }
-    
+
     // Standard Manual Scroll Step
     let nextScrollPosition = scrollLeft + STEP_SIZE
     if (nextScrollPosition > maxScrollLeft) {
       nextScrollPosition = maxScrollLeft
     }
-    
+
     gsap.to(container, {
       scrollTo: { x: nextScrollPosition },
       duration: 0.8,
       ease: 'power1.inOut',
-      onStart: () => { isScrolling.current = true; },
+      onStart: () => {
+        isScrolling.current = true
+      },
       onComplete: () => {
-        isScrolling.current = false;
-        updateScrollState();
-        startAutoScroll(); // Restart timer after manual action completes
-      }
+        isScrolling.current = false
+        updateScrollState()
+        startAutoScroll() // Restart timer after manual action completes
+      },
     })
   }
 
   const scrollToPrev = () => {
-    stopAutoScroll(); // Stop the timer on manual interaction
-    
+    stopAutoScroll() // Stop the timer on manual interaction
+
     const container = scrollContainerRef.current
     if (!container || isScrolling.current || !canScrollPrev) return
 
@@ -192,47 +202,49 @@ const Process = () => {
     if (prevScrollPosition < 0) {
       prevScrollPosition = 0
     }
-    
+
     gsap.to(container, {
       scrollTo: { x: prevScrollPosition },
       duration: 0.8,
       ease: 'power1.inOut',
-      onStart: () => { isScrolling.current = true; },
+      onStart: () => {
+        isScrolling.current = true
+      },
       onComplete: () => {
-        isScrolling.current = false;
-        updateScrollState();
-        startAutoScroll(); // Restart timer after manual action completes
-      }
+        isScrolling.current = false
+        updateScrollState()
+        startAutoScroll() // Restart timer after manual action completes
+      },
     })
   }
-  
-  // --- Initialization and Cleanup ---
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      updateScrollState();
-      
-      // Event listeners for scroll/resize to update boundary buttons
-      container.addEventListener('scroll', updateScrollState);
-      window.addEventListener('resize', updateScrollState);
-      
-      // Start the auto-scroll timer
-      startAutoScroll();
-      
-      return () => {
-        // Cleanup on unmount
-        container.removeEventListener('scroll', updateScrollState);
-        window.removeEventListener('resize', updateScrollState);
-        stopAutoScroll();
-      };
-    }
-  }, [scrollContainerRef.current]);
 
-  // useGSAP is kept for context, though its main function is covered by useEffect
-  useGSAP(() => {}, { scope: scrollContainerRef });
+  // // --- Initialization and Cleanup ---
+  // useEffect(() => {
+  //   const container = scrollContainerRef.current;
+  //   if (container) {
+  //     updateScrollState();
+
+  //     // Event listeners for scroll/resize to update boundary buttons
+  //     container.addEventListener('scroll', updateScrollState);
+  //     window.addEventListener('resize', updateScrollState);
+
+  //     // Start the auto-scroll timer
+  //     startAutoScroll();
+
+  //     return () => {
+  //       // Cleanup on unmount
+  //       container.removeEventListener('scroll', updateScrollState);
+  //       window.removeEventListener('resize', updateScrollState);
+  //       stopAutoScroll();
+  //     };
+  //   }
+  // }, [scrollContainerRef.current]);
+
+  // // useGSAP is kept for context, though its main function is covered by useEffect
+  // useGSAP(() => {}, { scope: scrollContainerRef });
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col overflow-hidden">
       <div className="flex flex-col items-center capitalize">
         <div className="capitalize">
           {/* ... (Title/Heading structure remains the same) ... */}
@@ -246,7 +258,7 @@ const Process = () => {
           <h2 className="-mt-2 text-end text-[20px] leading-none tracking-[-0.04em] sm:-mt-3 sm:text-[30px] md:-mt-5 md:text-[40px] lg:-mt-6 lg:text-[55px]">
             is Everything
           </h2>
-          
+
           {/* Buttons with disabled state */}
           {/* <button 
             onClick={scrollToNext} 
@@ -264,68 +276,28 @@ const Process = () => {
         </div>
       </div>
 
-      <div
-        ref={scrollContainerRef}
-        className="hide-scrollbar flex w-[90vw] flex-nowrap gap-5 self-center overflow-x-scroll pt-20"
-      >
-        {processWithImgSrc.map((item, index) => (
-          <ProcessCard
-            key={index}
-            img_src={item['img_src']}
-            isFlip={item['isFlip']}
-            title={item['title']}
-            para={item['para']}
-            extraClass="w-80 flex-none"
-          />
-        ))}
+      <div className='flex flex-row justify-center mt-20 slider-container'>
+        <div
+          ref={scrollContainerRef}
+          className="hide-scrollbar flex w-500 flex-nowrap gap-5 self-center overflow-x-scroll "
+        >
+          {processWithImgSrc.map((item, index) => (
+            <ProcessCard
+              key={index}
+              img_src={item['img_src']}
+              isFlip={item['isFlip']}
+              title={item['title']}
+              para={item['para']}
+              extraClass="w-80 flex-none"
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
 export default Process
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { useEffect, useRef, useState } from 'react'
 // import ProcessCard from '../ui/ProcessCard'
@@ -388,13 +360,13 @@ export default Process
 
 //     // Use clientWidth to determine the end position
 //     const maxScroll = scrollWidth - clientWidth
-    
+
 //     // Check if scrolled fully to the right (end)
 //     // Using Math.round/ceil helps account for fractional scroll values
 //     const isEnd = Math.ceil(scrollLeft) >= Math.round(maxScroll) - 1 // -1 for tolerance
 //     // Check if scrolled fully to the left (start)
 //     const isStart = scrollLeft <= 1 // Using 1 for tolerance
-    
+
 //     setCanScrollNext(!isEnd)
 //     setCanScrollPrev(!isStart)
 //   }
@@ -404,11 +376,11 @@ export default Process
 //     const container = scrollContainerRef.current;
 //     if (container) {
 //       // Initial check
-//       updateScrollState(); 
-      
+//       updateScrollState();
+
 //       // Listener for manual scrolling
 //       container.addEventListener('scroll', updateScrollState);
-      
+
 //       // Listener for resizing (if container size changes)
 //       window.addEventListener('resize', updateScrollState);
 
@@ -419,12 +391,11 @@ export default Process
 //     }
 //   }, [scrollContainerRef.current]);
 
-
 //   // useGSAP hook provides a context for cleanup, though for simple click handlers it's less critical
 //   useGSAP(
 //     () => {
 //       // Initial state check after mount
-//       updateScrollState(); 
+//       updateScrollState();
 //     },
 //     { scope: scrollContainerRef }
 //   )
@@ -447,14 +418,14 @@ export default Process
 //     }
 
 //     const { scrollLeft, clientWidth, scrollWidth } = container
-    
+
 //     const maxScrollLeft = scrollWidth - clientWidth
 //     let nextScrollPosition = scrollLeft + step
 
 //     if (nextScrollPosition > maxScrollLeft) {
 //       nextScrollPosition = maxScrollLeft
 //     }
-    
+
 //     console.log(`[NEXT] scrollWidth:${scrollWidth} clientWidth:${clientWidth} Current: ${scrollLeft}, Step: ${step}, Next Target: ${nextScrollPosition}`)
 
 //     // Scroll animation
@@ -472,7 +443,7 @@ export default Process
 //   const scrollToPrev = () => {
 //     const container = scrollContainerRef.current
 //     const step = 340;
-    
+
 //     // Check 1: Return if container is null
 //     if (!container) {
 //       console.log("scrollToPrev: Container ref is null, returning.")
@@ -486,14 +457,14 @@ export default Process
 //     }
 
 //     const { scrollLeft } = container
-    
+
 //     // Calculate the previous position, making sure we don't scroll past 0
 //     let prevScrollPosition = scrollLeft - step
 
 //     if (prevScrollPosition < 0) {
 //       prevScrollPosition = 0
 //     }
-    
+
 //     console.log(`[PREV] Current: ${scrollLeft}, Step: ${step}, Prev Target: ${prevScrollPosition}`)
 
 //     // Scroll animation
@@ -524,15 +495,15 @@ export default Process
 //           </h2>
 
 //           {/* Button implementations with disabled state */}
-//           <button 
-//             onClick={scrollToNext} 
+//           <button
+//             onClick={scrollToNext}
 //             className="h-10 w-10 disabled:opacity-50"
 //             disabled={!canScrollNext}
 //           >
 //             next
 //           </button>
-//           <button 
-//             onClick={scrollToPrev} 
+//           <button
+//             onClick={scrollToPrev}
 //             className="h-10 w-10 disabled:opacity-50"
 //             disabled={!canScrollPrev}
 //           >
@@ -561,43 +532,6 @@ export default Process
 // }
 
 // export default Process
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { useEffect, useRef, useState } from 'react'
 // import ProcessCard from '../ui/ProcessCard'
@@ -661,8 +595,8 @@ export default Process
 // //   const isEnd = Math.ceil(scrollLeft) >= scrollWidth - clientWidth - 1 // -1 for tolerance
 //   const isEnd = Math.ceil(scrollLeft) >= scrollWidth - step - 1 // -1 for tolerance
 //   // Check if scrolled fully to the left (start)
-//   const isStart = scrollLeft <= 1 
-  
+//   const isStart = scrollLeft <= 1
+
 //   setCanScrollNext(!isEnd)
 //   setCanScrollPrev(!isStart)
 // }
@@ -672,11 +606,11 @@ export default Process
 //     const container = scrollContainerRef.current;
 //     if (container) {
 //         // Initial check
-//         updateScrollState(); 
-        
+//         updateScrollState();
+
 //         // Listener for manual scrolling
 //         container.addEventListener('scroll', updateScrollState);
-        
+
 //         // Listener for resizing (if container size changes)
 //         window.addEventListener('resize', updateScrollState);
 
@@ -686,7 +620,6 @@ export default Process
 //         };
 //     }
 // }, [scrollContainerRef.current]);
-
 
 // // useGSAP hook provides a context for cleanup, though for simple click handlers it's less critical
 // useGSAP(
@@ -698,7 +631,7 @@ export default Process
 
 // const scrollToNext = () => {
 //   const container = scrollContainerRef.current
-  
+
 //   // 1. Add check and console log
 // //   if (!container) {
 //   if (!container || !canScrollNext) {
@@ -719,7 +652,7 @@ export default Process
 //   if (nextScrollPosition > maxScrollLeft) {
 //     nextScrollPosition = maxScrollLeft
 //   }
-  
+
 //   console.log(`scrollWidth:${scrollWidth}  clientWidth:${clientWidth}  scrollToNext: Current: ${scrollLeft}, Step: ${step}, Next Target: ${nextScrollPosition}`)
 
 //   // Scroll animation
@@ -736,7 +669,7 @@ export default Process
 
 // const scrollToPrev = () => {
 //   const container = scrollContainerRef.current
-  
+
 //   // 1. Add check and console log
 //   if (!container || !canScrollPrev) {
 //     console.log("scrollToPrev: Container ref is null, returning.")
@@ -745,14 +678,14 @@ export default Process
 
 //   const { scrollLeft, clientWidth } = container
 //   const step = 340;
-  
+
 //   // Calculate the previous position, making sure we don't scroll past 0
 //   let prevScrollPosition = scrollLeft - step
 
 //   if (prevScrollPosition < 0) {
 //     prevScrollPosition = 0
 //   }
-  
+
 // //   console.log(`scrollToPrev: Current: ${scrollLeft}, Step: ${step}, Prev Target: ${prevScrollPosition}`)
 
 //   // Scroll animation
