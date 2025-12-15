@@ -6,7 +6,7 @@ const ServiceCard = forwardRef(
       <div
         ref={ref}
         {...props}
-        className={`-ml-3 w-70 cursor-pointer -rotate-1 rounded-2xl lg:w-52 pb-5${extraClass}`}
+        className={`-ml-3 w-70 cursor-pointer -rotate-1 rounded-2xl lg:w-52 ${extraClass}`}
       >
         {/* INNER WRAPPER (animated) */}
         <div className="card-inner flex -rotate-12 flex-col gap-10 rounded-2xl p-5 card-gradient">

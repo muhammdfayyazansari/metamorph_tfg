@@ -130,6 +130,9 @@ const Services = () => {
                 isActive={index === 2}
                 onMouseEnter={handleHoverIn}
                 onMouseLeave={handleHoverOut}
+                extraClass={
+                  servicesWithImgSrc.length - 1 === index ? `pb-5` : `pb-10`
+                }
               />
             )
           })}
