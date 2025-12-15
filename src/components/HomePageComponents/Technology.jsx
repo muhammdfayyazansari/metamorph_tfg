@@ -142,11 +142,11 @@ const Technology = () => {
       </div>
 
       {/* --- Infinite Scrolling Banners --- */}
-      <div className="flex w-full flex-col items-center gap-10 pb-48">
+      <div className="relative flex w-full flex-col items-center gap-10 overflow-hidden pb-48">
         {/* 1. First Row: Scroll Left (0 -> Max) */}
         <div
           ref={row1Ref}
-          className="hide-scrollbar flex w-[90vw] overflow-x-scroll"
+          className="hide-scrollbar flex w-screen overflow-x-scroll"
         >
           {LoopingContent}
         </div>
@@ -154,10 +154,12 @@ const Technology = () => {
         {/* 2. Second Row: Scroll Right (Max -> 0) */}
         <div
           ref={row2Ref}
-          className="hide-scrollbar flex w-[90vw] overflow-x-scroll"
+          className="hide-scrollbar flex w-screen overflow-x-scroll"
         >
           {LoopingContent}
         </div>
+
+        <div className="linear-three absolute right-0 z-10 h-50 w-40 rotate-180"></div>
       </div>
       {/* The ProcessCard section from the previous context is now missing, 
                 you might want to place it here if it was intended to remain */}

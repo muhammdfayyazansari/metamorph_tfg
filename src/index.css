@@ -363,6 +363,9 @@ body {
     pointer-events: none;
     z-index: 10;
   }
+  .linear-three{
+    background: linear-gradient(to right , #000000 , transparent );
+  }
 
   .slider-track {
     display: flex;
