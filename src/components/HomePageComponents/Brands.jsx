@@ -1,91 +1,100 @@
-import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP)
 
 const Brands = () => {
-    const logos = [
-        "/images/ecwid_logo.svg",
-        "/images/shopify_logo.svg",
-        "/images/volusion_logo.svg",
-        "/images/woocommerce_logo.svg",
-    ];
+  const logos = [
+    '/images/ecwid_logo.svg',
+    '/images/shopify_logo.svg',
+    '/images/volusion_logo.svg',
+    '/images/woocommerce_logo.svg',
+  ]
 
-    // Duplicate the logos array once for the seamless loop
-    const doubledLogos = [...logos, ...logos];
+  // Duplicate the logos array once for the seamless loop
+  const doubledLogos = [...logos, ...logos]
 
-    // Define the desired width in pixels
-    const CARD_WIDTH = 250; 
-    
-    // Define dimensions based on the logo container classes:
-    // mx-10 (since 40px margin is mx-10 in Tailwind) -> 20px left, 20px right = 40px total margin
-    const CARD_MARGIN_X = 40; 
-    
-    // The total space occupied by one logo item, including its margins
-    const TOTAL_CARD_WIDTH = CARD_WIDTH + (CARD_MARGIN_X * 2); // 250 + 80 = 330px
+  // Define the desired width in pixels
+  const CARD_WIDTH = 250
 
-    // Refs for GSAP scoping and element manipulation
-    const marqueeContainerRef = useRef(null);
-    const marqueeContentRef = useRef(null);
+  // Define dimensions based on the logo container classes:
+  // mx-10 (since 40px margin is mx-10 in Tailwind) -> 20px left, 20px right = 40px total margin
+  const CARD_MARGIN_X = 40
 
-    useGSAP(() => {
-        const content = marqueeContentRef.current;
-        if (!content) return;
+  // The total space occupied by one logo item, including its margins
+  const TOTAL_CARD_WIDTH = CARD_WIDTH + CARD_MARGIN_X * 2 // 250 + 80 = 330px
 
-        // Calculate the distance to slide: Width of the original set of logos.
-        // This is the CRITICAL value that must be EXACTLY the width of the first set of logos.
-        const slideDistance = logos.length * TOTAL_CARD_WIDTH;
+  // Refs for GSAP scoping and element manipulation
+  const marqueeContainerRef = useRef(null)
+  const marqueeContentRef = useRef(null)
 
-        // Apply GSAP animation to the content container
-        gsap.fromTo(
-            content,
-            { x: 0 },
-            { 
-                x: -slideDistance, // Moves left by the width of the original set
-                duration: 25, // Increased duration for a smooth, slow linear scroll (as requested 10-15 seconds, setting slightly higher)
-                ease: "none", // ESSENTIAL: Ensures constant speed for a perfect loop
-                repeat: -1
-            }
-        );
+  useGSAP(
+    () => {
+      const content = marqueeContentRef.current
+      if (!content) return
 
-    }, { scope: marqueeContainerRef, dependencies: [logos.length] });
+      // Calculate the distance to slide: Width of the original set of logos.
+      // This is the CRITICAL value that must be EXACTLY the width of the first set of logos.
+      const slideDistance = logos.length * TOTAL_CARD_WIDTH
 
-    // Calculate the total required width for the inner container (doubled logos)
-    const innerContentWidth = doubledLogos.length * TOTAL_CARD_WIDTH;
+      // Apply GSAP animation to the content container
+      gsap.fromTo(
+        content,
+        { x: 0 },
+        {
+          x: -slideDistance, // Moves left by the width of the original set
+          duration: 25, // Increased duration for a smooth, slow linear scroll (as requested 10-15 seconds, setting slightly higher)
+          ease: 'none', // ESSENTIAL: Ensures constant speed for a perfect loop
+          repeat: -1,
+        }
+      )
+    },
+    { scope: marqueeContainerRef, dependencies: [logos.length] }
+  )
 
-    return (
-        // Outer section for layout and overflow hidden
-        <section 
-            ref={marqueeContainerRef} 
-            className="relative mx-auto w-full overflow-hidden mt-10"
+  // Calculate the total required width for the inner container (doubled logos)
+  const innerContentWidth = doubledLogos.length * TOTAL_CARD_WIDTH
+
+  return (
+    <div className="relative w-full mt-10">
+      {/* Outer section for layout and overflow hidden */}
+      <section
+        ref={marqueeContainerRef}
+        className="relative  w-full overflow-hidden"
+      >
+        {/* Marquee Content (The moving element) */}
+        <div
+          ref={marqueeContentRef}
+          // Set the total width required to hold all doubled logos
+          style={{ width: `${innerContentWidth}px` }}
+          className="flex flex-nowrap items-start"
         >
-            {/* Marquee Content (The moving element) */}
-            <div 
-                ref={marqueeContentRef}
-                // Set the total width required to hold all doubled logos
-                style={{ width: `${innerContentWidth}px` }} 
-                className="flex items-start flex-nowrap"
+          {doubledLogos.map((path, index) => (
+            <div
+              key={index}
+              // FIX: Apply the fixed 250px width and flex-none to ensure the calculation is correct
+              // FIX: Changed 'mx-6' (12px margin) to 'mx-10' to match the CARD_MARGIN_X = 40 (20px left, 20px right)
+              className="mx-10 w-[250px] flex-none"
             >
-                {doubledLogos.map((path, index) => (
-                    <div 
-                        key={index} 
-                        // FIX: Apply the fixed 250px width and flex-none to ensure the calculation is correct
-                        // FIX: Changed 'mx-6' (12px margin) to 'mx-10' to match the CARD_MARGIN_X = 40 (20px left, 20px right)
-                        className="flex-none w-[250px] mx-10" 
-                    >
-                        <div className="py-4 rounded-xl flex items-center justify-center w-full">
-                            <img src={path} alt={`Logo ${index}`} className="w-full mx-auto h-16 object-contain" />
-                        </div>
-                    </div>
-                ))}
+              <div className="flex w-full items-center justify-center rounded-xl py-4">
+                <img
+                  src={path}
+                  alt={`Logo ${index}`}
+                  className="mx-auto h-16 w-full object-contain"
+                />
+              </div>
             </div>
-        </section>
-    );
-};
+          ))}
+        </div>
+      </section>
+      <div className="linear-three absolute right-0 -top-10 z-10 h-50 w-40 rotate-180"></div>
+      <div className="linear-three absolute left-0 -top-10 z-10 h-50 w-40"></div>
+    </div>
+  )
+}
 
-export default Brands;
-
+export default Brands
 
 // import { useRef } from 'react';
 // import gsap from 'gsap';
@@ -114,7 +123,7 @@ export default Brands;
 
 //         // Calculate the distance: Total width of the original set of logos + all their gaps.
 //         const totalLogos = logos.length;
-        
+
 //         // Total distance to slide is the width of the original set including internal spacing.
 //         // (4 logos * 160px) + (4 spaces * 20px) = 640 + 80 = 720px
 //         const slideDistance = (totalLogos * LOGO_WIDTH) + (totalLogos * LOGO_GAP);
@@ -124,30 +133,29 @@ export default Brands;
 //         // We will use this to set the inner container width.
 //         const innerWidth = (doubledLogos.length * LOGO_WIDTH) + (doubledLogos.length * LOGO_GAP);
 
-
 //         // Set the actual animation
 //         gsap.to(marqueeElement, {
 //             x: `-${slideDistance}px`, // Slide left by the width of the original set
 //             duration: 15, // Time for one loop (adjust speed here)
 //             ease: "linear",
-//             repeat: -1, 
+//             repeat: -1,
 //             // Important for seamless: When the repeat happens, it instantly jumps back to x: 0
 //             // and the animation continues, creating the illusion of infinite scroll.
 //         });
 
-//     }, { scope: marqueeRef, dependencies: [logos.length] }); 
+//     }, { scope: marqueeRef, dependencies: [logos.length] });
 
 //     return (
 //         // OUTER CONTAINER: Handles overflow hiding
 //         // We remove 'justify-around' as it prevents linear sliding.
 //         <div className="overflow-x-hidden w-full p-6 lg:py-8 lg:px-16">
-//             <div 
+//             <div
 //                 ref={marqueeRef}
 //                 // INNER CONTAINER: Moves left
 //                 // Using flex-nowrap and setting the total calculated width is critical.
 //                 // Using 'gap-5' (20px) instead of 'space-x-5' for better calculation consistency.
-//                 className="flex flex-nowrap gap-5 items-center" 
-//                 style={{ width: `${innerWidth}px` }} 
+//                 className="flex flex-nowrap gap-5 items-center"
+//                 style={{ width: `${innerWidth}px` }}
 //             >
 //                 {/* Render the doubled list of logos */}
 //                 {doubledLogos.map((path, index) => (
@@ -161,9 +169,6 @@ export default Brands;
 // };
 
 // export default Brands;
-
-
-
 
 // const Brands = () => {
 //   const logos = [
