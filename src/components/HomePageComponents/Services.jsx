@@ -32,32 +32,60 @@ const Services = () => {
 
   const { contextSafe } = useGSAP()
 
+  // const handleHoverIn = contextSafe((e) => {
+  //   gsap.to(e.currentTarget, {
+  //     y: -40, // Moves up by 20 pixels
+  //     scale: 1.1,
+  //     duration: 0.3,
+  //     // ease: 'power2.out',
+  //     ease: 'back.out(1.7)',
+  //     // rotation: '-12deg',
+  //   })
+
+  //   e.currentTarget.classList.remove('glass', 'card-gradient')
+  //   e.currentTarget.classList.add('bg-hero-combo')
+  //   // console.log(e.currentTarget.classList)
+  // })
+
+  // const handleHoverOut = contextSafe((e) => {
+  //   gsap.to(e.currentTarget, {
+  //     y: 0, // Returns to original position
+  //     scale: 1,
+  //     duration: 0.3,
+  //     // ease: 'power2.inOut',
+  //     ease: 'back.out(1.7)',
+  //     // rotation: '-12deg',
+  //   })
+  //   e.currentTarget.classList.add('glass', 'card-gradient')
+  //   e.currentTarget.classList.remove('bg-hero-combo')
+  // })
+
   const handleHoverIn = contextSafe((e) => {
-    gsap.to(e.currentTarget, {
-      y: -40, // Moves up by 20 pixels
+    const inner = e.currentTarget.querySelector('.card-inner')
+
+    gsap.to(inner, {
+      y: -40,
       scale: 1.1,
-      duration: 0.3,
-      // ease: 'power2.out',
+      duration: 0.35,
       ease: 'back.out(1.7)',
-      // rotation: '-12deg',
     })
 
-    e.currentTarget.classList.remove('glass', 'card-gradient')
-    e.currentTarget.classList.add('bg-hero-combo')
-    console.log(e.currentTarget.classList)
+    inner.classList.remove('glass', 'card-gradient')
+    inner.classList.add('bg-hero-combo')
   })
 
   const handleHoverOut = contextSafe((e) => {
-    gsap.to(e.currentTarget, {
-      y: 0, // Returns to original position
+    const inner = e.currentTarget.querySelector('.card-inner')
+
+    gsap.to(inner, {
+      y: 0,
       scale: 1,
-      duration: 0.3,
-      // ease: 'power2.inOut',
-      ease: 'back.out(1.2)',
-      // rotation: '-12deg',
+      duration: 0.35,
+      ease: 'power3.out',
     })
-    e.currentTarget.classList.add('glass', 'card-gradient')
-    e.currentTarget.classList.remove('bg-hero-combo')
+
+    inner.classList.add('glass', 'card-gradient')
+    inner.classList.remove('bg-hero-combo')
   })
   return (
     <div className="relative flex w-full flex-col overflow-hidden py-10 lg:pt-20">
