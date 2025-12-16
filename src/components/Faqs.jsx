@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FaqsCard from './ui/FaqsCard'
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState([])
+
   const questions = [
     { question: 'What services do you offer?' },
     { question: 'What services do you offer?' },
@@ -10,6 +12,10 @@ const Faqs = () => {
     { question: 'What services do you offer?' },
     { question: 'What services do you offer?' },
   ]
+   useEffect(()=>{
+    const hovered = questions.map(item => 0);
+    setIsHovered(hovered);
+  },[])
   return (
     <div className="relative flex w-full flex-col overflow-hidden">
       <div className="absolute top-50 -right-100 h-[1006px] w-[730px] lg:top-30 lg:h-[1207px] lg:w-[876px] xl:top-10 xl:h-[1358px] xl:w-[985px] 2xl:-top-20 2xl:h-[1509px] 2xl:w-[1095px]">
@@ -36,10 +42,13 @@ const Faqs = () => {
             <FaqsCard
               isActive={activeIndex === index}
               key={index}
+              itemIndex={index}
               title={item.question}
               onClick={() =>
                 setActiveIndex(activeIndex === index ? null : index)
               }
+              isHovered={isHovered[index]}
+              setIsHovered={setIsHovered}
             />
           )
         })}

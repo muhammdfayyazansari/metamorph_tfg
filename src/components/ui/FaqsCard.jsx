@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
 export default function FaqsCard({
@@ -6,10 +6,16 @@ export default function FaqsCard({
   title,
   isActive = false,
   onClick,
+  isHovered,
+  setIsHovered,
+  itemIndex,
 }) {
   const contentRef = useRef(null)
   const targetHeightRef = useRef(null) // New ref to store the calculated height
 
+  // 2. Define the image sources
+  const defaultSrc = '/images/icons/chevron.svg'
+  const hoverSrc = '/images/icons/chev_up.svg'
   useEffect(() => {
     const contentElement = contentRef.current
     // 1. Set height to 'auto' to calculate the full height
@@ -46,7 +52,7 @@ export default function FaqsCard({
       // Use the current height (or the target height if stored) as the start value
       gsap.fromTo(
         contentElement,
-        { height: targetHeight, opacity: 1, },
+        { height: targetHeight, opacity: 1 },
         {
           height: 0,
           opacity: 0,
@@ -90,21 +96,46 @@ export default function FaqsCard({
         </button>
       </div> */}
 
-      <div className="gradient-border rotate-180 cursor-pointer rounded-[13.8px] p-px">
+      <div
+        onMouseEnter={() =>
+          setIsHovered((prev) => {
+            const arr = [...prev]
+            arr[itemIndex] = 1
+            return arr
+          })
+        }
+        onMouseLeave={() =>
+          setIsHovered((prev) => {
+            const arr = [...prev]
+            arr[itemIndex] = 0
+            return arr
+          })
+        }
+        className="gradient-border rotate-180 cursor-pointer rounded-[13.8px] p-px"
+      >
         <button
           onClick={onClick}
-          className={`cursor-pointer rounded-[13.8px] p-3 ${isActive ? 'bg-white rotate-180' : 'bg-hero-combo'}`}
+          className={`cursor-pointer rounded-[13.8px] p-3 ${isActive ? `rotate-180 ${isHovered ? 'bg-hero-combo' : 'bg-white'} ` : `${isHovered ? 'bg-white' : 'bg-hero-combo'}`}`}
         >
           {isActive ? (
             <img
-              className="h-4 w-7 object-contain"
-              src="/images/icons/chev_up.svg"
+              // className="h-4 w-7 object-contain"
+              className={`h-4 w-7 ${isHovered ? 'rotate-270' : ''}`}
+              src={
+                isHovered
+                  ? '/images/icons/chevron.svg'
+                  : `/images/icons/chev_up.svg`
+              }
               alt="chevron"
             />
           ) : (
             <img
-              className="h-4 w-7 rotate-270"
-              src="/images/icons/chevron.svg"
+              className={`h-4 w-7 ${isHovered ? '' : 'rotate-270'}`}
+              src={
+                isHovered
+                  ? `/images/icons/chev_up.svg`
+                  : '/images/icons/chevron.svg'
+              }
               alt="chevron"
             />
           )}
