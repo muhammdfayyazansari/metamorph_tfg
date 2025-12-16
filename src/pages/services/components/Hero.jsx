@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="absolute flex h-full w-full flex-col items-center justify-center pb-20 text-end">
         <div>
           <h1 className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
-            services
+            Services
           </h1>
         </div>
       </div>
@@ -44,7 +44,7 @@ const Hero = () => {
         </div>
         <div className="right-0 bottom-5 flex max-w-2/6 flex-col items-end justify-center gap-3">
           <button className="button-glass">Contact</button>
-          <button className="button-gradient">Have a Project</button>
+          <button className="button-gradient"><span>Have a Project</span></button>
         </div>
       </div>
     </div>

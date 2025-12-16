@@ -77,7 +77,7 @@ function Card({ bg, id }) {
     >
       {id === 1 && (
         <button className="button-gradient absolute z-10 mx-auto">
-          Case Study
+          <span>Case Study</span>
         </button>
       )}
       <img

@@ -3,13 +3,27 @@ import { forwardRef } from "react"
 const ServiceCard = forwardRef(
   ({ icon, title, extraClass = "", ...props }, ref) => {
     return (
-      <div
+      // <div
+      //   ref={ref}
+      //   {...props}
+      //   className={`-ml-3 w-70 cursor-pointer -rotate-1 rounded-2xl lg:w-52 ${extraClass}`}
+      // >
+      //   {/* INNER WRAPPER (animated) */}
+      //   <div className="card-inner flex -rotate-12 flex-col gap-10 rounded-2xl p-5 card-gradient">
+      //     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white">
+      //       <img src={icon} alt="" className="h-8 w-8" />
+      //     </div>
+
+      //     <h3 className="text-lg font-light text-white">{title}</h3>
+      //   </div>
+      // </div>
+        <div
         ref={ref}
         {...props}
-        className={`-ml-3 w-70 cursor-pointer -rotate-1 rounded-2xl lg:w-52 ${extraClass}`}
+        className={`-ml-3 w-75 cursor-pointer -rotate-12 rounded-2xl lg:w-57 ${extraClass}`}
       >
         {/* INNER WRAPPER (animated) */}
-        <div className="card-inner flex -rotate-12 flex-col gap-10 rounded-2xl p-5 card-gradient">
+        <div className="card-inner flex  flex-col gap-10 rounded-2xl p-5 card-gradient mr-1">
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white">
             <img src={icon} alt="" className="h-8 w-8" />
           </div>

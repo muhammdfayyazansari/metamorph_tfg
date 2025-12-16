@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     // <div className="flex min-h-screen w-full flex-col items-center justify-between gap-16 bg-[#0b0e13] px-6 py-20 text-white lg:flex-row lg:px-20">
-    <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-between gap-16 overflow-hidden px-6 pt-30 text-white pb-10 lg:flex-row lg:px-20">
+    <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-center gap-16 overflow-hidden px-6 pt-30 text-white pb-10 lg:flex-row lg:px-20">
       <div className="absolute -bottom-35 left-0 md:h-190 md:w-190">
         <img
           className="object-contain"
@@ -102,11 +102,8 @@ export default function Contact() {
           </div>
 
           {/* SUBMIT */}
-          <button
-            type="submit"
-            className="rounded-md button-gradient py-2 font-medium text-white transition hover:opacity-90"
-          >
-            Submit
+          <button class="button-gradient">
+            <span>Submit</span>
           </button>
         </form>
       </div>

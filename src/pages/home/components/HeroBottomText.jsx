@@ -10,7 +10,7 @@ const HeroBottomText = () => {
                 </p>
             </div>
             <div className="flex flex-row items-end justify-center gap-5">
-                <button className="button-gradient">Have a Project</button>
+                <button className="button-gradient"><span>Have a Project</span></button>
                 <button className="button-glass">Contact</button>
             </div>
         </div>

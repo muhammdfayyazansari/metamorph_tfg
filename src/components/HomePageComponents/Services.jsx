@@ -130,16 +130,19 @@ const Services = () => {
                 isActive={index === 2}
                 onMouseEnter={handleHoverIn}
                 onMouseLeave={handleHoverOut}
-                extraClass={
-                  servicesWithImgSrc.length - 1 === index ? `pb-5` : `pb-10`
-                }
+                // extraClass={
+                //   servicesWithImgSrc.length - 1 === index ? `pb-1` : `pb-1`
+                // }
+                extraClass={`pb-1`}
               />
             )
           })}
         </div>
 
         <div className="flex w-full items-center justify-center pt-10">
-          <button className="button-gradient">Have a Project</button>
+          <button class="button-gradient">
+            <span>Have a Project</span>
+          </button>
         </div>
       </div>
 

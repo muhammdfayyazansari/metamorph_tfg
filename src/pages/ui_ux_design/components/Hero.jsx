@@ -52,7 +52,7 @@ const Hero = () => {
         </div>
         <div className="right-0 bottom-5 flex max-w-2/6 flex-col items-end justify-center gap-3">
           <button className="button-glass">Contact</button>
-          <button className="button-gradient">Have a Project</button>
+          <button className="button-gradient"><span>Have a Project</span></button>
         </div>
       </div>
     </div>
