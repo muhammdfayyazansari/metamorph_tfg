@@ -11,7 +11,7 @@ import UiUx from './components/UiUx'
 import MotionGraphics from './components/OtherCaseStudies'
 import Animation from './components/Animation'
 import OtherCaseStudies from './components/OtherCaseStudies'
-
+import ScrollReveal from '../../components/animations/ScrollReveal'
 
 const CaseStudyPage = () => {
   return (
@@ -20,8 +20,12 @@ const CaseStudyPage = () => {
       {/* 
       <HeroBottomText /> */}
       {/* <Brands /> */}
-      <UiUx />
-      <OtherCaseStudies />
+      <ScrollReveal>
+        <UiUx />
+      </ScrollReveal>
+      <ScrollReveal>
+        <OtherCaseStudies />
+      </ScrollReveal>
 
       {/* <Animation /> */}
 
@@ -34,4 +38,4 @@ const CaseStudyPage = () => {
   )
 }
 
-export default CaseStudyPage;
+export default CaseStudyPage

@@ -74,8 +74,10 @@ const CardItem = ({ name, icon }) => (
   <div className="flex-none">
     {/* Use whitespace-nowrap here to ensure the text doesn't wrap */}
     <div className="bg-hero-combo flex items-center gap-3 rounded-full px-5 py-3 font-medium whitespace-nowrap capitalize">
+      {/* <div className="button-gradient flex items-center gap-3 rounded-full px-5 py-3 font-medium whitespace-nowrap capitalize"> */}
+
+      <span>{name}</span>
       <img src={icon} alt={`${name} icon`} className="h-5 w-5 object-contain" />
-      <p>{name}</p>
     </div>
   </div>
 )

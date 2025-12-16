@@ -10,27 +10,32 @@ import HeroBottomText from './components/HeroBottomText'
 import UiUx from './components/UiUx'
 import MotionGraphics from './components/MotionGraphics'
 import Animation from './components/Animation'
-
+import ScrollReveal from '../../components/animations/ScrollReveal'
 
 const MotionGraphicsPage = () => {
   return (
     <>
       <Hero />
-      <HeroBottomText />
+      <ScrollReveal>
+        <HeroBottomText />
+      </ScrollReveal>
       {/* <Brands /> */}
       {/* <Services /> */}
-      {/* <UiUx /> */}
-      <MotionGraphics />
+      <ScrollReveal>
+        {/* <UiUx /> */}
+        <MotionGraphics />
+      </ScrollReveal>
 
       {/* <Animation /> */}
 
       {/* <FeaturedProjects />
             <Technology />
             <People /> */}
-
-      <Faqs />
+      <ScrollReveal>
+        <Faqs />
+      </ScrollReveal>
     </>
   )
 }
 
-export default MotionGraphicsPage;
+export default MotionGraphicsPage

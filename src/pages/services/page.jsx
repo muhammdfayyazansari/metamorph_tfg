@@ -217,6 +217,7 @@ import HeroBottomText from './components/HeroBottomText'
 import UiUx from './components/UiUx'
 import MotionGraphics from './components/MotionGraphics'
 import Animation from './components/Animation'
+import ScrollReveal from '../../components/animations/ScrollReveal'
 
 // --- Section Data (Mapping content to nav) ---
 const sectionData = [
@@ -365,7 +366,9 @@ const ServicesPage = () => {
     // containerRef is still useful if you ever want to target the whole page with GSAP later
     <div ref={containerRef} className="min-h-screen">
       <Hero />
-      <HeroBottomText />
+      <ScrollReveal>
+        <HeroBottomText />
+      </ScrollReveal>
 
       {/* --- REVISED Fixed Navigation Bar (Transparent) --- */}
       <div
@@ -401,11 +404,7 @@ const ServicesPage = () => {
         {sectionData.map((section) => {
           const SectionComponent = section.component
           return (
-            <section
-              key={section.id}
-              id={section.id}
-              className="min-h-[80vh]"
-            >
+            <section key={section.id} id={section.id} className="min-h-[80vh]">
               <SectionComponent />
             </section>
           )

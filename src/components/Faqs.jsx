@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import FaqsCard from './ui/FaqsCard'
+import ScrollReveal from './animations/ScrollReveal'
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -55,33 +56,35 @@ const Faqs = () => {
         })}
       </div>
 
-      <div className="combo-gradient-opacity z-10 flex flex-col items-center gap-16 p-16 py-20 pt-48 capitalize">
-        <div className="capitalize">
-          <h2 className="-mb-5 pl-20 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-30 sm:text-[30px] md:-mb-10 md:pl-40 md:text-[40px] lg:-mb-13 lg:pl-50 lg:text-[55px]">
-            Enter the Next
-          </h2>
+      <ScrollReveal>
+        <div className="combo-gradient-opacity z-10 flex flex-col items-center gap-16 p-16 py-20 pt-48 capitalize">
+          <div className="capitalize">
+            <h2 className="-mb-5 pl-20 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-30 sm:text-[30px] md:-mb-10 md:pl-40 md:text-[40px] lg:-mb-13 lg:pl-50 lg:text-[55px]">
+              Enter the Next
+            </h2>
 
-          <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
-            Dimension
-          </h1>
-          <h2 className="-mt-2 text-end text-[20px] leading-none tracking-[-0.04em] sm:-mt-3 sm:text-[30px] md:-mt-5 md:text-[40px] lg:-mt-6 lg:text-[55px]">
-            of Design
-          </h2>
-        </div>
-        <div className="flex w-full justify-center">
-          <div
-            onMouseEnter={() => setIsButtonHovered((prev) => !prev)}
-            onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
-            className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-gradient-two` : `bg-white`}`}
-          >
-            <button
-              className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}
+            <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
+              Dimension
+            </h1>
+            <h2 className="-mt-2 text-end text-[20px] leading-none tracking-[-0.04em] sm:-mt-3 sm:text-[30px] md:-mt-5 md:text-[40px] lg:-mt-6 lg:text-[55px]">
+              of Design
+            </h2>
+          </div>
+          <div className="flex w-full justify-center">
+            <div
+              onMouseEnter={() => setIsButtonHovered((prev) => !prev)}
+              onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
+              className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-gradient-two` : `bg-white`}`}
             >
-              Let's Morph
-            </button>
+              <button
+                className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}
+              >
+                Let's Morph
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </div>
   )
 }

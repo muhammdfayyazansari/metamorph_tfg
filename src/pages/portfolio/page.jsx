@@ -10,6 +10,7 @@ import HeroBottomText from './components/HeroBottomText'
 import UiUx from './components/UiUx'
 import MotionGraphics from './components/MotionGraphics'
 import Animation from './components/Animation'
+import ScrollReveal from '../../components/animations/ScrollReveal'
 
 const items = [
   {
@@ -39,31 +40,42 @@ const PortfolioPage = () => {
       <Hero />
 
       {/* scrolling images */}
-      <div className="z-20 flex w-full gap-5 hide-scrollbar items-center justify-between overflow-x-scroll p-6 lg:px-16 pt-20">
+      <div className="hide-scrollbar z-20 flex w-full items-center justify-between gap-5 overflow-x-scroll p-6 pt-20 lg:px-16">
         {items.map((item, index) => (
           <div
             key={item.bg_scr + index}
-            className={`min-w-50 w-50 ${index === 2 ? '' : 'opacity-40'}`}
+            className={`w-50 min-w-50 ${index === 2 ? '' : 'opacity-40'}`}
           >
             <Card id={item.id} bg={item.bg_scr} />
           </div>
         ))}
       </div>
-
-      <HeroBottomText />
+      <ScrollReveal>
+        <HeroBottomText />
+      </ScrollReveal>
 
       {/* <Brands /> */}
-      <Services />
-      <UiUx />
-      <MotionGraphics />
+      <ScrollReveal>
+        <Services />
+      </ScrollReveal>
+      <ScrollReveal>
+        <UiUx />
+      </ScrollReveal>
+      <ScrollReveal>
+        <MotionGraphics />
+      </ScrollReveal>
 
-      <Animation />
+      <ScrollReveal>
+        <Animation />
+      </ScrollReveal>
 
       {/* <FeaturedProjects />
             <Technology />
             <People /> */}
 
-      <Faqs />
+      <ScrollReveal>
+        <Faqs />
+      </ScrollReveal>
     </>
   )
 }
@@ -73,7 +85,7 @@ export default PortfolioPage
 function Card({ bg, id }) {
   return (
     <div
-      className={`glass card-gradient h-full w-full flex items-center justify-center rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
+      className={`glass card-gradient flex h-full w-full items-center justify-center rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
     >
       <img
         className="h-full w-full object-cover"

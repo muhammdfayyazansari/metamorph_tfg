@@ -10,15 +10,19 @@ import HeroBottomText from './components/HeroBottomText'
 import UiUx from './components/UiUx'
 import MotionGraphics from './components/MotionGraphics'
 import Animation from './components/Animation'
-
+import ScrollReveal from '../../components/animations/ScrollReveal'
 
 const DigitalMarketingPage = () => {
   return (
     <>
       <Hero />
-      <HeroBottomText />
+      <ScrollReveal>
+        <HeroBottomText />
+      </ScrollReveal>
       {/* <Brands /> */}
-      <Services />
+      <ScrollReveal>
+        <Services />
+      </ScrollReveal>
       {/* <UiUx /> */}
       {/* <MotionGraphics /> */}
 
@@ -27,10 +31,11 @@ const DigitalMarketingPage = () => {
       {/* <FeaturedProjects />
             <Technology />
             <People /> */}
-
-      <Faqs />
+      <ScrollReveal>
+        <Faqs />
+      </ScrollReveal>
     </>
   )
 }
 
-export default DigitalMarketingPage;
+export default DigitalMarketingPage

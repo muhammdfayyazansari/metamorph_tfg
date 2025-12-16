@@ -59,7 +59,7 @@ const UiUx = () => {
         <img className="h-full object-contain" src="/images/ellipse.webp" />
       </div>
       <div className="flex w-full flex-col items-center gap-10 pt-10">
-        <div className="capitalize">
+        <div className="capitalize z-10">
           <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
             UI/UX
           </h1>
