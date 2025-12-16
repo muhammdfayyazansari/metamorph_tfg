@@ -33,10 +33,6 @@ const Services = () => {
 
         <Gallery />
 
-        {/* <div className="flex w-full items-center justify-center">
-          <button className="button-gradient">View more</button>
-        </div> */}
-
         <div className="flex w-full justify-center gap-3">
           <button className="bg-hero-combo rotate-180 rounded-xl p-3">
             <img

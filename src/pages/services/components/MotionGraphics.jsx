@@ -52,7 +52,7 @@ const MotionGraphics = () => {
             to="/motion-graphics"
             className="button-gradient z-20 cursor-pointer"
           >
-            View more
+            <span>View more</span>
           </Link>
         </div>
       </div>

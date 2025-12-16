@@ -6,7 +6,7 @@ import Gallery from './Gallery'
 const Services = () => {
   return (
     // <div className="relative mt-[calc(-100vh)] flex w-full flex-col py-10 lg:pt-20">
-     <div className="relative flex w-full flex-col py-10 lg:pt-20">
+    <div className="relative flex w-full flex-col py-10 lg:pt-20">
       <div className="absolute top-0 -left-80 md:h-190 md:w-190">
         <img className="object-contain" src="/images/service_bg.webp" />
       </div>
@@ -25,10 +25,9 @@ const Services = () => {
         <div className="flex w-full items-center justify-center">
           <Link
             to="/logo-and-branding"
-            className="button-gradient cursor-pointer z-20"
+            className="button-gradient z-20 cursor-pointer"
           >
-
-              View more 
+            <span>View more</span>
           </Link>
         </div>
       </div>

@@ -80,7 +80,7 @@ const MotionGraphics = () => {
         </div>
 
         <div className="flex w-full items-center justify-center">
-          <button className="button-gradient">View more</button>
+          <button className="button-gradient"><span>View more</span></button>
         </div>
       </div>
     </div>

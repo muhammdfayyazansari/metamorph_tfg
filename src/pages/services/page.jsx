@@ -373,7 +373,7 @@ const ServicesPage = () => {
         className="fixed top-1/2 right-4 z-50 hidden -translate-y-1/2 rounded-2xl bg-transparent p-2 shadow-xl md:block"
       >
         {/* Changed from 'bg-black/50' to 'glass card-gradient' for transparency/subtle effect */}
-        <div className="glass card-gradient flex flex-col items-center justify-around gap-6 rounded-xl px-3 py-5">
+        <div className="glass card-gradient flex flex-col items-center justify-around space-y-15 rounded-xl p-3">
           {sectionData.map((item) => (
             <div
               key={item.id}
@@ -383,9 +383,9 @@ const ServicesPage = () => {
               title={item.title}
             >
               {/* The div below handles the background highlight for the active state */}
-              <div className="is-active:bg-white/80 rounded-lg bg-transparent p-3 transition-all duration-500">
+              <div className="is-active:bg-white/80 rounded-lg bg-transparent p-2 transition-all duration-500">
                 <img
-                  className="h-5 w-5 object-contain"
+                  className="h-8 w-8 object-contain"
                   src={'/images/icons/' + item['icon_src'] + '.svg'}
                   alt={item['title']}
                 />
