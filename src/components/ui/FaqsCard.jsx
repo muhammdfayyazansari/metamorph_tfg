@@ -93,7 +93,7 @@ export default function FaqsCard({
       <div className="gradient-border rotate-180 cursor-pointer rounded-[13.8px] p-px">
         <button
           onClick={onClick}
-          className={`cursor-pointer rounded-[13.8px] p-3 ${isActive ? 'bg-white' : 'bg-hero-combo rotate-180'}`}
+          className={`cursor-pointer rounded-[13.8px] p-3 ${isActive ? 'bg-white rotate-180' : 'bg-hero-combo'}`}
         >
           {isActive ? (
             <img
