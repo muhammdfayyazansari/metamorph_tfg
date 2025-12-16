@@ -29,7 +29,7 @@ export default function Contact() {
         />
       </div>
 
-      <Toaster position="top-right" />
+      <Toaster position="top-center" />
 
       {/* LEFT SIDE */}
       <div className="z-10 w-full space-y-8 lg:w-1/2">
@@ -85,7 +85,7 @@ export default function Contact() {
               ${values.message}`
             )
 
-            // toast.success('Opening email client…')
+            toast.success('Opening email sending app...')
             // window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
             window.location.href = `mailto:to=Muhammad-Bilal300@gmail.com?subject=${subject}&body=${body}`
             resetForm()
