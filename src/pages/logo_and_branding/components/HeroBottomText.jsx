@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const HeroBottomText = () => {
     return (
         <div className="flex w-full flex-col justify-between space-y-4 p-6 md:hidden lg:px-16 lg:py-8">
@@ -11,7 +13,7 @@ const HeroBottomText = () => {
             </div>
             <div className="flex flex-row items-end justify-center gap-5">
                 <button className="button-gradient"><span>Have a Project</span></button>
-                <button className="button-glass">Contact</button>
+                <Link to={`/contact`} className="button-glass">Contact</Link>
             </div>
         </div>
     )

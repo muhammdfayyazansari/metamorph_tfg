@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { Link } from 'react-router-dom'
 
 // Registering the plugin is a good practice, though not strictly needed for this basic animation
 gsap.registerPlugin(useGSAP)
@@ -119,7 +120,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="right-0 bottom-0 flex max-w-2/6 flex-col items-end justify-center gap-3">
-          <button className="button-glass">Contact</button>
+          <Link to={`/contact`} className="button-glass">Contact</Link>
           {/* <button className="button-gradient"><span>Have a Project</span></button> */}
           <button class="button-gradient">
             <span>Have a Project</span>

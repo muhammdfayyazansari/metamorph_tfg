@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Toaster, toast } from 'react-hot-toast'
 import * as Yup from 'yup'
+import ScrollReveal from '../components/animations/ScrollReveal'
 
 const contactSchema = Yup.object({
   firstName: Yup.string()
@@ -20,193 +21,201 @@ const contactSchema = Yup.object({
 
 export default function Contact() {
   return (
-    // <div className="flex min-h-screen w-full flex-col items-center justify-between gap-16 bg-[#0b0e13] px-6 py-20 text-white lg:flex-row lg:px-20">
-    <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-center gap-16 overflow-hidden px-6 pt-30 pb-10 text-white lg:flex-row lg:px-20">
-      <div className="absolute -bottom-35 left-0 md:h-190 md:w-190">
-        <img
-          className="object-contain"
-          src="/images/bg_images/technology_bg_2.png"
-        />
-      </div>
+    <ScrollReveal>
+      {/* <div className="flex min-h-screen w-full flex-col items-center justify-between gap-16 bg-[#0b0e13] px-6 py-20 text-white lg:flex-row lg:px-20"> */}
+      <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-center gap-16 overflow-hidden px-6 pt-30 pb-10 text-white lg:flex-row lg:px-20">
+        <div className="absolute -bottom-35 left-0 md:h-190 md:w-190">
+          <img
+            className="object-contain"
+            src="/images/bg_images/technology_bg_2.png"
+          />
+        </div>
 
-      <Toaster position="top-center" />
+        <Toaster position="top-center" />
 
-      {/* LEFT SIDE */}
-      <div className="z-10 w-full space-y-8 lg:w-1/2">
-        <h1 className="text-5xl font-semibold tracking-tight lg:text-9xl">
-          Contact
-        </h1>
+        {/* LEFT SIDE */}
+        <div className="z-10 w-full space-y-8 lg:w-1/2">
+          <h1 className="text-5xl font-semibold tracking-tight lg:text-9xl">
+            Contact
+          </h1>
 
-        <div className="space-y-5 text-lg">
-          <div className="flex items-end gap-3">
-            <span className="rounded-lg bg-white p-2 text-xl">
-              <img
-                className={`h-4 w-4 object-contain`}
-                src="/images/icons/envelop.svg"
-              />
-            </span>
-            <span>support@metamorph.design</span>
-          </div>
+          <div className="space-y-5 text-lg">
+            <div className="flex items-end gap-3">
+              <span className="rounded-lg bg-white p-2 text-xl">
+                <img
+                  className={`h-4 w-4 object-contain`}
+                  src="/images/icons/envelop.svg"
+                />
+              </span>
+              <span>support@metamorph.design</span>
+            </div>
 
-          <div className="flex items-end gap-3">
-            <span className="rounded-lg bg-white p-2 text-xl">
-              <img
-                className={`h-4 w-4 object-contain`}
-                src="/images/icons/gfx_bot.svg"
-              />
-            </span>
-            <span>@MetamorphGFX_Bot</span>
-          </div>
+            <div className="flex items-end gap-3">
+              <span className="rounded-lg bg-white p-2 text-xl">
+                <img
+                  className={`h-4 w-4 object-contain`}
+                  src="/images/icons/gfx_bot.svg"
+                />
+              </span>
+              <span>@MetamorphGFX_Bot</span>
+            </div>
 
-          <div className="flex items-end gap-3">
-            <span className="rounded-lg bg-white p-2 text-xl">
-              <img
-                className={`h-4 w-4 object-contain`}
-                src="/images/icons/domain.svg"
-              />
-            </span>
-            <span>www.metamorph.design</span>
+            <div className="flex items-end gap-3">
+              <span className="rounded-lg bg-white p-2 text-xl">
+                <img
+                  className={`h-4 w-4 object-contain`}
+                  src="/images/icons/domain.svg"
+                />
+              </span>
+              <span>www.metamorph.design</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* RIGHT SIDE FORM */}
-      {/* <div className="w-full rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]"> */}
-      <div className="glass card-gradient z-10 w-full rounded-2xl p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]">
-        <Formik
-          initialValues={{
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            message: '',
-          }}
-          validationSchema={contactSchema}
-          onSubmit={(values, { resetForm }) => {
-            const subject = encodeURIComponent('New Contact Message')
-            const body = encodeURIComponent(
-              `First Name: ${values.firstName}
+        {/* RIGHT SIDE FORM */}
+        {/* <div className="w-full rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]"> */}
+        <div className="glass card-gradient z-10 w-full rounded-2xl p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]">
+          <Formik
+            initialValues={{
+              firstName: '',
+              lastName: '',
+              email: '',
+              phone: '',
+              message: '',
+            }}
+            validationSchema={contactSchema}
+            onSubmit={(values, { resetForm }) => {
+              const subject = encodeURIComponent('New Contact Message')
+              const body = encodeURIComponent(
+                `First Name: ${values.firstName}
               Last Name: ${values.lastName}
               Email: ${values.email}
               Phone: ${values.phone}
 
               Message:
               ${values.message}`
-            )
+              )
 
-            toast.success('Opening email sending app...')
-            // window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
-            window.location.href = `mailto:to=Muhammad-Bilal300@gmail.com?subject=${subject}&body=${body}`
-            resetForm()
-          }}
-        >
-          <Form className="space-y-4">
-            {/* FIRST + LAST NAME */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              toast.success('Opening email sending app...')
+              // window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
+              window.location.href = `mailto:to=Muhammad-Bilal300@gmail.com?subject=${subject}&body=${body}`
+              resetForm()
+            }}
+          >
+            <Form className="space-y-4">
+              {/* FIRST + LAST NAME */}
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="text-sm">First name</label>
+                  <Field
+                    name="firstName"
+                    placeholder="First name"
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(
+                        /[^A-Za-z\s]/g,
+                        ''
+                      )
+                    }}
+                    className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                  />
+                  <ErrorMessage
+                    name="firstName"
+                    component="p"
+                    className="mt-1 text-xs text-red-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm">Last name</label>
+                  <Field
+                    name="lastName"
+                    placeholder="Last name"
+                    className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(
+                        /[^A-Za-z\s]/g,
+                        ''
+                      )
+                    }}
+                  />
+                  <ErrorMessage
+                    name="lastName"
+                    component="p"
+                    className="mt-1 text-xs text-red-400"
+                  />
+                </div>
+              </div>
+
+              {/* EMAIL */}
               <div>
-                <label className="text-sm">First name</label>
+                <label className="text-sm">Email</label>
                 <Field
-                  name="firstName"
-                  placeholder="First name"
-                  onInput={(e) => {
-                    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')
-                  }}
+                  type="email"
+                  name="email"
+                  placeholder="you@company.com"
                   className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
                 />
                 <ErrorMessage
-                  name="firstName"
+                  name="email"
                   component="p"
                   className="mt-1 text-xs text-red-400"
                 />
               </div>
 
+              {/* PHONE NUMBER */}
               <div>
-                <label className="text-sm">Last name</label>
+                <label className="text-sm">Phone number</label>
                 <Field
-                  name="lastName"
-                  placeholder="Last name"
+                  name="phone"
+                  placeholder="+92001234567"
                   className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
                   onInput={(e) => {
-                    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')
+                    let value = e.target.value
+
+                    // If starts with +, keep it and allow only digits after
+                    if (value.startsWith('+')) {
+                      value = '+' + value.slice(1).replace(/[^0-9]/g, '')
+                    } else {
+                      // Otherwise, only allow digits
+                      value = value.replace(/[^0-9]/g, '')
+                    }
+
+                    e.target.value = value
                   }}
                 />
                 <ErrorMessage
-                  name="lastName"
+                  name="phone"
                   component="p"
                   className="mt-1 text-xs text-red-400"
                 />
               </div>
-            </div>
 
-            {/* EMAIL */}
-            <div>
-              <label className="text-sm">Email</label>
-              <Field
-                type="email"
-                name="email"
-                placeholder="you@company.com"
-                className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-              />
-              <ErrorMessage
-                name="email"
-                component="p"
-                className="mt-1 text-xs text-red-400"
-              />
-            </div>
+              {/* MESSAGE */}
+              <div>
+                <label className="text-sm">Message</label>
+                <Field
+                  as="textarea"
+                  rows={4}
+                  name="message"
+                  placeholder="Leave us a message..."
+                  className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                />
+                <ErrorMessage
+                  name="message"
+                  component="p"
+                  className="mt-1 text-xs text-red-400"
+                />
+              </div>
 
-            {/* PHONE NUMBER */}
-            <div>
-              <label className="text-sm">Phone number</label>
-              <Field
-                name="phone"
-                placeholder="+92001234567"
-                className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                onInput={(e) => {
-                  let value = e.target.value
-
-                  // If starts with +, keep it and allow only digits after
-                  if (value.startsWith('+')) {
-                    value = '+' + value.slice(1).replace(/[^0-9]/g, '')
-                  } else {
-                    // Otherwise, only allow digits
-                    value = value.replace(/[^0-9]/g, '')
-                  }
-
-                  e.target.value = value
-                }}
-              />
-              <ErrorMessage
-                name="phone"
-                component="p"
-                className="mt-1 text-xs text-red-400"
-              />
-            </div>
-
-            {/* MESSAGE */}
-            <div>
-              <label className="text-sm">Message</label>
-              <Field
-                as="textarea"
-                rows={4}
-                name="message"
-                placeholder="Leave us a message..."
-                className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-              />
-              <ErrorMessage
-                name="message"
-                component="p"
-                className="mt-1 text-xs text-red-400"
-              />
-            </div>
-
-            {/* SUBMIT */}
-            <button type="submit" className="button-gradient">
-              <span>Submit</span>
-            </button>
-          </Form>
-        </Formik>
+              {/* SUBMIT */}
+              <button type="submit" className="button-gradient">
+                <span>Submit</span>
+              </button>
+            </Form>
+          </Formik>
+        </div>
       </div>
-    </div>
+    </ScrollReveal>
   )
 }
 
