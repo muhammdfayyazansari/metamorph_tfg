@@ -1,3 +1,5 @@
+import ChevronButtons from '../../../components/ChevronButtons'
+
 const items = [
   {
     id: 4,
@@ -79,22 +81,7 @@ const MotionGraphics = () => {
           </div>
         </div>
 
-        <div className="flex w-full justify-center gap-3">
-          <button className="bg-hero-combo rotate-180 rounded-xl p-3">
-            <img
-              className="h-4 w-5"
-              src="/images/icons/chevron.svg"
-              alt="chevron"
-            />
-          </button>
-          <button className="bg-hero-combo rounded-xl p-3">
-            <img
-              className="h-4 w-5"
-              src="/images/icons/chevron.svg"
-              alt="chevron"
-            />
-          </button>
-        </div>
+        <ChevronButtons />
       </div>
     </div>
   )

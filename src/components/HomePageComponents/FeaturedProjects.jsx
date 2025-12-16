@@ -21,11 +21,11 @@ const FeaturedProjects = () => {
   const [currentIndex, setCurrentIndex] = useState(1)
 
   // 1. Create state to track the hover status
-  const [isHovered, setIsHovered] = useState({left:false, right:false});
+  const [isHovered, setIsHovered] = useState({ left: false, right: false })
 
   // 2. Define the image sources
-  const defaultSrc = '/images/icons/chevron.svg';
-  const hoverSrc = '/images/icons/chev_up.svg';
+  const defaultSrc = '/images/icons/chevron.svg'
+  const hoverSrc = '/images/icons/chev_up.svg'
 
   // Calculate next and previous index with looping
   const nextIndex = (currentIndex + 1) % images.length
@@ -209,11 +209,11 @@ const FeaturedProjects = () => {
               Landing page
             </h3>
             <Link
-              to={'case-study'}
+              to={'/case-study'}
               className="button-gradient-sky gradient-border cursor-pointer rounded-[13.8px] p-px"
             >
-              <button className="bg-hero-combo cursor-pointer rounded-[13.8px] p-3">
-                case study
+              <button className="button-gradient cursor-pointer rounded-[13.8px] p-3">
+                <span>Case study</span>
               </button>
             </Link>
           </div>
@@ -237,8 +237,12 @@ const FeaturedProjects = () => {
 
             <div
               // 3. Attach event handlers to update state
-              onMouseEnter={() => setIsHovered(prev => ({...prev, left:!prev['left'] }))}
-              onMouseLeave={() => setIsHovered(prev => ({...prev, left:!prev['left'] }))}
+              onMouseEnter={() =>
+                setIsHovered((prev) => ({ ...prev, left: !prev['left'] }))
+              }
+              onMouseLeave={() =>
+                setIsHovered((prev) => ({ ...prev, left: !prev['left'] }))
+              }
               className="gradient-border rotate-180 cursor-pointer rounded-2xl p-0.5"
             >
               <div className="cursor-pointer rounded-2xl">
@@ -247,10 +251,10 @@ const FeaturedProjects = () => {
                   // 4. Conditionally set the background class based on state
                   className={` ${
                     isHovered['left'] ? 'bg-white' : 'bg-hero-combo'
-                  }  cursor-pointer rounded-2xl p-3 `}
+                  } cursor-pointer rounded-2xl p-3`}
                 >
                   <img
-                    className={`h-4 w-5  ${
+                    className={`h-4 w-5 ${
                       isHovered['left'] ? 'rotate-90' : ''
                     }`}
                     // 5. Conditionally set the src based on state
@@ -261,10 +265,14 @@ const FeaturedProjects = () => {
               </div>
             </div>
 
-              <div
+            <div
               // 3. Attach event handlers to update state
-              onMouseEnter={() => setIsHovered(prev => ({...prev, right:!prev['right'] }))}
-              onMouseLeave={() => setIsHovered(prev => ({...prev, right:!prev['right'] }))}
+              onMouseEnter={() =>
+                setIsHovered((prev) => ({ ...prev, right: !prev['right'] }))
+              }
+              onMouseLeave={() =>
+                setIsHovered((prev) => ({ ...prev, right: !prev['right'] }))
+              }
               className="gradient-border cursor-pointer rounded-2xl p-0.5"
             >
               <div className="cursor-pointer rounded-2xl">
@@ -273,10 +281,10 @@ const FeaturedProjects = () => {
                   // 4. Conditionally set the background class based on state
                   className={` ${
                     isHovered['right'] ? 'bg-white' : 'bg-hero-combo'
-                  }  cursor-pointer rounded-2xl p-3 `}
+                  } cursor-pointer rounded-2xl p-3`}
                 >
                   <img
-                    className={`h-4 w-5  ${
+                    className={`h-4 w-5 ${
                       isHovered['right'] ? 'rotate-90' : ''
                     }`}
                     // 5. Conditionally set the src based on state
@@ -286,7 +294,6 @@ const FeaturedProjects = () => {
                 </button>
               </div>
             </div>
-
 
             {/* Next Button (Right Chevron) - Hooked up */}
             {/* <div className="gradient-border cursor-pointer rounded-2xl p-0.5">
@@ -303,8 +310,6 @@ const FeaturedProjects = () => {
                 </button>
               </div>
             </div> */}
-
-           
           </div>
         </div>
       </div>

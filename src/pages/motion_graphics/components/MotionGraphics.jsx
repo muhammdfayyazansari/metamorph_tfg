@@ -1,3 +1,5 @@
+import ChevronButtons from "../../../components/ChevronButtons"
+
 const items = [
   {
     id: 4,
@@ -48,7 +50,7 @@ const MotionGraphics = () => {
       </div>
 
       <div className="flex w-full flex-col items-center gap-10 pt-10">
-        <div className="capitalize z-10">
+        <div className="z-10 capitalize">
           <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">
             Motion
           </h1>
@@ -79,9 +81,7 @@ const MotionGraphics = () => {
           </div>
         </div>
 
-        <div className="flex w-full items-center justify-center">
-          <button className="button-gradient"><span>View more</span></button>
-        </div>
+        <ChevronButtons />
       </div>
     </div>
   )
