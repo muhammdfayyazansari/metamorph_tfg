@@ -81,7 +81,7 @@ export default function FaqsCard({
           // If isActive is false on mount, height: 0 is needed.
           style={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
         >
-          <p className="font-light text-white/70">
+          <p className="font-light text-white/70 break-all">
             We provide branding, web and UI/UX design, social media content, and
             custom creative solutions for digital and print.
           </p>
@@ -120,7 +120,7 @@ export default function FaqsCard({
           {isActive ? (
             <img
               // className="h-4 w-7 object-contain"
-              className={`h-4 w-7 ${isHovered ? 'rotate-270' : ''}`}
+              className={`h-4 w-7 min-w-4 ${isHovered ? 'rotate-270' : ''}`}
               src={
                 isHovered
                   ? '/images/icons/chevron.svg'
@@ -130,7 +130,7 @@ export default function FaqsCard({
             />
           ) : (
             <img
-              className={`h-4 w-7 ${isHovered ? '' : 'rotate-270'}`}
+              className={`h-4 w-7 min-w-4 ${isHovered ? '' : 'rotate-270'}`}
               src={
                 isHovered
                   ? `/images/icons/chev_up.svg`
