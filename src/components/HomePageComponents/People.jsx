@@ -1,9 +1,11 @@
 import PeopleCard from '../ui/PeopleCard'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 const People = () => {
   const containerRef = useRef(null)
   const RevContainerRef = useRef(null)
+
+  const [isAutoPlay, setIsAutoPlay] = useState(true)
 
   // 1. Create state to track the hover status
   const [isHovered, setIsHovered] = useState({ left: false, right: false })
@@ -105,6 +107,26 @@ const People = () => {
       },
     })
   }
+  // Auto-play effect
+  useEffect(() => {
+    if (!isAutoPlay) return
+
+    const interval = setInterval(() => {
+      handleNext()
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlay, activeIndex, peopleWithImgSrc.length])
+  // Pause auto-play when user manually navigates
+const handleManualNext = () => {
+  setIsAutoPlay(false);
+  handleNext();
+  
+  // Resume auto-play after 10 seconds
+  setTimeout(() => {
+    setIsAutoPlay(true);
+  }, 10000); // 10000ms = 10 seconds
+}
 
   return (
     <div className="flex flex-col gap-10 overflow-hidden p-6 lg:px-16 lg:py-8">
@@ -229,7 +251,8 @@ const People = () => {
         >
           <div className="cursor-pointer rounded-2xl">
             <button
-              onClick={handleNext} // Hooked to state update
+              // onClick={handleNext} // Hooked to state update
+              onClick={handleManualNext} // Hooked to state update
               // 4. Conditionally set the background class based on state
               className={` ${
                 isHovered['right'] ? 'bg-white' : 'bg-hero-combo'
