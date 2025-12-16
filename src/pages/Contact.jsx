@@ -39,22 +39,31 @@ export default function Contact() {
 
         <div className="space-y-5 text-lg">
           <div className="flex items-end gap-3">
-            <span className="text-xl bg-white p-2 rounded-lg">
-              <img className={`object-contain w-4 h-4`} src="/images/icons/envelop.svg" />
+            <span className="rounded-lg bg-white p-2 text-xl">
+              <img
+                className={`h-4 w-4 object-contain`}
+                src="/images/icons/envelop.svg"
+              />
             </span>
             <span>support@metamorph.design</span>
           </div>
 
           <div className="flex items-end gap-3">
-            <span className="text-xl bg-white p-2 rounded-lg">
-              <img className={`object-contain w-4 h-4`} src="/images/icons/gfx_bot.svg" />
+            <span className="rounded-lg bg-white p-2 text-xl">
+              <img
+                className={`h-4 w-4 object-contain`}
+                src="/images/icons/gfx_bot.svg"
+              />
             </span>
             <span>@MetamorphGFX_Bot</span>
           </div>
 
           <div className="flex items-end gap-3">
-              <span className="text-xl bg-white p-2 rounded-lg">
-              <img className={`object-contain w-4 h-4`} src="/images/icons/domain.svg" />
+            <span className="rounded-lg bg-white p-2 text-xl">
+              <img
+                className={`h-4 w-4 object-contain`}
+                src="/images/icons/domain.svg"
+              />
             </span>
             <span>www.metamorph.design</span>
           </div>
@@ -99,6 +108,9 @@ export default function Contact() {
                 <Field
                   name="firstName"
                   placeholder="First name"
+                  onInput={(e) => {
+                    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')
+                  }}
                   className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
                 />
                 <ErrorMessage
@@ -114,6 +126,9 @@ export default function Contact() {
                   name="lastName"
                   placeholder="Last name"
                   className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                  onInput={(e) => {
+                    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')
+                  }}
                 />
                 <ErrorMessage
                   name="lastName"
@@ -144,8 +159,21 @@ export default function Contact() {
               <label className="text-sm">Phone number</label>
               <Field
                 name="phone"
-                placeholder="0300 1234567"
+                placeholder="+92001234567"
                 className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                onInput={(e) => {
+                  let value = e.target.value
+
+                  // If starts with +, keep it and allow only digits after
+                  if (value.startsWith('+')) {
+                    value = '+' + value.slice(1).replace(/[^0-9]/g, '')
+                  } else {
+                    // Otherwise, only allow digits
+                    value = value.replace(/[^0-9]/g, '')
+                  }
+
+                  e.target.value = value
+                }}
               />
               <ErrorMessage
                 name="phone"
