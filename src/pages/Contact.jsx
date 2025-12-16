@@ -98,7 +98,7 @@ export default function Contact() {
 
               toast.success('Opening email sending app...')
               // window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
-              window.location.href = `mailto:to=Muhammad-Bilal300@gmail.com?subject=${subject}&body=${body}`
+              window.location.href = `mailto:to=muhammadfayyaz3278@gmail.com?subject=${subject}&body=${body}`
               resetForm()
             }}
           >
