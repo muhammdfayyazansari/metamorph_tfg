@@ -262,9 +262,24 @@ body {
     transition: all 0.5s ease;
   }
   .button-gradient-prev:hover {
+    background-color: #ffffff;
     box-shadow: -50px 0 32px 0 rgba(200, 13, 140, 0.25);
     /* box-shadow: -40px 0 20px 0 rgba(200, 13, 140, 0.5); */
     /* transform: translateY(-2px); */
+  }
+
+  .button-gradient-prev:hover span {
+    background:
+      radial-gradient(
+        82.81% 126.85% at 49.95% 120.62%,
+        #f2d25e 0%,
+        rgba(242, 210, 94, 0) 100%
+      ),
+      linear-gradient(84deg, #7d4ae2 0.23%, #701d38 93.42%);
+    background-blend-mode: overlay, normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .button-gradient {
@@ -309,7 +324,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
   .button-gradient-sky {
     box-shadow: -2px 0 10px 0 rgba(81, 209, 244, 0.35);
     transition: all 0.3s ease;
@@ -508,6 +522,69 @@ body {
   /* For Chrome, Safari, and Opera */
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .bg-gradient-two {
+    /* border: 1.5px solid rgba(255, 255, 255, 0.00); */
+    background:
+      radial-gradient(
+        82.81% 126.85% at 49.95% 120.62%,
+        #f2d25e 0%,
+        rgba(242, 210, 94, 0) 100%
+      ),
+      linear-gradient(
+        84deg,
+        rgba(125, 74, 226, 0.7) 0.23%,
+        rgba(112, 29, 56, 0.7) 93.42%
+      );
+    background-blend-mode: overlay, normal;
+  }
+  .text-clip-two {
+    background: linear-gradient(93deg, #51d1f4 -27.2%, #d30a8c 77.56%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-faded {
+    /* background: linear-gradient(93deg, #51d1f4 -1%, #d30a8c 20.56%, transparent 80%); */
+    /* background: linear-gradient(93deg, #732863 -10%, transparent 50%); */
+    background: radial-gradient(ellipse at left, #732863 -20%, transparent 70%);
+
+    /* background:
+      radial-gradient(ellipse at top, #e66465, transparent),
+      radial-gradient(ellipse at bottom, #4d9f0c, transparent); */
+    /* background-blend-mode: overlay, normal; */
+  }
+
+  .react-tel-input .form-control {
+    position: relative;
+    backdrop-filter: blur(18px) !important;
+    background: color-mix(
+      in oklch,
+      var(--color-background) 40%,
+      transparent
+    ) !important;
+    border: 1px solid color-mix(in oklch, white 10%, transparent) !important;
+
+    background: radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 70%
+    ) !important;
+  }
+
+  .react-tel-input .selected-flag {
+    position: absolute;
+    top: 0 !important;
+    right: 0px !important;
+    backdrop-filter: blur(18px) !important;
+
+    /* border: 1px solid color-mix(in oklch, white 10%, transparent) !important; */
+    border: 0px !important;
+    outline: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 }
 

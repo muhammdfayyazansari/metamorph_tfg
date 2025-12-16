@@ -4,6 +4,7 @@ import FaqsCard from './ui/FaqsCard'
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isHovered, setIsHovered] = useState([])
+  const [isButtonHovered, setIsButtonHovered] = useState(false)
 
   const questions = [
     { question: 'What services do you offer?' },
@@ -12,10 +13,10 @@ const Faqs = () => {
     { question: 'What services do you offer?' },
     { question: 'What services do you offer?' },
   ]
-   useEffect(()=>{
-    const hovered = questions.map(item => 0);
-    setIsHovered(hovered);
-  },[])
+  useEffect(() => {
+    const hovered = questions.map((item) => 0)
+    setIsHovered(hovered)
+  }, [])
   return (
     <div className="relative flex w-full flex-col overflow-hidden">
       <div className="absolute top-50 -right-100 h-[1006px] w-[730px] lg:top-30 lg:h-[1207px] lg:w-[876px] xl:top-10 xl:h-[1358px] xl:w-[985px] 2xl:-top-20 2xl:h-[1509px] 2xl:w-[1095px]">
@@ -68,8 +69,14 @@ const Faqs = () => {
           </h2>
         </div>
         <div className="flex w-full justify-center">
-          <div className="rounded-2xl bg-white px-5 py-4">
-            <button className="bg-[linear-gradient(93deg,#51D1F4_-27.2%,#D30A8C_77.56%)] bg-clip-text text-xl font-semibold text-transparent">
+          <div
+            onMouseEnter={() => setIsButtonHovered((prev) => !prev)}
+            onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
+            className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-gradient-two` : `bg-white`}`}
+          >
+            <button
+              className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}
+            >
               Let's Morph
             </button>
           </div>

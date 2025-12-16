@@ -1,5 +1,6 @@
 // import ServiceCard from "../ui/ServiceCard";
 
+import ChevronButtons from '../../../components/ChevronButtons'
 import Gallery from './Gallery'
 
 const Services = () => {
@@ -37,7 +38,7 @@ const Services = () => {
           <button className="button-gradient"><span>View more</span></button>
         </div> */}
 
-        <div className="flex w-full justify-center gap-3">
+        {/* <div className="flex w-full justify-center gap-3">
           <button className="bg-hero-combo rotate-180 rounded-xl p-3">
             <img
               className="h-4 w-5"
@@ -52,7 +53,9 @@ const Services = () => {
               alt="chevron"
             />
           </button>
-        </div>
+        </div> */}
+
+        <ChevronButtons />
       </div>
     </div>
   )

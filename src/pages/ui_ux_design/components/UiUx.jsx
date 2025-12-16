@@ -1,3 +1,5 @@
+import ChevronButtons from '../../../components/ChevronButtons'
+
 const items = [
   {
     id: 1,
@@ -75,23 +77,7 @@ const UiUx = () => {
             ))}
           </div>
         </div>
-
-        <div className="flex w-full justify-center gap-3">
-          <button className="bg-hero-combo rotate-180 rounded-xl p-3">
-            <img
-              className="h-4 w-5"
-              src="/images/icons/chevron.svg"
-              alt="chevron"
-            />
-          </button>
-          <button className="bg-hero-combo rounded-xl p-3">
-            <img
-              className="h-4 w-5"
-              src="/images/icons/chevron.svg"
-              alt="chevron"
-            />
-          </button>
-        </div>
+        <ChevronButtons />
       </div>
     </div>
   )
@@ -105,8 +91,8 @@ function Card({ bg, id }) {
       className={`glass card-gradient relative flex items-center justify-center overflow-hidden rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
     >
       {id === 1 && (
-        <button className="button-gradient absolute z-10 mx-auto">
-          Case Study
+        <button className="button-gradient-prev absolute z-10 mx-auto">
+          <span>Case Study</span>
         </button>
       )}
       <img

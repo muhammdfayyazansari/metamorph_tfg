@@ -30,10 +30,10 @@ const items = [
 const Services = () => {
   return (
     <div className="relative flex w-full flex-col py-10">
-       <div className="absolute -bottom-50 left-0 md:h-190 md:w-190">
-          <img className="h-full object-contain" src="/images/ellipse.webp" />
-        </div>
-     
+      <div className="absolute -bottom-50 left-0 md:h-190 md:w-190">
+        <img className="h-full object-contain" src="/images/ellipse.webp" />
+      </div>
+
       <div className="z-10 flex w-full flex-col items-center gap-10 pt-10">
         <div className="capitalize">
           <h2 className="-mb-5 pl-12 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-20 sm:text-[30px] md:-mb-10 md:pl-25 md:text-[40px] lg:-mb-13 lg:pl-30 lg:text-[55px]">
@@ -48,18 +48,22 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="z-10 flex w-full items-center justify-center overflow-hidden p-6 lg:px-30 lg:py-8">
-        <div className="hide-scrollbar flex w-full flex-nowrap items-center gap-5 overflow-x-scroll">
+      {/* <div className="z-10 flex w-full items-center justify-center overflow-hidden p-6 lg:px-30 lg:py-8"> */}
+      <div className="relative z-10 flex w-full items-center justify-center overflow-hidden ">
+        <div className="hide-scrollbar flex w-full max-w-500 flex-nowrap items-center gap-5 overflow-x-scroll px-2">
           {/* ---------- FIRST ROW (2 ITEMS) ---------- */}
           {items.map((item) => (
             <div
               key={item.bg_scr + '1' + item.id}
-              className="flex-none lg:max-w-180"
+              className="max-w-80 flex-none lg:max-w-180"
             >
               <Card id={item.id} item={item} />
             </div>
           ))}
         </div>
+
+        <div className="gradient-faded absolute top-0 z-10 h-full w-20 right-0 rotate-180"></div>
+        <div className="gradient-faded absolute top-0 z-10 h-full w-20 left-0"></div>
       </div>
     </div>
   )
@@ -71,7 +75,8 @@ function Card({ id, item }) {
   const { bg_scr, title, subTitle, desc, leads, ads } = item
   return (
     <div
-      className={`glass card-gradient flex flex-col items-center justify-center space-y-5 rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)] 2xl:space-y-7`}
+      // className={`glass card-gradient flex flex-col items-center justify-center space-y-5 rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)] 2xl:space-y-7`}
+      className={`glass card-gradient flex flex-col items-center justify-center space-y-5 rounded-2xl p-4  2xl:space-y-7`}
     >
       <img
         className="h-full w-full object-contain"

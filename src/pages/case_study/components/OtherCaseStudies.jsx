@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import Services from './Services'
 
 const OtherCaseStudies = () => {
+    const [isButtonHovered, setIsButtonHovered] = useState(false)
+  
   return (
     <>
       <div className="relative flex w-full flex-col">
@@ -29,13 +32,19 @@ const OtherCaseStudies = () => {
               of Design
             </h2>
           </div>
-          <div className="flex w-full justify-center">
-            <div className="rounded-2xl bg-white px-5 py-4">
-              <button className="bg-[linear-gradient(93deg,#51D1F4_-27.2%,#D30A8C_77.56%)] bg-clip-text text-xl font-semibold text-transparent">
-                Let's Morph
-              </button>
-            </div>
+           <div className="flex w-full justify-center">
+          <div
+            onMouseEnter={() => setIsButtonHovered((prev) => !prev)}
+            onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
+            className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-white` : `bg-gradient-two`}`}
+          >
+            <button
+              className={`${isButtonHovered ? `text-clip-two` : `text-white`} cursor-pointer text-xl font-semibold`}
+            >
+              Let's Morph
+            </button>
           </div>
+        </div>
         </div>
       </div>
     </>
