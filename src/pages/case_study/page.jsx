@@ -16,7 +16,9 @@ import ScrollReveal from '../../components/animations/ScrollReveal'
 const CaseStudyPage = () => {
   return (
     <>
-      <Hero />
+      <ScrollReveal>
+        <Hero />
+      </ScrollReveal>
       {/* 
       <HeroBottomText /> */}
       {/* <Brands /> */}

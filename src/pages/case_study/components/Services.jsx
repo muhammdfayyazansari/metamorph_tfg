@@ -34,7 +34,7 @@ const Services = () => {
         <img className="h-full object-contain" src="/images/ellipse.webp" />
       </div>
 
-      <div className="z-10 flex w-full flex-col items-center gap-10 pt-10">
+      <div className="z-10 flex w-full flex-col items-center gap-10 py-10">
         <div className="capitalize">
           <h2 className="-mb-5 pl-12 text-[20px] leading-none tracking-[-0.04em] sm:-mb-8 sm:pl-20 sm:text-[30px] md:-mb-10 md:pl-25 md:text-[40px] lg:-mb-13 lg:pl-30 lg:text-[55px]">
             other
