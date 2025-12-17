@@ -373,10 +373,10 @@ const ServicesPage = () => {
       {/* --- REVISED Fixed Navigation Bar (Transparent) --- */}
       <div
         ref={navRef}
-        className="fixed top-1/2 right-4 z-50 hidden -translate-y-1/2 rounded-2xl bg-transparent p-2 shadow-xl md:block"
+        className="fixed top-1/2 right-0 z-50 hidden -translate-y-1/2  bg-transparent p-2 pr-0 md:block"
       >
         {/* Changed from 'bg-black/50' to 'glass card-gradient' for transparency/subtle effect */}
-        <div className="glass card-gradient flex flex-col items-center justify-around space-y-15 rounded-xl p-3">
+        <div className="glass card-gradient flex flex-col items-center justify-around space-y-15 rounded-l-2xl p-3">
           {sectionData.map((item) => (
             <div
               key={item.id}

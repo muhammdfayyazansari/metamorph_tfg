@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const HeroBottomText = () => {
     return (
         <div className="flex w-full flex-col justify-between space-y-4 p-6 md:hidden lg:px-16 lg:py-8">
