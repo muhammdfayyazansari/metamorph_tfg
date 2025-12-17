@@ -11,14 +11,14 @@ gsap.registerPlugin(ScrollToPlugin)
 // Using a more meaningful array for the technology items
 const techItems = [
   { name: 'wordpress', icon: '/images/icons/wordpress.svg' },
-  { name: 'Shopify', icon: '/images/icons/wordpress.svg' },
-  { name: 'React', icon: '/images/icons/wordpress.svg' },
+  { name: 'Shopify', icon: '/images/icons/shopify.svg' },
+  { name: 'React', icon: '/images/icons/react.svg' },
   { name: 'wordpress', icon: '/images/icons/wordpress.svg' },
-  { name: 'Shopify', icon: '/images/icons/wordpress.svg' },
-  { name: 'React', icon: '/images/icons/wordpress.svg' },
+  { name: 'Shopify', icon: '/images/icons/shopify.svg' },
+  { name: 'React', icon: '/images/icons/react.svg' },
   { name: 'wordpress', icon: '/images/icons/wordpress.svg' },
-  { name: 'Shopify', icon: '/images/icons/wordpress.svg' },
-  { name: 'React', icon: '/images/icons/wordpress.svg' },
+  { name: 'Shopify', icon: '/images/icons/shopify.svg' },
+  { name: 'React', icon: '/images/icons/react.svg' },
   // { name: 'Next.js', icon: '/images/icons/wordpress.svg' },
   // { name: 'GSAP', icon: '/images/icons/wordpress.svg' },
   // { name: 'Tailwind CSS', icon: '/images/icons/wordpress.svg' },
@@ -76,8 +76,8 @@ const CardItem = ({ name, icon }) => (
     <div className="bg-hero-combo flex items-center gap-3 rounded-full px-5 py-3 font-medium whitespace-nowrap capitalize">
       {/* <div className="button-gradient flex items-center gap-3 rounded-full px-5 py-3 font-medium whitespace-nowrap capitalize"> */}
 
+      <img src={icon} alt={`${name} icon`} className="h-8 w-8 object-contain" />
       <span>{name}</span>
-      <img src={icon} alt={`${name} icon`} className="h-5 w-5 object-contain" />
     </div>
   </div>
 )
