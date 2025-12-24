@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Services from './Services'
 import ScrollReveal from '../../../components/animations/ScrollReveal'
+import { Link } from 'react-router-dom'
 
 const OtherCaseStudies = () => {
   const [isButtonHovered, setIsButtonHovered] = useState(false)
@@ -39,11 +40,7 @@ const OtherCaseStudies = () => {
                 onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
                 className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-white` : `bg-gradient-two`}`}
               >
-                <button
-                  className={`${isButtonHovered ? `text-clip-two` : `text-white`} cursor-pointer text-xl font-semibold`}
-                >
-                  Let's Morph
-                </button>
+                <Link to="/contact" className={`${isButtonHovered ? `text-clip-two` : `text-white`} cursor-pointer text-xl font-semibold`}>Let's Morph</Link>
               </div>
             </div>
           </div>

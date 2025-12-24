@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import FaqsCard from './ui/FaqsCard'
 import ScrollReveal from './animations/ScrollReveal'
+import { Link } from 'react-router-dom'
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -76,11 +77,13 @@ const Faqs = () => {
               onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
               className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-gradient-two` : `bg-white`}`}
             >
-              <button
+              {/* <button
                 className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}
               >
                 Let's Morph
-              </button>
+              </button> */}
+              <Link to="/contact" className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}>Let's Morph</Link>
+
             </div>
           </div>
         </div>
