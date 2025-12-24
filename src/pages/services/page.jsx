@@ -53,14 +53,14 @@ const ServicesPage = () => {
 
   // --- Click Handler for Smooth Scroll ---
   const handleNavClick = (id) => {
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: {
-        y: `#${id}`,
-        offset: 0,
-      },
-      ease: 'power2.inOut',
-    })
+    // gsap.to(window, {
+    //   duration: 1,
+    //   scrollTo: {
+    //     y: `#${id}`,
+    //     offset: 0,
+    //   },
+    //   ease: 'power2.inOut',
+    // })
   }
 
   useGSAP(() => {
