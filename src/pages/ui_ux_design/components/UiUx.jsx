@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ChevronButtons from '../../../components/ChevronButtons'
 
 const items = [
@@ -91,9 +92,9 @@ function Card({ bg, id }) {
       className={`glass card-gradient relative flex items-center justify-center overflow-hidden rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
     >
       {id === 1 && (
-        <button className="button-gradient-prev absolute z-10 mx-auto">
+        <Link to={"/case-study"} className="button-gradient-prev absolute z-10 mx-auto">
           <span>Case Study</span>
-        </button>
+        </Link>
       )}
       <img
         className={`h-full w-full object-contain ${id === 1 ? 'overflow-hidden bg-white/30 blur-md' : ''}`}
