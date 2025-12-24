@@ -12,9 +12,8 @@ const HeroBottomText = () => {
       </div>
       <div className="flex flex-row items-end justify-center gap-5">
         <Link to={`/contact`} className="button-glass">Contact</Link>
-        <button class="button-gradient">
-          <span>Have a Project</span>
-        </button>
+        <Link to="/contact" class="button-gradient"><span>Have a Project</span></Link>
+
       </div>
     </div>
   )

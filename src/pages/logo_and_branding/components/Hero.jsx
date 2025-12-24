@@ -85,7 +85,7 @@ const Hero = () => {
         </div>
         <div className="right-0 bottom-5 flex max-w-2/6 flex-col items-end justify-center gap-3">
           <Link to={`/contact`} className="button-glass">Contact</Link>
-          <button className="button-gradient"><span>Have a Project</span></button>
+          <Link to="/contact" class="button-gradient"><span>Have a Project</span></Link>
         </div>
       </div>
     </div>

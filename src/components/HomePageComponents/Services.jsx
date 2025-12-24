@@ -2,6 +2,7 @@ import ServiceCard from '../ui/ServiceCard'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { Link } from 'react-router-dom'
 
 gsap.registerPlugin(useGSAP)
 
@@ -140,9 +141,9 @@ const Services = () => {
         </div>
 
         <div className="flex w-full items-center justify-center pt-10">
-          <button class="button-gradient">
+          <Link class="button-gradient">
             <span>Have a Project</span>
-          </button>
+          </Link>
         </div>
       </div>
 

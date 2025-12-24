@@ -33,7 +33,7 @@ const Hero = () => {
 
 
 
-     
+
         <div className="z-10 flex h-full justify-center pt-25 sm:pt-15 md:pt-22 lg:items-center lg:justify-start lg:pt-0">
           {/* <h1 className="text-4xl leading-none font-medium tracking-[-0.04em] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[10rem] 2xl:text-9xl"> */}
           {/* <h1 className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[150px] xl:text-[180px]"> */}
@@ -54,7 +54,7 @@ const Hero = () => {
         </div>
         <div className="right-0 bottom-5 flex max-w-2/6 flex-col items-end justify-center gap-3">
           <Link to={`/contact`} className="button-glass">Contact</Link>
-          <button className="button-gradient"><span>Have a Project</span></button>
+          <Link to="/contact" class="button-gradient"><span>Have a Project</span></Link>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import FilledButton from './ui/buttons/filledButton/FilledButton'
-import { Link, useNavigate } from 'react-router-dom'
+import { href, Link, useNavigate } from 'react-router-dom'
 
 const footerData = {
   // --- 1. Pages Navigation Links ---
@@ -79,10 +79,10 @@ const Footer = () => {
   // const navigate = useNavigate();
 
   const quickLinks = [
-    { name: 'Telegram', path: '/telegram' },
-    { name: 'Twitter', path: '/twitter' },
-    { name: 'Instagram', path: '/instagram' },
-    { name: 'Facebook', path: '/facebook' },
+    { name: 'Telegram', path: '/telegram', href: "https://t.me/metamorphsolutions" },
+    // { name: 'Twitter', path: '/twitter' },
+    // { name: 'Instagram', path: '/instagram' },
+    // { name: 'Facebook', path: '/facebook' },
   ]
 
   return (
@@ -316,7 +316,8 @@ const Footer = () => {
                   // </a>
                   return (
                     <a
-                      href="#"
+                      href={item['href']}
+                      target='_blank'
                       className="glass card-gradient flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-gray-400 transition duration-200 hover:text-white"
                     >
                       {/* Telegram Icon (Placeholder) */}

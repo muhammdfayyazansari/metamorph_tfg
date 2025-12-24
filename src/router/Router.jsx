@@ -17,10 +17,11 @@ const Router = () => {
   return (
     <>
       <ScrollToTop />
-      
+
       <PageTitle />
       <Routes>
         <Route element={<Layout />}>
+          <Route path="*" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const items = [
     {
         id: 1,
@@ -50,8 +52,12 @@ const MotionGraphics = () => {
                 </div>
 
                 <div className="flex w-full items-center justify-center">
-                    <button className="button-gradient"><span>View more</span></button>
-                </div>
+                      <Link
+                        to="/motion-graphics"
+                        className="button-gradient z-20 cursor-pointer"
+                    >
+                        <span>View more</span>
+                    </Link></div>
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Gallery from './Gallery'
 
 
@@ -21,7 +22,12 @@ const Services = () => {
         <Gallery />
 
         <div className="flex w-full items-center justify-center">
-          <button className="button-gradient"><span>View more</span></button>
+          <Link
+            to="/logo-and-branding"
+            className="button-gradient z-20 cursor-pointer"
+          >
+            <span>View more</span>
+          </Link>
         </div>
       </div>
     </div>

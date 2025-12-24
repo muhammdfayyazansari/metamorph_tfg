@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const items = [
   {
     id: 1,
@@ -36,7 +38,11 @@ const UiUx = () => {
         </div>
 
         <div className="flex w-full items-center justify-center">
-          <button className="button-gradient"><span>View more</span></button>
+          <Link
+            to="/ui-ux-design"
+            className="button-gradient z-20 cursor-pointer"
+          >
+          </Link>
         </div>
       </div>
     </div>
