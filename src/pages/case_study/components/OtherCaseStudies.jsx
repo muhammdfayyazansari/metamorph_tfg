@@ -35,13 +35,15 @@ const OtherCaseStudies = () => {
               </h2>
             </div>
             <div className="flex w-full justify-center">
-              <div
+             <Link to="/contact" 
+              
                 onMouseEnter={() => setIsButtonHovered((prev) => !prev)}
                 onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
                 className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-white` : `bg-gradient-two`}`}
               >
-                <Link to="/contact" className={`${isButtonHovered ? `text-clip-two` : `text-white`} cursor-pointer text-xl font-semibold`}>Let's Morph</Link>
-              </div>
+                <span className={`${isButtonHovered ? `text-clip-two` : `text-white`} cursor-pointer text-xl font-semibold`}>Let's Morph</span> 
+              
+              </Link>
             </div>
           </div>
         </ScrollReveal>

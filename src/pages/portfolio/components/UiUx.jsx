@@ -42,6 +42,7 @@ const UiUx = () => {
             to="/ui-ux-design"
             className="button-gradient z-20 cursor-pointer"
           >
+            <span>View more</span>
           </Link>
         </div>
       </div>
