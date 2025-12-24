@@ -219,7 +219,8 @@ const Footer = () => {
         <img
           className="absolute right-0 bottom-0 w-full object-contain"
           // src="/images/bg_images/footer_bg.webp"
-          src="/images/bg_images/footer_bg_1.webp"
+          // src="/images/bg_images/footer_bg_1.webp"
+          src="/images/bg_images/footer_bg_2.webp"
         />
         {/* </div> */}
       </div>
@@ -272,7 +273,7 @@ const Footer = () => {
                       {item.title}
                     </Link>
                   </li>
-                ))} 
+                ))}
               </ul>
             </div>
 

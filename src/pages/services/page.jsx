@@ -53,14 +53,14 @@ const ServicesPage = () => {
 
   // --- Click Handler for Smooth Scroll ---
   const handleNavClick = (id) => {
-    // gsap.to(window, {
-    //   duration: 1,
-    //   scrollTo: {
-    //     y: `#${id}`,
-    //     offset: 0,
-    //   },
-    //   ease: 'power2.inOut',
-    // })
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: {
+        y: `#${id}`,
+        offset: 0,
+      },
+      ease: 'power2.inOut',
+    })
   }
 
   useGSAP(() => {
@@ -140,7 +140,7 @@ const ServicesPage = () => {
               key={item.id}
               data-target={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="nav-icon relative transition-all duration-300 before:absolute before:inset-0 before:rounded-full before:opacity-0 before:content-[''] hover:before:opacity-100"
+              className="nav-icon relative transition-all cursor-pointer duration-300 before:absolute before:inset-0 before:rounded-full before:opacity-0 before:content-[''] hover:before:opacity-100"
               title={item.title}
             >
               {/* The div below handles the background highlight for the active state */}
