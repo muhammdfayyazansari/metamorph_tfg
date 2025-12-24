@@ -72,7 +72,7 @@ const Faqs = () => {
             </h2>
           </div>
           <div className="flex w-full justify-center">
-            <div
+            <Link to="/contact"
               onMouseEnter={() => setIsButtonHovered((prev) => !prev)}
               onMouseLeave={() => setIsButtonHovered((prev) => !prev)}
               className={`cursor-pointer rounded-2xl px-5 py-4 ${isButtonHovered ? `bg-gradient-two` : `bg-white`}`}
@@ -82,9 +82,9 @@ const Faqs = () => {
               >
                 Let's Morph
               </button> */}
-              <Link to="/contact" className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}>Let's Morph</Link>
+              <span className={`${isButtonHovered ? `text-white` : `text-clip-two`} cursor-pointer text-xl font-semibold`}>Let's Morph</span>
 
-            </div>
+            </Link>
           </div>
         </div>
       </ScrollReveal>
