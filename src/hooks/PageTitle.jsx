@@ -10,10 +10,10 @@ const PageTitle = ({ baseTitle = 'Metomorph' }) => {
 
     // Route-to-title mapping
     const titles = {
-      '': 'Metamorph Home',
+      '': 'Metamorph | Home',
       about: 'About Metamorph',
       faqs: 'Metamorph FAQS',
-      contact: 'Metamorph - Contact Form',
+      contact: 'Metamorph | Contact Form',
     }
 
     // Find title by route or use fallback
