@@ -141,9 +141,7 @@ const Services = () => {
         </div>
 
         <div className="flex w-full items-center justify-center pt-10">
-          <Link class="button-gradient">
-            <span>Have a Project</span>
-          </Link>
+          <Link to="/contact" class="button-gradient"><span>Have a Project</span></Link>
         </div>
       </div>
 
