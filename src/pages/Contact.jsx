@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Toaster, toast } from 'react-hot-toast'
 import * as Yup from 'yup'
@@ -20,14 +21,16 @@ const contactSchema = Yup.object({
 })
 
 export default function Contact() {
+  const [submissionStatus, setSubmissionStatus] = useState(null)
+
   return (
     <ScrollReveal>
-      {/* <div className="flex min-h-screen w-full flex-col items-center justify-between gap-16 bg-[#0b0e13] px-6 py-20 text-white lg:flex-row lg:px-20"> */}
       <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-center gap-16 overflow-hidden px-6 pt-30 pb-10 text-white lg:flex-row lg:px-20">
         <div className="absolute -bottom-35 left-0 md:h-190 md:w-190">
           <img
             className="object-contain"
             src="/images/bg_images/technology_bg_2.png"
+            alt=""
           />
         </div>
 
@@ -45,9 +48,12 @@ export default function Contact() {
                 <img
                   className={`h-4 w-4 object-contain`}
                   src="/images/icons/envelop.svg"
+                  alt=""
                 />
               </span>
-              <span>support@metamorph.design</span>
+              <a href="mailto:contact@metamorph.solutions">
+              <span>contact@metamorph.solutions</span>
+              </a>
             </div>
 
             <div className="flex items-end gap-3">
@@ -55,9 +61,12 @@ export default function Contact() {
                 <img
                   className={`h-4 w-4 object-contain`}
                   src="/images/icons/gfx_bot.svg"
+                  alt=""
                 />
               </span>
-              <span>@MetamorphGFX_Bot</span>
+              <a href='https://t.me/metamorphsolutions'>
+              <span>t.me/metamorphsolutions</span>
+              </a>
             </div>
 
             <div className="flex items-end gap-3">
@@ -65,15 +74,17 @@ export default function Contact() {
                 <img
                   className={`h-4 w-4 object-contain`}
                   src="/images/icons/domain.svg"
+                  alt=""
                 />
               </span>
-              <span>www.metamorph.design</span>
+              <a href="https://metamorph.solutions">
+              <span>www.metamorph.solutions</span>
+              </a>
             </div>
           </div>
         </div>
 
         {/* RIGHT SIDE FORM */}
-        {/* <div className="w-full rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]"> */}
         <div className="glass card-gradient z-10 w-full rounded-2xl p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]">
           <Formik
             initialValues={{
@@ -84,22 +95,49 @@ export default function Contact() {
               message: '',
             }}
             validationSchema={contactSchema}
-            onSubmit={(values, { resetForm }) => {
-              const subject = encodeURIComponent('New Contact Message')
-              const body = encodeURIComponent(
-                `First Name: ${values.firstName}
-              Last Name: ${values.lastName}
-              Email: ${values.email}
-              Phone: ${values.phone}
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              try {
+                setSubmissionStatus({ type: 'loading', message: 'Sending message...' })
+                toast.loading('Sending message...', { id: 'contact-form' })
 
-              Message:
-              ${values.message}`
-              )
+                const response = await fetch('/api/send_email.php', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(values),
+                })
 
-              toast.success('Opening email sending app...')
-              // window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
-              window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
-              resetForm()
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`)
+                }
+
+                const result = await response.json()
+
+                if (result.status === 'success') {
+                  toast.success('Message sent successfully!', { id: 'contact-form' })
+                  setSubmissionStatus({ type: 'success', message: 'Your message has been sent successfully!' })
+                  resetForm()
+                } else {
+                  toast.error(result.message || 'Failed to send message.', { id: 'contact-form' })
+                  setSubmissionStatus({ type: 'error', message: result.message || 'Failed to send message. Please try again.' })
+                }
+              } catch (error) {
+                console.error('Error sending email:', error)
+                toast.error('An error occurred. Please try again later.', { id: 'contact-form' })
+                
+                // Provide a clearer message if it looks like a local environment issue
+                if (error.message.includes('Unexpected token') || error.message.includes('JSON')) {
+                    setSubmissionStatus({ 
+                        type: 'error', 
+                        message: 'Local Environment Note: Please ensure both the Vite server and the local PHP server are running. If you just deployed, check your server PHP logs.' 
+                    })
+                } else {
+                    setSubmissionStatus({ type: 'error', message: 'An error occurred while sending your message. Please try again later.' })
+                }
+              } finally {
+                setSubmitting(false)
+              }
             }}
           >
             <Form className="space-y-4">
@@ -211,6 +249,16 @@ export default function Contact() {
               <button type="submit" className="button-gradient">
                 <span>Submit</span>
               </button>
+
+              {/* STATUS MESSAGE */}
+              {submissionStatus && (
+                <div className={`mt-4 text-center text-sm font-medium ${
+                  submissionStatus.type === 'success' ? 'text-green-400' : 
+                  submissionStatus.type === 'error' ? 'text-red-400' : 'text-blue-400'
+                }`}>
+                  {submissionStatus.message}
+                </div>
+              )}
             </Form>
           </Formik>
         </div>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const items = [
   {
     id: 1,
@@ -6,7 +8,8 @@ const items = [
     desc: 'Revamped Streamify’s user experience and subscription model, achieving a 4x growth in premium sign-ups without additional marketing costs.',
     leads: '5x',
     ads: '24%',
-    bg_scr: 'ui_ux_3',
+    image: '/images/gallery/ui_ux_3.webp',
+    link: '/digital-marketing/case-study-1',
   },
   {
     id: 2,
@@ -15,7 +18,8 @@ const items = [
     desc: 'Revamped Streamify’s user experience and subscription model, achieving a 4x growth in premium sign-ups without additional marketing costs.',
     leads: '3x',
     ads: '36%',
-    bg_scr: 'digital_marketing_4',
+    image: '/images/digitalMarketingCS/DMC1.svg',
+    link: '/digital-marketing/case-study-2',
   },
   {
     id: 3,
@@ -24,7 +28,18 @@ const items = [
     desc: 'Revamped Streamify’s user experience and subscription model, achieving a 4x growth in premium sign-ups without additional marketing costs.',
     leads: '4x',
     ads: '47%',
-    bg_scr: 'digital_marketing_5',
+    image: '/images/digitalMarketingCS/DMC2.svg',
+    link: '/digital-marketing/case-study-3',
+  },
+  {
+    id: 4,
+    title: 'Case study',
+    subTitle: 'Building Anayeti as a Trusted Premium Accounts Marketplace',
+    desc: 'Anayeti was launched as a secure and user-friendly platform for selling premium digital subscriptions, including popular streaming and online services. The goal was to create a smooth, trustworthy purchasing experience while maintaining speed, reliability.',
+    leads: '5x',
+    ads: '32%',
+    image: '/images/digitalMarketingCS/DMC3.svg',
+    link: '/digital-marketing/case-study-4',
   },
 ]
 const Services = () => {
@@ -68,16 +83,21 @@ const Services = () => {
 export default Services
 
 function Card({ id, item }) {
-  const { bg_scr, title, subTitle, desc, leads, ads } = item
+  const { image, link, title, subTitle, desc, leads, ads } = item
   return (
     <div
-      className={`glass card-gradient flex flex-col items-center justify-center space-y-5 rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)] 2xl:space-y-7`}
+      className={`glass card-gradient group flex flex-col items-center justify-center space-y-5 rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)] 2xl:space-y-7`}
     >
-      <img
-        className="h-full w-full object-contain"
-        src={`/images/gallery/${bg_scr}.webp`}
-        alt=""
-      />
+      <div className="relative w-full overflow-hidden rounded-xl">
+        <Link to={link || "#"} className="button-gradient-prev absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span>Case Study</span>
+        </Link>
+        <img
+          className={`h-full w-full object-contain transition-all duration-300 group-hover:bg-white/30 group-hover:blur-md`}
+          src={image}
+          alt=""
+        />
+      </div>
       <div className="flex flex-col space-y-2 overflow-hidden text-white md:space-y-4 2xl:space-y-6">
         {/* titles with subtitles */}
         <div className="flex flex-col space-y-2 text-white 2xl:space-y-4">

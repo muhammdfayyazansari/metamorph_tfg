@@ -75,12 +75,12 @@ export default function Menu() {
               Portfolio
             </Link>
 
-            <a
+            {/* <a
               href="#"
               className="text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
             >
               About us
-            </a>
+            </a> */}
 
             <Link
               onClick={() => {

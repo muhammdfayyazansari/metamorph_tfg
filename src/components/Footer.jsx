@@ -8,10 +8,10 @@ const footerData = {
       title: 'Services',
       path: '/services', // Assuming a standard path structure
     },
-    {
-      title: 'About',
-      path: '/',
-    },
+    // {
+    //   title: 'About',
+    //   path: '/',
+    // },
     {
       title: 'FAQs',
       path: '/',
