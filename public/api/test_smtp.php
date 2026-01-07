@@ -2,6 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require '../../private/smtp_config.php';
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
@@ -10,12 +11,12 @@ $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
-    $mail->Host       = 'mail.metamorph.solutions';
+    $mail->Host       = SMTP_HOST;
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'contact@metamorph.solutions';
-    $mail->Password   = 'Morph5812#';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASS;
+    $mail->SMTPSecure = (SMTP_PORT === 465) ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = SMTP_PORT;
     $mail->SMTPDebug  = 2; // Verbose debug output
     
     $mail->setFrom('contact@metamorph.solutions', 'Test');

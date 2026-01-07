@@ -54,6 +54,7 @@ if (empty($firstName) || empty($email) || empty($message)) {
 // Load PHPMailer (Assuming it will be placed in a 'vendor' or sibling folder)
 // If the user doesn't have composer, we'll provide a manual include path or use a minimalist version.
 // For now, let's assume standard PHPMailer structure.
+require '../../private/smtp_config.php';
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
@@ -63,12 +64,12 @@ $mail = new PHPMailer(true);
 try {
     // Server settings
     $mail->isSMTP();
-    $mail->Host       = 'whms.tfgsolutions.pk';
+    $mail->Host       = SMTP_HOST;
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'contact@metamorph.solutions';
-    $mail->Password   = 'Morph5812#';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL for port 465
-    $mail->Port       = 465;
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASS;
+    $mail->SMTPSecure = (SMTP_PORT === 465) ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = SMTP_PORT;
     $mail->SMTPDebug  = 0;
     $mail->Timeout    = 10; // 10 second timeout to prevent hanging
 

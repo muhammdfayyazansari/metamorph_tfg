@@ -17,6 +17,10 @@ import DigitalMarketingCaseStudy1 from "../pages/digital_marketing/case_study_1/
 import DigitalMarketingCaseStudy2 from "../pages/digital_marketing/case_study_2/page";
 import DigitalMarketingCaseStudy3 from "../pages/digital_marketing/case_study_3/page";
 import DigitalMarketingCaseStudy4 from "../pages/digital_marketing/case_study_4/page";
+import UiUxCaseStudy1 from "../pages/ui_ux_design/case_study_1/page";
+import UiUxCaseStudy2 from "../pages/ui_ux_design/case_study_2/page";
+import UiUxCaseStudy3 from "../pages/ui_ux_design/case_study_3/page";
+import UiUxCaseStudy4 from "../pages/ui_ux_design/case_study_4/page";
 
 const Router = () => {
   return (
@@ -32,6 +36,10 @@ const Router = () => {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/logo-and-branding" element={<LogoAndBranding />} />
           <Route path="/ui-ux-design" element={<UiUxDesignPage />} />
+          <Route path="/ui-ux-design/case-study-1" element={<UiUxCaseStudy1 />} />
+          <Route path="/ui-ux-design/case-study-2" element={<UiUxCaseStudy2 />} />
+          <Route path="/ui-ux-design/case-study-3" element={<UiUxCaseStudy3 />} />
+          <Route path="/ui-ux-design/case-study-4" element={<UiUxCaseStudy4 />} />
           <Route path="/motion-graphics" element={<MotionGraphicsPage />} />
           <Route path="/animations" element={<AnimationsPage />} />
           <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
