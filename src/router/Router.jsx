@@ -21,6 +21,8 @@ import UiUxCaseStudy1 from "../pages/ui_ux_design/case_study_1/page";
 import UiUxCaseStudy2 from "../pages/ui_ux_design/case_study_2/page";
 import UiUxCaseStudy3 from "../pages/ui_ux_design/case_study_3/page";
 import UiUxCaseStudy4 from "../pages/ui_ux_design/case_study_4/page";
+import UiUxCaseStudy5 from "../pages/ui_ux_design/case_study_5/page";
+
 
 const Router = () => {
   return (
@@ -40,6 +42,8 @@ const Router = () => {
           <Route path="/ui-ux-design/case-study-2" element={<UiUxCaseStudy2 />} />
           <Route path="/ui-ux-design/case-study-3" element={<UiUxCaseStudy3 />} />
           <Route path="/ui-ux-design/case-study-4" element={<UiUxCaseStudy4 />} />
+          <Route path="/ui-ux-design/case-study-5" element={<UiUxCaseStudy5 />} />
+
           <Route path="/motion-graphics" element={<MotionGraphicsPage />} />
           <Route path="/animations" element={<AnimationsPage />} />
           <Route path="/digital-marketing" element={<DigitalMarketingPage />} />

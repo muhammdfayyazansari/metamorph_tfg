@@ -7,18 +7,43 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // gsap.registerPlugin(useGSAP, Draggable, ScrollTrigger)
 gsap.registerPlugin(useGSAP, ScrollTrigger)
-// Define the array of project images
-const images = [
-  '/images/mobile.webp', // Image 1
-  '/images/mobile.webp', // Image 1
-  '/images/mobile.webp', // Image 1
-  // '/images/robot.webp', // Image 2 (Change these URLs for visual distinction!)
-  // '/images/people_2.webp', // Image 3
+// Define the array of project data
+const projects = [
+  {
+    img: '/images/digitalMarketingCS/mockup1.svg',
+    title: 'Project 1',
+    subtitle: 'Landing Page',
+  },
+  {
+    img: '/images/digitalMarketingCS/mockup2.svg',
+    title: 'Project 2',
+    subtitle: 'Mobile App',
+  },
+  {
+    img: '/images/digitalMarketingCS/mockup3.svg',
+    title: 'Project 3',
+    subtitle: 'Web Design',
+  },
+  {
+    img: '/images/digitalMarketingCS/mockup4.svg',
+    title: 'Project 4',
+    subtitle: 'Brand Identity',
+  },
+  {
+    img: '/images/digitalMarketingCS/mockup5.svg',
+    title: 'Project 5',
+    subtitle: 'SaaS Dashboard',
+  },
+  {
+    img: '/images/digitalMarketingCS/mockup6.svg',
+    title: 'Project 6',
+    subtitle: 'Marketing Tool',
+  },
 ]
 
 const FeaturedProjects = () => {
   // State to track which image is currently visible
-  const [currentIndex, setCurrentIndex] = useState(1)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   // 1. Create state to track the hover status
   const [isHovered, setIsHovered] = useState({ left: false, right: false })
@@ -28,8 +53,8 @@ const FeaturedProjects = () => {
   const hoverSrc = '/images/icons/chev_up.svg'
 
   // Calculate next and previous index with looping
-  const nextIndex = (currentIndex + 1) % images.length
-  const prevIndex = (currentIndex - 1 + images.length) % images.length
+  const nextIndex = (currentIndex + 1) % projects.length
+  const prevIndex = (currentIndex - 1 + projects.length) % projects.length
 
   // Refs are now minimal, as complex GSAP transitions are removed/simplified
   const containerRef = useRef(null)
@@ -126,8 +151,8 @@ const FeaturedProjects = () => {
 
         {/* Small Screen Text */}
         <div className="flex flex-col items-center justify-center pt-5 text-center text-xl sm:text-4xl lg:hidden">
-          <h3 className="font-medium">Deep Seek</h3>
-          <h3 className="font-medium">Landing page</h3>
+          <h3 className="font-medium">{projects[currentIndex].title}</h3>
+          <h3 className="font-medium">{projects[currentIndex].subtitle}</h3>
         </div>
 
         <div className="-mb-10 flex h-full w-full items-center justify-center gap-2 px-3">
@@ -158,8 +183,8 @@ const FeaturedProjects = () => {
               <img
                 key={currentIndex} // Using key forces React to re-render the element, useful for simple transitions
                 ref={currentImageRef}
-                src={images[currentIndex]}
-                alt={`Project Image ${currentIndex + 1}`}
+                src={projects[currentIndex].img}
+                alt={projects[currentIndex].title}
                 className={imgClass}
               />
             </div>
@@ -205,8 +230,8 @@ const FeaturedProjects = () => {
         <div className="hidden h-full w-full items-end justify-between p-10 lg:flex">
           <div className="flex flex-col items-start justify-center gap-5">
             <h3 className="text-3xl font-medium">
-              Deep Seek <br />
-              Landing page
+              {projects[currentIndex].title} <br />
+              {projects[currentIndex].subtitle}
             </h3>
             <Link
               to={'/case-study'}

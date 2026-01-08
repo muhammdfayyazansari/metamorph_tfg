@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 export default function FaqsCard({
   extraClass,
   title,
+  answer,
   isActive = false,
   onClick,
   isHovered,
@@ -81,9 +82,8 @@ export default function FaqsCard({
           // If isActive is false on mount, height: 0 is needed.
           style={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
         >
-          <p className="font-light text-white/70 break-all">
-            We provide branding, web and UI/UX design, social media content, and
-            custom creative solutions for digital and print.
+          <p className="font-light text-white/70">
+            {answer}
           </p>
         </div>
       </div>

@@ -50,7 +50,7 @@ export default function Menu() {
                 setOpen(false)
               }}
               to="/"
-              className="text-4xl font-light decoration-2 underline-offset-4 hover:underline hover:opacity-80"
+              className="w-fit text-4xl font-light decoration-2 underline-offset-4 hover:underline hover:opacity-80"
             >
               Home
             </Link>
@@ -60,7 +60,7 @@ export default function Menu() {
                 setOpen(false)
               }}
               to="/services"
-              className="text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
+              className="w-fit text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
             >
               Services
             </Link>
@@ -70,9 +70,19 @@ export default function Menu() {
                 setOpen(false)
               }}
               to="/portfolio"
-              className="text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
+              className="w-fit text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
             >
               Portfolio
+            </Link>
+
+            <Link
+              onClick={() => {
+                setOpen(false)
+              }}
+              to="/custom-stores"
+              className="w-fit text-4xl font-light underline-offset-4 hover:underline hover:opacity-80"
+            >
+              Custom Stores
             </Link>
 
             {/* <a
@@ -87,7 +97,7 @@ export default function Menu() {
                 setOpen(false)
               }}
               to="/contact"
-              className="text-4xl font-light decoration-2 underline-offset-4 hover:underline hover:opacity-80"
+              className="w-fit text-4xl font-light decoration-2 underline-offset-4 hover:underline hover:opacity-80"
             >
               Contact
             </Link>

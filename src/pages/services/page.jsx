@@ -15,6 +15,8 @@ import HeroBottomText from './components/HeroBottomText'
 import UiUx from './components/UiUx'
 import MotionGraphics from './components/MotionGraphics'
 import Animation from './components/Animation'
+import DigitalMarketing from './components/DigitalMarketing'
+import CustomStore from '../../components/HomePageComponents/CustomStore'
 import ScrollReveal from '../../components/animations/ScrollReveal'
 
 // --- Section Data (Mapping content to nav) ---
@@ -42,6 +44,12 @@ const sectionData = [
     component: Animation,
     title: '2D/3D Animations',
     icon_src: '2d_3d_animations',
+  },
+  {
+    id: 'digital-marketing-section',
+    component: DigitalMarketing,
+    title: 'Digital Marketing',
+    icon_src: 'digital_marketing',
   },
   // We can track Faqs too if desired, but we'll stick to the main services for now.
 ]
@@ -167,6 +175,9 @@ const ServicesPage = () => {
             </section>
           )
         })}
+        <ScrollReveal>
+          <CustomStore />
+        </ScrollReveal>
       </main>
 
       <Faqs />

@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Toaster, toast } from 'react-hot-toast'
 import * as Yup from 'yup'
 import ScrollReveal from '../components/animations/ScrollReveal'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const contactSchema = Yup.object({
   firstName: Yup.string()
@@ -15,7 +17,6 @@ const contactSchema = Yup.object({
     .required('Last name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   phone: Yup.string()
-    .matches(/^[0-9+()]{7,15}$/, 'Invalid phone number')
     .required('Phone number is required'),
   message: Yup.string().trim().required('Message is required'),
 })
@@ -140,93 +141,89 @@ export default function Contact() {
               }
             }}
           >
-            <Form className="space-y-4">
-              {/* FIRST + LAST NAME */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {({ setFieldValue, values }) => (
+              <Form className="space-y-4">
+                {/* FIRST + LAST NAME */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="text-sm">First name</label>
+                    <Field
+                      name="firstName"
+                      placeholder="First name"
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(
+                          /[^A-Za-z\s]/g,
+                          ''
+                        )
+                      }}
+                      className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    />
+                    <ErrorMessage
+                      name="firstName"
+                      component="p"
+                      className="mt-1 text-xs text-red-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-sm">Last name</label>
+                    <Field
+                      name="lastName"
+                      placeholder="Last name"
+                      className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(
+                          /[^A-Za-z\s]/g,
+                          ''
+                        )
+                      }}
+                    />
+                    <ErrorMessage
+                      name="lastName"
+                      component="p"
+                      className="mt-1 text-xs text-red-400"
+                    />
+                  </div>
+                </div>
+
+                {/* EMAIL */}
                 <div>
-                  <label className="text-sm">First name</label>
+                  <label className="text-sm">Email</label>
                   <Field
-                    name="firstName"
-                    placeholder="First name"
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(
-                        /[^A-Za-z\s]/g,
-                        ''
-                      )
-                    }}
+                    type="email"
+                    name="email"
+                    placeholder="you@company.com"
                     className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
                   />
                   <ErrorMessage
-                    name="firstName"
+                    name="email"
                     component="p"
                     className="mt-1 text-xs text-red-400"
                   />
                 </div>
 
-                <div>
-                  <label className="text-sm">Last name</label>
-                  <Field
-                    name="lastName"
-                    placeholder="Last name"
-                    className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(
-                        /[^A-Za-z\s]/g,
-                        ''
-                      )
-                    }}
+                {/* PHONE NUMBER */}
+                <div className="phone-input-container !relative !z-50">
+                  <label className="text-sm">Phone number</label>
+                  <PhoneInput
+                    country={'us'}
+                    value={values.phone}
+                    onChange={(phone) => setFieldValue('phone', phone)}
+                    containerClass="!mt-1 !relative !z-50"
+                    inputClass="!w-full !bg-transparent !text-white !border-none !rounded-xl !py-5 !pl-14 !text-sm focus:!outline-none glass card-gradient"
+                    buttonClass="!bg-transparent !border-none !rounded-l-xl hover:!bg-white/10 !z-60"
+                    dropdownClass="!bg-neutral-900 !text-white !border-white/10 !rounded-xl !z-70"
+                    searchClass="!bg-neutral-800 !text-white"
+                    placeholder="+1 (XXX) XXX-XXXX"
+                    enableSearch={true}
+                    disableSearchIcon={true}
                   />
                   <ErrorMessage
-                    name="lastName"
+                    name="phone"
                     component="p"
                     className="mt-1 text-xs text-red-400"
                   />
                 </div>
-              </div>
-
-              {/* EMAIL */}
-              <div>
-                <label className="text-sm">Email</label>
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="you@company.com"
-                  className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="p"
-                  className="mt-1 text-xs text-red-400"
-                />
-              </div>
-
-              {/* PHONE NUMBER */}
-              <div>
-                <label className="text-sm">Phone number</label>
-                <Field
-                  name="phone"
-                  placeholder="+92001234567"
-                  className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                  onInput={(e) => {
-                    let value = e.target.value
-
-                    // If starts with +, keep it and allow only digits after
-                    if (value.startsWith('+')) {
-                      value = '+' + value.slice(1).replace(/[^0-9]/g, '')
-                    } else {
-                      // Otherwise, only allow digits
-                      value = value.replace(/[^0-9]/g, '')
-                    }
-
-                    e.target.value = value
-                  }}
-                />
-                <ErrorMessage
-                  name="phone"
-                  component="p"
-                  className="mt-1 text-xs text-red-400"
-                />
-              </div>
 
               {/* MESSAGE */}
               <div>
@@ -259,7 +256,8 @@ export default function Contact() {
                   {submissionStatus.message}
                 </div>
               )}
-            </Form>
+              </Form>
+            )}
           </Formik>
         </div>
       </div>

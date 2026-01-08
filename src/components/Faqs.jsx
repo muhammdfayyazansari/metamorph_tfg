@@ -9,11 +9,26 @@ const Faqs = () => {
   const [isButtonHovered, setIsButtonHovered] = useState(false)
 
   const questions = [
-    { question: 'What services do you offer?' },
-    { question: 'What services do you offer?' },
-    { question: 'What services do you offer?' },
-    { question: 'What services do you offer?' },
-    { question: 'What services do you offer?' },
+    { 
+      question: 'What is a "Custom Store"?',
+      answer: "A custom store is a fully-branded digital storefront we design and build from scratch. Unlike generic templates, it's tailored to your unique brand identity and optimized for high-conversion performance."
+    },
+    { 
+      question: 'Do you handle both UI/UX design and development?',
+      answer: 'Yes, we provide a complete end-to-end solution. Our team handles everything from the initial strategy and high-fidelity UI/UX design to the final development and launch of your platform.'
+    },
+    { 
+      question: 'How long does a typical project take?',
+      answer: 'Project timelines vary based on complexity, but a standard brand identity or custom storefront typically takes between 4 to 8 weeks from kickoff to final delivery.'
+    },
+    { 
+      question: 'Who is your primary target audience?',
+      answer: 'We specialize in working with ambitious startups, e-commerce brands, and digital-first companies looking to differentiate themselves with high-end, bespoke design and technology.'
+    },
+    { 
+      question: 'How can I get started with Metamorph?',
+      answer: "It's simple! You can reach out via our contact form or Telegram. We'll schedule a discovery call to discuss your goals, provide a custom proposal, and start our \"morphing\" process."
+    },
   ]
   useEffect(() => {
     const hovered = questions.map((item) => 0)
@@ -47,6 +62,7 @@ const Faqs = () => {
               key={index}
               itemIndex={index}
               title={item.question}
+              answer={item.answer}
               onClick={() =>
                 setActiveIndex(activeIndex === index ? null : index)
               }

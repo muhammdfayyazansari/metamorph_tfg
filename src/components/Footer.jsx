@@ -20,6 +20,10 @@ const footerData = {
       title: 'Contact',
       path: '/contact',
     },
+    {
+      title: 'Custom Stores',
+      path: '/custom-stores',
+    },
   ],
 
   // --- 2. Services Links ---
@@ -335,7 +339,7 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="mt-2 mb-8 text-sm text-gray-500">
-          © 2025 metamorph. All rights reserved.
+          © 2026 Metamorph. All rights reserved.
         </div>
       </div>
     </footer>

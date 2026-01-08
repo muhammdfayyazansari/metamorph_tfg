@@ -10,6 +10,8 @@ import HeroBottomText from './components/HeroBottomText'
 import UiUx from './components/UiUx'
 import MotionGraphics from './components/MotionGraphics'
 import Animation from './components/Animation'
+import DigitalMarketing from '../services/components/DigitalMarketing'
+import CustomStore from '../../components/HomePageComponents/CustomStore'
 import ScrollReveal from '../../components/animations/ScrollReveal'
 
 const items = [
@@ -67,6 +69,14 @@ const PortfolioPage = () => {
 
       <ScrollReveal>
         <Animation />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <DigitalMarketing />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <CustomStore />
       </ScrollReveal>
 
       {/* <FeaturedProjects />

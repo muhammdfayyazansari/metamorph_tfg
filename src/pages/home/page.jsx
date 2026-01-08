@@ -212,12 +212,13 @@ import People from '../../components/HomePageComponents/People'
 import Process from '../../components/HomePageComponents/Process'
 import Services from '../../components/HomePageComponents/Services'
 import Technology from '../../components/HomePageComponents/Technology'
+import CustomStore from '../../components/HomePageComponents/CustomStore'
 import Hero from './components/Hero'
 import HeroBottomText from './components/HeroBottomText'
 
 const Home = () => {
   return (
-    <>
+    <div className="case-study-bg">
       <Hero />
       <ScrollReveal>
         <HeroBottomText />
@@ -232,6 +233,9 @@ const Home = () => {
         <FeaturedProjects />
       </ScrollReveal>
       <ScrollReveal>
+        <CustomStore />
+      </ScrollReveal>
+      <ScrollReveal>
         <Process />
       </ScrollReveal>
       <ScrollReveal>
@@ -243,7 +247,7 @@ const Home = () => {
       <ScrollReveal>
         <Faqs />
       </ScrollReveal>
-    </>
+    </div>
   )
 }
 
