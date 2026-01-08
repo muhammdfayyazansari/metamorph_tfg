@@ -60,7 +60,7 @@ const Overview = () => {
       </div>
 
       {/* Right Column: Character Image (Absolute) */}
-      <div className="hidden lg:block absolute -right-20 xl:-right-0 top-1/2 -translate-y-1/2 w-[600px] xl:w-[750px] pointer-events-none z-0">
+      <div className="hidden lg:block absolute -right-20 xl:-right-[450px] top-1/2 -translate-y-1/2 w-[600px] xl:w-[1200px] pointer-events-none z-0">
         <ScrollReveal direction="right" delay={0.6}>
           <img 
             src="/images/digitalMarketingCS/invaderCharacterImg.svg" 
