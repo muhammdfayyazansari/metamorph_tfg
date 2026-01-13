@@ -24,6 +24,16 @@ const BrandIdentity = () => {
           className="opacity-100 scale-125"
         />
       </div>
+
+      {/* Gradient on far left */}
+      <div className="absolute left-[-50px] lg:left-[-220px] top-[1200px] lg:top-[1400px] w-[300px] h-[600px] lg:w-[800px] lg:h-[1000px] pointer-events-none z-0">
+        <img 
+          src="/images/digitalMarketingCS/gradientImgOne.svg" 
+          alt="" 
+          className="w-full h-full object-contain opacity-80"
+        />
+      </div>
+
       <div className="container-section space-y-24">
         <ScrollReveal direction="bottom">
           <h2 className="text-6xl font-semibold mb-12">Brand identity</h2>

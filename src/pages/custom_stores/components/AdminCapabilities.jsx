@@ -3,11 +3,11 @@ import React from 'react'
 const AdminCapabilities = () => {
   return (
     <section className="py-24 text-white">
-      <div className="container-section space-y-20 lg:space-y-32">
+      <div className="container-section w-full space-y-20 lg:space-y-32">
         {/* Row 1: Executive-Level Admin Capabilities */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
+        <div className="flex flex-col w-full lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* Left: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full">
+          <div className="space-y-4 lg:space-y-8">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Executive-Level Admin <br className="hidden lg:block" /> Capabilities
             </h2>
@@ -43,7 +43,7 @@ const AdminCapabilities = () => {
         </div>
 
         {/* Row 2: Enterprise Catalog & Experience Management */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] w-full items-center">
+        <div className="flex w-full flex-col lg:flex-row gap-8 lg:gap-0 justify-between items-center">
            {/* Left: Image Placeholder */}
            {/* Mobile: Image First (default order). Desktop: Image First (default order). */}
            {/* User request: "imgs that are on left side appear on top of text". So Image First. */}
@@ -57,7 +57,7 @@ const AdminCapabilities = () => {
           </div>
 
           {/* Right: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full order-2">
+          <div className="space-y-4 lg:space-y-8 order-2">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Enterprise Catalog & <br className="hidden lg:block" /> Experience Management
             </h2>
@@ -83,9 +83,9 @@ const AdminCapabilities = () => {
         </div>
 
 
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
+        <div className="flex w-full flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* Left: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full">
+          <div className="space-y-4 lg:space-y-8">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Financial Architecture
             </h2>
@@ -124,7 +124,7 @@ const AdminCapabilities = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] w-full items-center">
+        <div className="flex w-full flex-col lg:flex-row gap-8 lg:gap-[120px] items-center">
            {/* Left: Image Placeholder */}
            <div className="relative w-full lg:w-auto order-1">
             {/* UPLOAD IMAGE HERE: /images/CustomStoresImgs/catalog_management.png */}
@@ -136,7 +136,7 @@ const AdminCapabilities = () => {
           </div>
 
           {/* Right: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full order-2">
+          <div className="space-y-4 lg:space-y-8 order-2">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Customer Relationship <br className="hidden lg:block" /> Infrastructure
             </h2>
@@ -161,9 +161,9 @@ const AdminCapabilities = () => {
           </div>
         </div>
 
-         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
+         <div className="flex w-full flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* Left: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full">
+          <div className="space-y-4 lg:space-y-8">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Brand & Growth <br className="hidden lg:block" /> Systems
             </h2>
@@ -198,7 +198,7 @@ const AdminCapabilities = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] w-full items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between w-full items-center">
            {/* Left: Image Placeholder */}
            <div className="relative w-full lg:w-auto order-1">
             {/* UPLOAD IMAGE HERE: /images/CustomStoresImgs/catalog_management.png */}
@@ -210,7 +210,7 @@ const AdminCapabilities = () => {
           </div>
 
           {/* Right: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full order-2">
+          <div className="space-y-4 lg:space-y-8 order-2">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Governance, Compliance <br className="hidden lg:block" /> & Security
             </h2>
@@ -241,7 +241,7 @@ const AdminCapabilities = () => {
 
          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* Left: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full">
+          <div className="space-y-4 lg:space-y-8">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Integrations & <br className="hidden lg:block" /> Extensibility
             </h2>
@@ -272,7 +272,7 @@ const AdminCapabilities = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] w-full items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between w-full items-center">
            {/* Left: Image Placeholder */}
            <div className="relative w-full lg:w-auto order-1">
             {/* UPLOAD IMAGE HERE: /images/CustomStoresImgs/catalog_management.png */}
@@ -284,7 +284,7 @@ const AdminCapabilities = () => {
           </div>
 
           {/* Right: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full order-2">
+          <div className="space-y-4 lg:space-y-8 order-2">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               A Luxe Customer  <br className="hidden lg:block" /> Experience — Delivered <br className="hidden lg:block" /> Instantly
             </h2>
@@ -315,7 +315,7 @@ const AdminCapabilities = () => {
 
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* Left: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full">
+          <div className="space-y-4 lg:space-y-8">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Customer Finance <br className="hidden lg:block" /> Layer
             </h2>
@@ -346,7 +346,7 @@ const AdminCapabilities = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] w-full items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between w-full items-center">
            {/* Left: Image Placeholder */}
            <div className="relative w-full lg:w-auto order-1">
             {/* UPLOAD IMAGE HERE: /images/CustomStoresImgs/catalog_management.png */}
@@ -358,7 +358,7 @@ const AdminCapabilities = () => {
           </div>
 
           {/* Right: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full order-2">
+          <div className="space-y-4 lg:space-y-8 order-2">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Self-Management
             </h2>
@@ -380,7 +380,7 @@ const AdminCapabilities = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           {/* Left: Text */}
-          <div className="space-y-4 lg:space-y-8 w-full">
+          <div className="space-y-4 lg:space-y-8">
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
               Automated Fulfillment
             </h2>

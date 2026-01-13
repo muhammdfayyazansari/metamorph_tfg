@@ -3,7 +3,7 @@ import ScrollReveal from "../animations/ScrollReveal"
 
 const CustomStore = () => {
   return (
-    <div className="relative flex w-full flex-col py-20 pb-40 lg:pb-60">
+    <div className="relative flex w-full flex-col pb-20 lg:pb-40">
       {/* Background Ellipse subtle glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:h-250 md:w-250 opacity-20 pointer-events-none">
         <img className="object-contain h-full w-full" src="/images/ellipse.webp" alt="" />

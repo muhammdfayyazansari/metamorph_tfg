@@ -224,7 +224,7 @@ const Footer = () => {
           className="absolute right-0 bottom-0 w-full object-contain"
           // src="/images/bg_images/footer_bg.webp"
           // src="/images/bg_images/footer_bg_1.webp"
-          src="/images/bg_images/footer_bg_2.webp"
+          src="/images/digitalMarketingCS/footerGradientImg.svg"
         />
         {/* </div> */}
       </div>
@@ -240,7 +240,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-start justify-between border-b border-gray-800 pb-12">
+        <div className="flex items-start justify-between border-b border-gray-900 pb-12">
           {/* Navigation and Links Grid */}
           <div className="flex grow flex-col justify-start gap-10 lg:flex-row lg:gap-24">
             {/* Pages Column */}

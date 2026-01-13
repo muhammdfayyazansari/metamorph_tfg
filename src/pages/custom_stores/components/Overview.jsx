@@ -3,9 +3,15 @@ import ScrollReveal from '../../../components/animations/ScrollReveal'
 
 const Overview = () => {
   return (
-    <section className="py-20 text-white relative overflow-hidden">
-      {/* Background Asset */}
-      
+    <section className="py-20 text-white overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute top-[-200px] lg:top-[-300px] left-[-100px] lg:left-[-200px] w-[800px] lg:w-[1500px] pointer-events-none z-0 opacity-90">
+        <img 
+          src="/images/digitalMarketingCS/customStoreGradient.svg" 
+          alt="" 
+          className="w-full h-auto object-contain"
+        />
+      </div>
 
       <div className="container-section relative z-10">
         <div className="flex flex-col lg:flex-row items-center relative min-h-[600px]">

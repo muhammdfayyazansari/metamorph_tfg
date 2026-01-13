@@ -1,4 +1,5 @@
 import Faqs from '../../components/Faqs'
+import { Helmet } from "react-helmet-async";
 import Brands from '../../components/HomePageComponents/Brands'
 import FeaturedProjects from '../../components/HomePageComponents/FeaturedProjects'
 import People from '../../components/HomePageComponents/People'
@@ -15,6 +16,47 @@ import ScrollReveal from '../../components/animations/ScrollReveal'
 const AnimationsPage = () => {
   return (
     <>
+    {/* 🔹 SEO META TAGS FOR ANIMATION SERVICES PAGE */}
+<Helmet>
+  <title>2D & 3D Animation Services | Metamorph Solutions</title>
+
+  <meta
+    name="description"
+    content="Metamorph Solutions offers professional animation services, including 2D and 3D animated videos, motion design, and visual storytelling to boost engagement."
+  />
+
+  <link
+    rel="canonical"
+    href="https://metamorph.solutions/animations"
+  />
+
+  {/* Open Graph */}
+  <meta
+    property="og:title"
+    content="2D & 3D Animation Services | Metamorph Solutions"
+  />
+  <meta
+    property="og:description"
+    content="Metamorph Solutions offers professional animation services, including 2D and 3D animated videos, motion design, and visual storytelling to boost engagement."
+  />
+  <meta
+    property="og:url"
+    content="https://metamorph.solutions/animations"
+  />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="2D & 3D Animation Services | Metamorph Solutions"
+  />
+  <meta
+    name="twitter:description"
+    content="Metamorph Solutions offers professional animation services, including 2D and 3D animated videos, motion design, and visual storytelling to boost engagement."
+  />
+</Helmet>
+
       <Hero />
       <ScrollReveal>
         <HeroBottomText />

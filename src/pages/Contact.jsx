@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { Helmet } from "react-helmet-async";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Toaster, toast } from 'react-hot-toast'
 import * as Yup from 'yup'
 import ScrollReveal from '../components/animations/ScrollReveal'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+
 
 const contactSchema = Yup.object({
   firstName: Yup.string()
@@ -26,6 +28,31 @@ export default function Contact() {
 
   return (
     <ScrollReveal>
+
+      {/* 🔹 SEO META TAGS FOR CONTACT PAGE */}
+    <Helmet prioritizeSeoTags>
+      <title>Get in Touch | Metamorph Solutions</title>
+
+      <meta
+        name="description"
+        content="Contact Metamorph Solutions to discuss your website design, web development, UI/UX, ecommerce, or digital project and get a custom solution for your business."
+      />
+
+      <link
+        rel="canonical"
+        href="https://metamorph.solutions/contact"
+      />
+
+      {/* Open Graph */}
+      <meta property="og:title" content="Get in Touch | Metamorph Solutions" />
+      <meta
+        property="og:description"
+        content="Contact Metamorph Solutions to discuss your website design, web development, UI/UX, ecommerce, or digital project and get a custom solution for your business."
+      />
+      <meta property="og:url" content="https://metamorph.solutions/contact" />
+      <meta property="og:type" content="website" />
+    </Helmet>
+
       <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-center gap-16 overflow-hidden px-6 pt-30 pb-10 text-white lg:flex-row lg:px-20">
         <div className="absolute -bottom-35 left-0 md:h-190 md:w-190">
           <img
@@ -262,7 +289,9 @@ export default function Contact() {
         </div>
       </div>
     </ScrollReveal>
+    
   )
+
 }
 
 // import Select from 'react-select'

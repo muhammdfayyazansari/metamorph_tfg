@@ -1,5 +1,5 @@
 import ScrollToTop from "../components/ScrollToTop";
-import PageTitle from "../hooks/PageTitle";
+// import PageTitle from "../hooks/PageTitle";
 import { Routes, Route } from "react-router-dom";
 import Layout from "../Layout";
 import Home from "../pages/home/page";
@@ -29,7 +29,7 @@ const Router = () => {
     <>
       <ScrollToTop />
 
-      <PageTitle />
+      {/* <PageTitle /> */}
       <Routes>
         <Route element={<Layout />}>
 

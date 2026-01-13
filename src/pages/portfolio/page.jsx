@@ -1,4 +1,5 @@
 import Faqs from '../../components/Faqs'
+import { Helmet } from 'react-helmet-async'
 import Brands from '../../components/HomePageComponents/Brands'
 import FeaturedProjects from '../../components/HomePageComponents/FeaturedProjects'
 import People from '../../components/HomePageComponents/People'
@@ -39,6 +40,25 @@ const items = [
 const PortfolioPage = () => {
   return (
     <>
+    <Helmet prioritizeSeoTags>
+  <title>Our Work & Case Studies | Metamorph Solutions Portfolio</title>
+
+  <meta
+    name="description"
+    content="Discover Metamorph Solutions’ portfolio showcasing branding, UI/UX design, motion graphics, animation, and digital product success stories."
+  />
+
+  <link rel="canonical" href="https://metamorph.solutions/portfolio" />
+
+  {/* Open Graph */}
+  <meta property="og:title" content="Our Work & Case Studies | Metamorph Solutions" />
+  <meta
+    property="og:description"
+    content="A curated portfolio of branding, UI/UX, animation, motion design, and digital growth projects by Metamorph Solutions."
+  />
+  <meta property="og:url" content="https://metamorph.solutions/portfolio" />
+  <meta property="og:type" content="website" />
+</Helmet>
       <Hero />
 
       {/* scrolling images */}

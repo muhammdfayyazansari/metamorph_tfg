@@ -412,10 +412,16 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 150px;
+    width: 60px;
     background: linear-gradient(to left, #000000, transparent);
     pointer-events: none;
     z-index: 10;
+  }
+
+  @media (min-width: 768px) {
+    .slider-container::after {
+      width: 150px;
+    }
   }
 
   /* Fade effect on the left side */
@@ -425,15 +431,24 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 150px;
+    width: 60px;
     background: linear-gradient(to right, #000000, transparent);
     /* background: linear-gradient(to right, #0f0f0f, transparent); */
     pointer-events: none;
     z-index: 10;
   }
-  .linear-three {
-    background: linear-gradient(to right, #000000, transparent);
+
+  @media (min-width: 768px) {
+    .slider-container::before {
+      width: 150px;
+    }
   }
+  /* .linear-three {
+    background: linear-gradient(to right, #000000 0%, transparent 40%);
+    
+  } */
+
+
 
   .slider-track {
     display: flex;
