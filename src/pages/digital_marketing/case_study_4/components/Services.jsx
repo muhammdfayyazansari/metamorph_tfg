@@ -31,7 +31,7 @@ const Services = () => {
       </div>
 
       {/* Large Image Showcase */}
-      <div className="z-10 flex w-full flex-col items-center gap-10 py-10 px-6 lg:px-30">
+      {/* <div className="z-10 flex w-full flex-col items-center gap-10 py-10 px-6 lg:px-30">
         <div className="relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl shadow-2xl">
           <img
             className="w-full h-auto object-contain"
@@ -39,7 +39,7 @@ const Services = () => {
             alt="Large Digital Marketing Showcase"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* Decorative Iridescent Ring */}
       <div className="relative h-0 w-full">

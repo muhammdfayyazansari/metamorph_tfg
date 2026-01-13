@@ -157,7 +157,7 @@ const FeaturedProjects = () => {
   // We'll use one simple wrapper class and the desired imgClass
   const imgWrapperClass = 'relative flex items-center justify-center' // Removed absolute positioning for simplicity
   const imgClass =
-    'h-[350px] object-contain sm:h-[450px] md:h-[500px] lg:h-[650px] lg:pl-20 object-contain' // Removed cursor-grab
+    'h-[350px] lg:mb-8 object-contain sm:h-[450px] md:h-[500px] lg:h-[650px] lg:pl-20' // Removed cursor-grab
 
   return (
     <div className="relative mb-48 flex w-full flex-col items-center justify-center overflow-hidden lg:pt-0 xl:pt-20">

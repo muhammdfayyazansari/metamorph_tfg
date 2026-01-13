@@ -2,14 +2,14 @@ import { Link } from "react-router-dom"
 
 const DigitalMarketing = () => {
   return (
-    <div className="relative flex w-full flex-col py-10">
+    <div className="relative flex w-full flex-col py-10 mb-[50px]">
       <div className="absolute top-40 right-0 md:h-160 md:w-160">
       </div>
       
       <div className="flex w-full flex-col items-center gap-10 pt-10">
         {/* SECTION TITLE */}
         <div className="capitalize text-center relative pointer-events-none">
-          <h2 className="ms-[-320px] mb-[-50px] text-[20px] leading-none tracking-[-0.04em] sm:text-[30px] md:text-[40px] lg:text-[55px]">
+          <h2 className="lg:ms-[-320px] lg:mb-[-50px] ms-[-130px] text-[20px] leading-none tracking-[-0.04em] sm:text-[30px] md:text-[40px] lg:text-[55px]">
             Digital
           </h2>
           <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">

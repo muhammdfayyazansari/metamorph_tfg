@@ -13,7 +13,7 @@ const CustomStore = () => {
         {/* Title Block */}
         <ScrollReveal direction="bottom">
           <div className="flex flex-col items-center capitalize">
-            <h2 className="text-[20px] mb-[-60px] ms-[60px] leading-none tracking-[-0.04em] sm:text-[30px] md:text-[40px] lg:text-[55px] font-light">
+            <h2 className="text-[20px] lg:mb-[-60px] lg:ms-[60px] mb-[-15px] ms-[20px] leading-none tracking-[-0.04em] sm:text-[30px] md:text-[40px] lg:text-[55px] font-light">
               Custom
             </h2>
             <h1 className="text-[70px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[185px]">

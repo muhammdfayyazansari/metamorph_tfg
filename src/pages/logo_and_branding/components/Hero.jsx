@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="div-bottom-gradient relative z-10 flex h-120 w-full items-center justify-center md:h-150 2xl:h-200">
       {/* background image */}
-      {/* <div className="absolute flex h-full w-full items-center justify-center lg:-top-10 lg:items-center">
+      {/* <div className="absolute flex h-full w-full items-center justify-center lg:-tfix-10 lg:items-center">
         <img
           src="/images/hero-mountain.webp"
           className="w-[90vw] object-contain sm:w-[80vw] md:w-[60vw] lg:h-[900px] 2xl:h-[1044px]"
@@ -64,7 +64,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="z-10 flex h-full justify-center pt-25 sm:pt-15 md:pt-22 lg:items-center lg:justify-start lg:pt-0">
+        <div className="flex h-full justify-center pt-25 sm:pt-15 md:pt-22 lg:items-center lg:justify-start lg:pt-0">
           {/* <h1 className="text-4xl leading-none font-medium tracking-[-0.04em] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[10rem] 2xl:text-9xl"> */}
           {/* <h1 className="text-[60px] leading-none font-medium tracking-[-0.04em] sm:text-[120px] md:text-[150px] lg:text-[150px] xl:text-[180px]"> */}
           <h1 className="text-4xl leading-none font-medium tracking-[-0.04em] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
@@ -76,7 +76,7 @@ const Hero = () => {
 
       {/* bottom div */}
       <div className="absolute bottom-0 hidden w-full flex-row items-end justify-between p-6 md:flex lg:px-16">
-        <div className="max-w-2/6">
+        <div className="max-w-2/6 !z-10">
           <p>
             We're passionate about turning your vision into stunning designs.
             Whether you're an individual, startup, or corporation, we bring

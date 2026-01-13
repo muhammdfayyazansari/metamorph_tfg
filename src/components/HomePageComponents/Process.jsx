@@ -142,13 +142,13 @@ const Process = () => {
     <div className="flex flex-col overflow-hidden">
       {/* Heading */}
       <div className="flex flex-col items-center capitalize">
-        <h2 className="mb-[-120px] ms-[-400px] pl-10 text-[20px] sm:text-[30px] md:text-[40px] lg:text-[55px]">
+        <h2 className="lg:mb-[-120px] lg:ms-[-400px] mb-[-35px] ms-[-180px] pl-10 text-[20px] sm:text-[30px] md:text-[40px] lg:text-[55px]">
           our
         </h2>
         <h1 className="text-[70px] sm:text-[120px] md:text-[150px] lg:text-[185px]">
           Process
         </h1>
-        <h2 className="mt-[-75px] ms-[350px] text-end text-[20px] sm:text-[30px] md:text-[40px] lg:text-[55px]">
+        <h2 className="lg:mt-[-75px] lg:ms-[350px] ms-[150px] mt-[-20px] text-end text-[20px] sm:text-[30px] md:text-[40px] lg:text-[55px]">
           is Everything
         </h2>
       </div>

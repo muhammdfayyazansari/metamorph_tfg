@@ -37,12 +37,12 @@ const footerData = {
       path: '/ui-ux-design',
     },
     {
-      title: 'Web & Mobile App',
+      title: 'Logo and Branding',
       path: '/logo-and-branding',
     },
     {
-      title: 'Software Development',
-      path: '/',
+      title: '2D,3D Animations',
+      path: '/animations',
     },
     {
       title: 'Digital Marketing',

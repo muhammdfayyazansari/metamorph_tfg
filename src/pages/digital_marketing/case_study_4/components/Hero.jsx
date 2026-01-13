@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="relative z-10 flex h-100 w-full  2xl:h-120">
+    <div className="relative z-10 flex h-[500px] w-full 2xl:h-120">
       <div className="relative flex items-end h-full w-full overflow-hidden p-6 lg:py-8 lg:pl-16">
         <div className="flex flex-col space-y-2 overflow-hidden text-white md:space-y-4 2xl:space-y-6">
           {/* titles with subtitles */}
