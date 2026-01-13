@@ -17,9 +17,9 @@ const Services = () => {
         <img className="object-contain" src="/images/service_bg.webp" />
       </div>
 
-      <div className="absolute -top-150 left-0 md:h-190 md:w-190">
+      <div className="absolute -top-150 left-0 md:h-190 md:w-190 !z-0">
         {/* <img className="object-contain" src="/images/service_bg.webp" /> */}
-        <img className="w-full object-contain" src="/images/ellipse.webp" />
+        <img className="w-full object-contain !z-0" src="/images/ellipse.webp" />
       </div>
 
       <div className="z-10 flex w-full flex-col items-center gap-10 pt-10">

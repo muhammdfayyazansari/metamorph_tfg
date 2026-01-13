@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 // const PageTitle = ({ baseTitle = "Metamorph" }) => {
-const PageTitle = ({ baseTitle = 'Metomorph' }) => {
+const PageTitle = ({ baseTitle = 'Metamorph' }) => {
   const location = useLocation()
 
   useEffect(() => {

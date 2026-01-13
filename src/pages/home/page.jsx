@@ -205,6 +205,7 @@
 
 
 import ScrollReveal from '../../components/animations/ScrollReveal'
+import { Helmet } from 'react-helmet-async'
 import Faqs from '../../components/Faqs'
 import Brands from '../../components/HomePageComponents/Brands'
 import FeaturedProjects from '../../components/HomePageComponents/FeaturedProjects'
@@ -212,12 +213,32 @@ import People from '../../components/HomePageComponents/People'
 import Process from '../../components/HomePageComponents/Process'
 import Services from '../../components/HomePageComponents/Services'
 import Technology from '../../components/HomePageComponents/Technology'
+import CustomStore from '../../components/HomePageComponents/CustomStore'
 import Hero from './components/Hero'
 import HeroBottomText from './components/HeroBottomText'
 
 const Home = () => {
   return (
-    <>
+    <div className="case-study-bg">
+      <Helmet prioritizeSeoTags>
+  <title>Metamorph Solutions | Digital Design, Development & Growth Studio</title>
+
+  <meta
+    name="description"
+    content="Metamorph Solutions is a creative digital studio specializing in branding, UI/UX design, motion graphics, animation, digital marketing, and custom digital experiences."
+  />
+
+  <link rel="canonical" href="https://metamorph.solutions/" />
+
+  {/* Open Graph */}
+  <meta property="og:title" content="Metamorph Solutions | Digital Design & Development Studio" />
+  <meta
+    property="og:description"
+    content="A creative digital studio delivering branding, UI/UX, motion design, animation, and growth-focused digital solutions."
+  />
+  <meta property="og:url" content="https://metamorph.solutions/" />
+  <meta property="og:type" content="website" />
+</Helmet>
       <Hero />
       <ScrollReveal>
         <HeroBottomText />
@@ -232,6 +253,9 @@ const Home = () => {
         <FeaturedProjects />
       </ScrollReveal>
       <ScrollReveal>
+        <CustomStore />
+      </ScrollReveal>
+      <ScrollReveal>
         <Process />
       </ScrollReveal>
       <ScrollReveal>
@@ -243,7 +267,7 @@ const Home = () => {
       <ScrollReveal>
         <Faqs />
       </ScrollReveal>
-    </>
+    </div>
   )
 }
 

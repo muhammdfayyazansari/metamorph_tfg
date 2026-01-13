@@ -1,7 +1,12 @@
+import { useState } from 'react'
+import { Helmet } from "react-helmet-async";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Toaster, toast } from 'react-hot-toast'
 import * as Yup from 'yup'
 import ScrollReveal from '../components/animations/ScrollReveal'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 
 const contactSchema = Yup.object({
   firstName: Yup.string()
@@ -14,20 +19,46 @@ const contactSchema = Yup.object({
     .required('Last name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   phone: Yup.string()
-    .matches(/^[0-9+()]{7,15}$/, 'Invalid phone number')
     .required('Phone number is required'),
   message: Yup.string().trim().required('Message is required'),
 })
 
 export default function Contact() {
+  const [submissionStatus, setSubmissionStatus] = useState(null)
+
   return (
     <ScrollReveal>
-      {/* <div className="flex min-h-screen w-full flex-col items-center justify-between gap-16 bg-[#0b0e13] px-6 py-20 text-white lg:flex-row lg:px-20"> */}
+
+      {/* 🔹 SEO META TAGS FOR CONTACT PAGE */}
+    <Helmet prioritizeSeoTags>
+      <title>Get in Touch | Metamorph Solutions</title>
+
+      <meta
+        name="description"
+        content="Contact Metamorph Solutions to discuss your website design, web development, UI/UX, ecommerce, or digital project and get a custom solution for your business."
+      />
+
+      <link
+        rel="canonical"
+        href="https://metamorph.solutions/contact"
+      />
+
+      {/* Open Graph */}
+      <meta property="og:title" content="Get in Touch | Metamorph Solutions" />
+      <meta
+        property="og:description"
+        content="Contact Metamorph Solutions to discuss your website design, web development, UI/UX, ecommerce, or digital project and get a custom solution for your business."
+      />
+      <meta property="og:url" content="https://metamorph.solutions/contact" />
+      <meta property="og:type" content="website" />
+    </Helmet>
+
       <div className="div-bottom-gradient flex min-h-200 w-full flex-col items-start justify-center gap-16 overflow-hidden px-6 pt-30 pb-10 text-white lg:flex-row lg:px-20">
         <div className="absolute -bottom-35 left-0 md:h-190 md:w-190">
           <img
             className="object-contain"
             src="/images/bg_images/technology_bg_2.png"
+            alt=""
           />
         </div>
 
@@ -45,9 +76,12 @@ export default function Contact() {
                 <img
                   className={`h-4 w-4 object-contain`}
                   src="/images/icons/envelop.svg"
+                  alt=""
                 />
               </span>
-              <span>support@metamorph.design</span>
+              <a href="mailto:contact@metamorph.solutions">
+              <span>contact@metamorph.solutions</span>
+              </a>
             </div>
 
             <div className="flex items-end gap-3">
@@ -55,9 +89,12 @@ export default function Contact() {
                 <img
                   className={`h-4 w-4 object-contain`}
                   src="/images/icons/gfx_bot.svg"
+                  alt=""
                 />
               </span>
-              <span>@MetamorphGFX_Bot</span>
+              <a href='https://t.me/metamorphsolutions'>
+              <span>t.me/metamorphsolutions</span>
+              </a>
             </div>
 
             <div className="flex items-end gap-3">
@@ -65,15 +102,17 @@ export default function Contact() {
                 <img
                   className={`h-4 w-4 object-contain`}
                   src="/images/icons/domain.svg"
+                  alt=""
                 />
               </span>
-              <span>www.metamorph.design</span>
+              <a href="https://metamorph.solutions">
+              <span>www.metamorph.solutions</span>
+              </a>
             </div>
           </div>
         </div>
 
         {/* RIGHT SIDE FORM */}
-        {/* <div className="w-full rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]"> */}
         <div className="glass card-gradient z-10 w-full rounded-2xl p-8 shadow-2xl backdrop-blur-xl lg:w-[420px]">
           <Formik
             initialValues={{
@@ -84,111 +123,134 @@ export default function Contact() {
               message: '',
             }}
             validationSchema={contactSchema}
-            onSubmit={(values, { resetForm }) => {
-              const subject = encodeURIComponent('New Contact Message')
-              const body = encodeURIComponent(
-                `First Name: ${values.firstName}
-              Last Name: ${values.lastName}
-              Email: ${values.email}
-              Phone: ${values.phone}
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              try {
+                setSubmissionStatus({ type: 'loading', message: 'Sending message...' })
+                toast.loading('Sending message...', { id: 'contact-form' })
 
-              Message:
-              ${values.message}`
-              )
+                const response = await fetch('/api/send_email.php', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(values),
+                })
 
-              toast.success('Opening email sending app...')
-              // window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
-              window.location.href = `mailto:support@metamorph.design?subject=${subject}&body=${body}`
-              resetForm()
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`)
+                }
+
+                const result = await response.json()
+
+                if (result.status === 'success') {
+                  toast.success('Message sent successfully!', { id: 'contact-form' })
+                  setSubmissionStatus({ type: 'success', message: 'Your message has been sent successfully!' })
+                  resetForm()
+                } else {
+                  toast.error(result.message || 'Failed to send message.', { id: 'contact-form' })
+                  setSubmissionStatus({ type: 'error', message: result.message || 'Failed to send message. Please try again.' })
+                }
+              } catch (error) {
+                console.error('Error sending email:', error)
+                toast.error('An error occurred. Please try again later.', { id: 'contact-form' })
+                
+                // Provide a clearer message if it looks like a local environment issue
+                if (error.message.includes('Unexpected token') || error.message.includes('JSON')) {
+                    setSubmissionStatus({ 
+                        type: 'error', 
+                        message: 'Local Environment Note: Please ensure both the Vite server and the local PHP server are running. If you just deployed, check your server PHP logs.' 
+                    })
+                } else {
+                    setSubmissionStatus({ type: 'error', message: 'An error occurred while sending your message. Please try again later.' })
+                }
+              } finally {
+                setSubmitting(false)
+              }
             }}
           >
-            <Form className="space-y-4">
-              {/* FIRST + LAST NAME */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {({ setFieldValue, values }) => (
+              <Form className="space-y-4">
+                {/* FIRST + LAST NAME */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="text-sm">First name</label>
+                    <Field
+                      name="firstName"
+                      placeholder="First name"
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(
+                          /[^A-Za-z\s]/g,
+                          ''
+                        )
+                      }}
+                      className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    />
+                    <ErrorMessage
+                      name="firstName"
+                      component="p"
+                      className="mt-1 text-xs text-red-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-sm">Last name</label>
+                    <Field
+                      name="lastName"
+                      placeholder="Last name"
+                      className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(
+                          /[^A-Za-z\s]/g,
+                          ''
+                        )
+                      }}
+                    />
+                    <ErrorMessage
+                      name="lastName"
+                      component="p"
+                      className="mt-1 text-xs text-red-400"
+                    />
+                  </div>
+                </div>
+
+                {/* EMAIL */}
                 <div>
-                  <label className="text-sm">First name</label>
+                  <label className="text-sm">Email</label>
                   <Field
-                    name="firstName"
-                    placeholder="First name"
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(
-                        /[^A-Za-z\s]/g,
-                        ''
-                      )
-                    }}
+                    type="email"
+                    name="email"
+                    placeholder="you@company.com"
                     className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
                   />
                   <ErrorMessage
-                    name="firstName"
+                    name="email"
                     component="p"
                     className="mt-1 text-xs text-red-400"
                   />
                 </div>
 
-                <div>
-                  <label className="text-sm">Last name</label>
-                  <Field
-                    name="lastName"
-                    placeholder="Last name"
-                    className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(
-                        /[^A-Za-z\s]/g,
-                        ''
-                      )
-                    }}
+                {/* PHONE NUMBER */}
+                <div className="phone-input-container !relative !z-50">
+                  <label className="text-sm">Phone number</label>
+                  <PhoneInput
+                    country={'us'}
+                    value={values.phone}
+                    onChange={(phone) => setFieldValue('phone', phone)}
+                    containerClass="!mt-1 !relative !z-50"
+                    inputClass="!w-full !bg-transparent !text-white !border-none !rounded-xl !py-5 !pl-14 !text-sm focus:!outline-none glass card-gradient"
+                    buttonClass="!bg-transparent !border-none !rounded-l-xl hover:!bg-white/10 !z-60"
+                    dropdownClass="!bg-neutral-900 !text-white !border-white/10 !rounded-xl !z-70"
+                    searchClass="!bg-neutral-800 !text-white"
+                    placeholder="+1 (XXX) XXX-XXXX"
+                    enableSearch={true}
+                    disableSearchIcon={true}
                   />
                   <ErrorMessage
-                    name="lastName"
+                    name="phone"
                     component="p"
                     className="mt-1 text-xs text-red-400"
                   />
                 </div>
-              </div>
-
-              {/* EMAIL */}
-              <div>
-                <label className="text-sm">Email</label>
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="you@company.com"
-                  className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="p"
-                  className="mt-1 text-xs text-red-400"
-                />
-              </div>
-
-              {/* PHONE NUMBER */}
-              <div>
-                <label className="text-sm">Phone number</label>
-                <Field
-                  name="phone"
-                  placeholder="+92001234567"
-                  className="glass card-gradient mt-1 w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
-                  onInput={(e) => {
-                    let value = e.target.value
-
-                    // If starts with +, keep it and allow only digits after
-                    if (value.startsWith('+')) {
-                      value = '+' + value.slice(1).replace(/[^0-9]/g, '')
-                    } else {
-                      // Otherwise, only allow digits
-                      value = value.replace(/[^0-9]/g, '')
-                    }
-
-                    e.target.value = value
-                  }}
-                />
-                <ErrorMessage
-                  name="phone"
-                  component="p"
-                  className="mt-1 text-xs text-red-400"
-                />
-              </div>
 
               {/* MESSAGE */}
               <div>
@@ -211,12 +273,25 @@ export default function Contact() {
               <button type="submit" className="button-gradient">
                 <span>Submit</span>
               </button>
-            </Form>
+
+              {/* STATUS MESSAGE */}
+              {submissionStatus && (
+                <div className={`mt-4 text-center text-sm font-medium ${
+                  submissionStatus.type === 'success' ? 'text-green-400' : 
+                  submissionStatus.type === 'error' ? 'text-red-400' : 'text-blue-400'
+                }`}>
+                  {submissionStatus.message}
+                </div>
+              )}
+              </Form>
+            )}
           </Formik>
         </div>
       </div>
     </ScrollReveal>
+    
   )
+
 }
 
 // import Select from 'react-select'

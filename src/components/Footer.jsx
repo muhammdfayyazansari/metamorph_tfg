@@ -8,10 +8,10 @@ const footerData = {
       title: 'Services',
       path: '/services', // Assuming a standard path structure
     },
-    {
-      title: 'About',
-      path: '/',
-    },
+    // {
+    //   title: 'About',
+    //   path: '/',
+    // },
     {
       title: 'FAQs',
       path: '/',
@@ -19,6 +19,10 @@ const footerData = {
     {
       title: 'Contact',
       path: '/contact',
+    },
+    {
+      title: 'Custom Stores',
+      path: '/custom-stores',
     },
   ],
 
@@ -33,12 +37,12 @@ const footerData = {
       path: '/ui-ux-design',
     },
     {
-      title: 'Web & Mobile App',
+      title: 'Logo and Branding',
       path: '/logo-and-branding',
     },
     {
-      title: 'Software Development',
-      path: '/',
+      title: '2D,3D Animations',
+      path: '/animations',
     },
     {
       title: 'Digital Marketing',
@@ -220,7 +224,7 @@ const Footer = () => {
           className="absolute right-0 bottom-0 w-full object-contain"
           // src="/images/bg_images/footer_bg.webp"
           // src="/images/bg_images/footer_bg_1.webp"
-          src="/images/bg_images/footer_bg_2.webp"
+          src="/images/digitalMarketingCS/footerGradientImg.svg"
         />
         {/* </div> */}
       </div>
@@ -236,7 +240,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-start justify-between border-b border-gray-800 pb-12">
+        <div className="flex items-start justify-between border-b border-gray-900 pb-12">
           {/* Navigation and Links Grid */}
           <div className="flex grow flex-col justify-start gap-10 lg:flex-row lg:gap-24">
             {/* Pages Column */}
@@ -335,7 +339,7 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="mt-2 mb-8 text-sm text-gray-500">
-          © 2025 metamorph. All rights reserved.
+          © 2026 Metamorph. All rights reserved.
         </div>
       </div>
     </footer>

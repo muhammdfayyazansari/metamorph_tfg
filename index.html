@@ -5,6 +5,42 @@
     <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy')
+      }
+      img.setAttribute('decoding', 'async')
+    })
+  })
+</script>
+<script>
+  (function () {
+    let supportsPassive = false
+    try {
+      const opts = Object.defineProperty({}, 'passive', {
+        get() {
+          supportsPassive = true
+        },
+      })
+      window.addEventListener('test', null, opts)
+    } catch (e) {}
+
+    const passiveIfSupported = supportsPassive ? { passive: true } : false
+
+    window.addEventListener('wheel', () => {}, passiveIfSupported)
+    window.addEventListener('touchmove', () => {}, passiveIfSupported)
+  })()
+</script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF07ZZ0CY9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FF07ZZ0CY9');
+</script>
     <title>metamorph</title>
   </head>
   <body>

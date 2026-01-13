@@ -1,4 +1,5 @@
 import Faqs from '../../components/Faqs'
+import { Helmet } from "react-helmet-async";
 import Brands from '../../components/HomePageComponents/Brands'
 import FeaturedProjects from '../../components/HomePageComponents/FeaturedProjects'
 import People from '../../components/HomePageComponents/People'
@@ -15,6 +16,47 @@ import ScrollReveal from '../../components/animations/ScrollReveal'
 const LogoAndBranding = () => {
   return (
     <>
+    {/* 🔹 SEO META TAGS FOR LOGO & BRANDING PAGE */}
+<Helmet>
+  <title>Professional Logo & Brand Identity Design | Metamorph Solutions</title>
+
+  <meta
+    name="description"
+    content="Get expert logo and brand identity design, branding strategy, and visual identity services from Metamorph Solutions to elevate your business brand."
+  />
+
+  <link
+    rel="canonical"
+    href="https://metamorph.solutions/logo-and-branding"
+  />
+
+  {/* Open Graph */}
+  <meta
+    property="og:title"
+    content="Professional Logo & Brand Identity Design | Metamorph Solutions"
+  />
+  <meta
+    property="og:description"
+    content="Get expert logo and brand identity design, branding strategy, and visual identity services from Metamorph Solutions to elevate your business brand."
+  />
+  <meta
+    property="og:url"
+    content="https://metamorph.solutions/logo-and-branding"
+  />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Professional Logo & Brand Identity Design | Metamorph Solutions"
+  />
+  <meta
+    name="twitter:description"
+    content="Get expert logo and brand identity design, branding strategy, and visual identity services from Metamorph Solutions to elevate your business brand."
+  />
+</Helmet>
+
       <Hero />
       <ScrollReveal>
         <HeroBottomText />

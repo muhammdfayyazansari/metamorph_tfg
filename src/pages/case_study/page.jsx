@@ -15,7 +15,7 @@ import ScrollReveal from '../../components/animations/ScrollReveal'
 
 const CaseStudyPage = () => {
   return (
-    <>
+    <div className="case-study-bg">
       <ScrollReveal>
         <Hero />
       </ScrollReveal>
@@ -36,7 +36,7 @@ const CaseStudyPage = () => {
             <People /> */}
 
       {/* <Faqs /> */}
-    </>
+    </div>
   )
 }
 

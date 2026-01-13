@@ -1,4 +1,5 @@
 import Faqs from '../../components/Faqs'
+import { Helmet } from "react-helmet-async";
 import Brands from '../../components/HomePageComponents/Brands'
 import FeaturedProjects from '../../components/HomePageComponents/FeaturedProjects'
 import People from '../../components/HomePageComponents/People'
@@ -15,6 +16,47 @@ import ScrollReveal from '../../components/animations/ScrollReveal'
 const UiUxDesignPage = () => {
   return (
     <>
+    {/* 🔹 SEO META TAGS FOR UI & UX DESIGN PAGE */}
+<Helmet>
+  <title>Professional UI & UX Design Agency | Metamorph Solutions</title>
+
+  <meta
+    name="description"
+    content="Get professional UI/UX design solutions from Metamorph Solutions to improve usability, engagement, and user satisfaction for web and mobile applications."
+  />
+
+  <link
+    rel="canonical"
+    href="https://metamorph.solutions/ui-ux-design"
+  />
+
+  {/* Open Graph */}
+  <meta
+    property="og:title"
+    content="Professional UI & UX Design Agency | Metamorph Solutions"
+  />
+  <meta
+    property="og:description"
+    content="Get professional UI/UX design solutions from Metamorph Solutions to improve usability, engagement, and user satisfaction for web and mobile applications."
+  />
+  <meta
+    property="og:url"
+    content="https://metamorph.solutions/ui-ux-design"
+  />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Professional UI & UX Design Agency | Metamorph Solutions"
+  />
+  <meta
+    name="twitter:description"
+    content="Get professional UI/UX design solutions from Metamorph Solutions to improve usability, engagement, and user satisfaction for web and mobile applications."
+  />
+</Helmet>
+
       <Hero />
       <ScrollReveal>
         <HeroBottomText />

@@ -26,23 +26,28 @@ const items = [
 const ui_ux_items = [
   {
     id: 1,
-    bg_scr: 'ui_ux_',
+    image: '/images/gallery/ui_ux_1.webp',
+    link: '/ui-ux-design/case-study-1',
   },
   {
     id: 3,
-    bg_scr: 'ui_ux_',
+    image: '/images/digitalMarketingCS/ux1.svg',
+    link: '/ui-ux-design/case-study-2',
   },
   {
     id: 4,
-    bg_scr: 'ui_ux_',
+    image: '/images/digitalMarketingCS/ux2.svg',
+    link: '/ui-ux-design/case-study-3',
   },
   {
     id: 5,
-    bg_scr: 'ui_ux_',
+    image: '/images/digitalMarketingCS/ux3.svg',
+    link: '/ui-ux-design/case-study-4',
   },
   {
     id: 6,
-    bg_scr: 'ui_ux_',
+    image: '/images/digitalMarketingCS/ux5.svg',
+    link: '/ui-ux-design/case-study-5',
   },
 ]
 
@@ -71,9 +76,9 @@ const UiUx = () => {
         <div className="z-10 flex w-full items-center justify-center overflow-hidden p-6 lg:px-30 lg:py-8">
           <div className="flex max-w-5xl flex-wrap items-center justify-between gap-4">
             {/* ---------- FIRST ROW (2 ITEMS) ---------- */}
-            {items.map((item, index) => (
-              <div key={item.bg_scr + '1' + item.id} className={`w-full`}>
-                <Card id={item.id} bg={item.bg_scr} />
+            {ui_ux_items.map((item, index) => (
+              <div key={'ui_ux_' + item.id} className={`w-full`}>
+                <Card image={item.image} link={item.link} />
               </div>
             ))}
           </div>
@@ -86,21 +91,24 @@ const UiUx = () => {
 
 export default UiUx
 
-function Card({ bg, id }) {
+function Card({ image, link }) {
   return (
     <div
-      className={`glass card-gradient relative flex items-center justify-center overflow-hidden rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
+      className={`glass card-gradient group flex flex-col items-center justify-center rounded-2xl p-4 shadow-[0_0_20px_rgba(0,0,0,0.4)]`}
     >
-      {id === 1 && (
-        <Link to={"/case-study"} className="button-gradient-prev absolute z-10 mx-auto">
+      <div className="relative w-full overflow-hidden rounded-xl">
+        <Link
+          to={link || '#'}
+          className="button-gradient-prev absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 transform text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
           <span>Case Study</span>
         </Link>
-      )}
-      <img
-        className={`h-full w-full object-contain ${id === 1 ? 'overflow-hidden bg-white/30 blur-md' : ''}`}
-        src={`/images/gallery/${bg}${id}.webp`}
-        alt="ui_ux_images"
-      />
+        <img
+          className={`h-full w-full object-contain transition-all duration-300 group-hover:bg-white/30 group-hover:blur-md`}
+          src={image}
+          alt="ui_ux_images"
+        />
+      </div>
     </div>
   )
 }
